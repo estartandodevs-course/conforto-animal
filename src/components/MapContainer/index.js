@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+import Loading from '../Loading'
 const mapStyles = {
     width: '100%',
     height: '100%',
@@ -28,6 +28,11 @@ export class MapContainer extends Component{
       }
 }
 
+const LoadingContainer = (props) => (
+  <Loading></Loading>
+)
+
 export default GoogleApiWrapper({
-    apiKey: "AIzaSyDWBfhtb9khVbng8lfRBWqvLANrxq1YvSs"
+    apiKey: "AIzaSyDWBfhtb9khVbng8lfRBWqvLANrxq1YvSs",
+    LoadingContainer: LoadingContainer
 })(MapContainer)
