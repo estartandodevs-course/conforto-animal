@@ -1,12 +1,7 @@
 import React from 'react';
-import Home from './containers/Home/Home.js';
+import Routers from './Router.js';
 
-function App() {
-  return (
-    <>
-    <Home/>
-    </>
-  )
-}
+const App = ()=> <Routers/>
+
 export default App;
 
