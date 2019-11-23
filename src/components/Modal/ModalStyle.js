@@ -11,4 +11,12 @@ export const ModalContainer = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    #close{
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 15px;
+        color: white;
+        font-size: 34px
+    }
 `
