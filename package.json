@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "formik": "^2.0.6",
     "google-maps-react": "^2.0.2",
     "node-sass": "^4.13.0",
     "polished": "^3.4.2",
