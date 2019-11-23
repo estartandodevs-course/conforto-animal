@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import{ Container } from '../../shared/Structure'
+import{ FlexContainer } from '../../shared/Structure'
 import{ darken } from 'polished'
 import '../../assets/fonts/fonts.css'
 
-export const SplashContainer = styled(Container)`
+export const SplashContainer = styled(FlexContainer)`
     width: 100vw;
     height: 100vh;
     background-color: #01A58D;
