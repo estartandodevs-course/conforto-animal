@@ -1,11 +1,13 @@
 import React from 'react'
-import { CardContainer } from './CardStyle'
+import { CardContainer, Title } from './CardStyle'
 
 const Card = (props)=>{
 
     return (
         <CardContainer >
-            {props.children}
+            <Title>
+                {props.title}
+            </Title>
         </CardContainer>
     )
 }

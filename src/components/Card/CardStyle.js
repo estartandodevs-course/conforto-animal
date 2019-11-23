@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import{ darken, lighten } from 'polished'
 
 export const CardContainer = styled.div`
     width: 250px;
@@ -7,13 +6,9 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: red;
-    h1{
-        color: ${lighten(0.25, 'black')};
-    }
-    img{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-    }
+    background-image: linear-gradient( #8AC768,#70B888);
+    border-radius:5px;
+`
+export const Title = styled.h2`
+    color:white;
 `
