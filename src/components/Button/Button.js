@@ -14,4 +14,8 @@ const Button = (props) =>{
 export default Button
 
 
+<<<<<<< develop
 {/* <Button value={"Quero Adotar"}/> */}
+=======
+{/* <Button value={"Enviar"}/> */}
+>>>>>>> up feature button component
