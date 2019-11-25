@@ -6,6 +6,7 @@ import {
   } from "react-router-dom";
 import Home from './containers/Home/Home.js';
 import SplashScreen  from './containers/SplashScreen/Splash.js';
+import DonateContainer from './containers/Donate/Donate'
 
 export default function Routers() {
   return (
@@ -13,6 +14,7 @@ export default function Routers() {
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/spl" component={SplashScreen}/>
+        <Route path="/donate" component={DonateContainer}/>
       </Switch>
     </BrowserRouter>
   )
