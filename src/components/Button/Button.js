@@ -15,7 +15,11 @@ export default Button
 
 
 <<<<<<< develop
+<<<<<<< develop
 {/* <Button value={"Quero Adotar"}/> */}
 =======
 {/* <Button value={"Enviar"}/> */}
 >>>>>>> up feature button component
+=======
+{/* <Button value={"Quero Adotar"}/> */}
+>>>>>>> up feature button
