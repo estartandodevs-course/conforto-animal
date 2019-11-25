@@ -14,4 +14,4 @@ const Button = (props) =>{
 export default Button
 
 
-{/* <Button value={"Enviar"}/> */}
+{/* <Button value={"Quero Adotar"}/> */}
