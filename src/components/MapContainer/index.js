@@ -2,9 +2,17 @@ import React,{Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Loading from '../Loading'
 const mapStyles = {
-    width: '100%',
-    height: '100%',
-  }; 
+  width: '100%',
+  height: '50%',
+}; 
+
+const loadinStyle={
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}
 
 export class MapContainer extends Component{
     render() {
@@ -29,7 +37,9 @@ export class MapContainer extends Component{
 }
 
 const LoadingContainer = (props) => (
-  <Loading></Loading>
+  <div style={loadinStyle}>
+    <Loading></Loading>
+  </div>
 )
 
 export default GoogleApiWrapper({
