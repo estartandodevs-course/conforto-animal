@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import MapContainer from '../../components/MapContainer';
 import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer} from './HomeStyle'
+<<<<<<< develop
 import Header from '../../components/Header/Header'
 
+=======
+import Button from '../../components/Button/Button'
+>>>>>>> fix button components
 export default class Home extends Component {
 
   state={
@@ -21,6 +25,8 @@ export default class Home extends Component {
       <HomeContainer flexDirection={'column'}>
         <Header/>
         <MapContainer/>
+        <Button value={"Quero Adotar"}/>
+
       </HomeContainer>
     )
       
