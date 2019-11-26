@@ -6,6 +6,8 @@ const Button = (props) =>{
     return (
         <ButtonContainer>
             {props.value}
+            {props.style}
+            {props.onChange}
         </ButtonContainer>
     )
 
