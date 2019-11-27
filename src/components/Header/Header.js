@@ -5,7 +5,7 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 
 
-const Header = () => {
+const Header = (props) => {
     return (
        <HeaderContainer >
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
@@ -15,7 +15,7 @@ const Header = () => {
             <img className="logoImg" src={logo}/>
                 Animal
            </div>
-            <img className="searchHeader" onClick="" src={Search}/>
+            <img className="searchHeader" onClick={props.onClick} src={Search}/>
        </HeaderContainer>
     )
 }

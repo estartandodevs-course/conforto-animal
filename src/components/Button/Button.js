@@ -4,7 +4,7 @@ import { ButtonContainer } from './ButtonStyle'
 const Button = (props) =>{
     
     return (
-        <ButtonContainer style={props.style}>
+        <ButtonContainer className={props.className} onClick={props.onClick}>
             {props.children}
         </ButtonContainer>
     )
@@ -12,17 +12,4 @@ const Button = (props) =>{
 }
 
 export default Button
-
-// Botões *exeto da página home!! 
-
-{/* <Button style={{
-         width:"100%",
-         borderRadius:"0",
-         bottom: "0",
-         position: "fixed",
-         height: "55px",
-         fontSize: "18px"}}>
-
-          Quero Adotar
-        </Button> */}
 

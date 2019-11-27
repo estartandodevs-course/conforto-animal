@@ -9,8 +9,19 @@ export const ButtonContainer = styled.button`
     background-color: #01A58D;
     color: #fff;
     margin-top: 500px;
+    cursor: pointer;
+    
     &:focus{
         outline:none;
+    }
+    
+    &.btn-bottom{
+        width: 100%;
+        height: 55px;
+        border-radius: 0;
+        font-size: 18px;
+        position: fixed;
+        bottom: 0;
     }
 
 `;
