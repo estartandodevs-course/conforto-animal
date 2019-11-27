@@ -3,6 +3,7 @@ import MapContainer from '../../components/MapContainer';
 import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer} from './HomeStyle'
 import Header from '../../components/Header/Header'
+import {firebase, LoginFacebook} from '../../firebase'
 
 export default class Home extends Component {
 
