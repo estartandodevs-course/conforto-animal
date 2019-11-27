@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { FlexContainer } from '../../shared/Structure'
 
 export const HomeContainer = styled(FlexContainer)`
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
 
 `
