@@ -5,6 +5,7 @@ import {HomeContainer} from './HomeStyle'
 import Header from '../../components/Header/Header'
 import {firebase, LoginFacebook} from '../../firebase'
 
+import Button from '../../components/Button/Button'
 export default class Home extends Component {
 
   state={
@@ -22,6 +23,8 @@ export default class Home extends Component {
       <HomeContainer flexDirection={'column'}>
         <Header/>
         <MapContainer/>
+        <Button value={"Quero Adotar"}/>
+
       </HomeContainer>
     )
       
