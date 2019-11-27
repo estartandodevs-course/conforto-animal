@@ -1,15 +1,16 @@
-import React from 'react'
-import { HeaderContainer } from './HeaderStyle'
+import React, {useState} from 'react'
+import { HeaderContainer, MenuContainer} from './HeaderStyle'
 import logo from '../../assets/images/logo.png'
 import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 
-
-const Header = () => {
+const Header = (props) => {
+    const [showMenu, setShowMenu] = useState(false)
     return (
+        <>
        <HeaderContainer >
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
-           <img src={Menu}/>
+           <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
            <div className="logoHeader">
                Conforto
             <img className="logoImg" src={logo}/>
@@ -17,6 +18,12 @@ const Header = () => {
            </div>
             <img className="searchHeader" onClick="" src={Search}/>
        </HeaderContainer>
+       
+        <MenuContainer show={showMenu}>
+          <h1>Hello</h1>
+          <button onClick={()=> setShowMenu(!showMenu)}>Close</button>
+        </MenuContainer>
+       </>
     )
 }
 
