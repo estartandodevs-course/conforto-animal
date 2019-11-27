@@ -39,3 +39,13 @@ export const HeaderContainer = styled.header`
    }
 
 `
+
+export const MenuContainer = styled.div`
+   position: fixed;
+   left: ${props=> props.show ? 0 : '-100vw'};
+   height: 100vh;
+   width: 50vw;
+   z-index: 4;
+   background-color: #01A58D;
+   transition: .5s
+`
