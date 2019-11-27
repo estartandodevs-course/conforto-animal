@@ -14,6 +14,7 @@ export default function Routers() {
       <Switch>
       <Route path="/login" component={Login}/>
         <Route path="/" exact component={Home}/>
+        <Route path="/home" component={Home}/>
         <Route path="/spl" component={SplashScreen}/>
       </Switch>
     </BrowserRouter>

@@ -9,11 +9,11 @@ import Button from '../../components/Button/Button'
 export default class Home extends Component {
 
   state={
-    splash: true
+    splash: (window.location.pathname ==="/" ? true : false)
   }
 
   componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000)
+    setTimeout(()=>{this.setState({splash: false})},2000)    
   }
   render() {
     const {splash} = this.state
