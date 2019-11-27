@@ -6,10 +6,25 @@ import Button from '../../components/Button/Button'
 import facebook from '../../assets/images/facebook.png'
 import google from '../../assets/images/google.png'
 import '../../assets/fonts/fonts.css'
+import { LoginFacebook, GetStorageUser, LogOutFacebook } from '../../firebase'
+import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
+
+  state={
+    user: GetStorageUser()
+  }
+
+  componentDidMount(){     
+    console.log(this.state.user)  
+  }
+
   render() {
-    return <LoginContainer flexDirection={'column'}
+    const {user} = this.state
+
+    return ( user ? <Redirect to={{pathname: '/home'}}/> :
+
+    <LoginContainer flexDirection={'column'}
     justifyContent={'center'}
     alignItems={'center'}>
 
@@ -25,9 +40,11 @@ export default class Login extends Component {
         <Button value="Login"/>
         <h2>ou</h2>
         <div className="iconSocial">
-            <img src={facebook} />
-            <img src={google} />
+            <img src={facebook} onClick={()=>LoginFacebook()}/>
+            <img src={google}/>
         </div>
-    </LoginContainer>
+    </LoginContainer> 
+    
+    )
   }
 }
