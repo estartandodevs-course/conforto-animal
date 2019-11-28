@@ -4,24 +4,12 @@ import { ButtonContainer } from './ButtonStyle'
 const Button = (props) =>{
     
     return (
-<<<<<<< develop
-        <ButtonComponent>
-            {props.value}
-        </ButtonComponent>
-=======
-        <ButtonContainer>
-            {props.value}
+        <ButtonContainer className={props.className} onClick={props.onClick} value={props.value}>
+            {/* {props.children} */} {props.value}
         </ButtonContainer>
->>>>>>> fix button component
     )
 
 }
 
 export default Button
 
-
-<<<<<<< develop
-{/* <Button value={"Enviar"}/> */}
-=======
-{/* <Button value={"Enviar"}/> */}
->>>>>>> fix button component
