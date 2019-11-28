@@ -6,6 +6,7 @@ import Menu from '../../assets/images/menu 1.png'
 
 
 const Header = (props) => {
+    const [showMenu, setShowMenu] = useState(false)
     return (
         <>
        <HeaderContainer >

@@ -26,6 +26,7 @@ export default class Home extends Component {
       :
       <HomeContainer flexDirection={'column'}>
         <Header/>
+        <MapContainer/>
         <Button onClick={this.logout}>Fazer Logout</Button>
       </HomeContainer>
     )
