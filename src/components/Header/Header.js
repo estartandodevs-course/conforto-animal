@@ -37,7 +37,7 @@ const Header = (props) => {
         <>
        <HeaderContainer >
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
-           <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
+           <img src={Menu} />
            <div className="logoHeader">
                Conforto
             <img className="logoImg" src={logo}/>
