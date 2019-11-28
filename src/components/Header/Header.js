@@ -11,7 +11,7 @@ const Header = (props) => {
         <>
        <HeaderContainer >
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
-           <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
+           <img src={Menu} />
            <div className="logoHeader">
                Conforto
             <img className="logoImg" src={logo}/>
@@ -20,10 +20,10 @@ const Header = (props) => {
             <img className="searchHeader" onClick={props.onClick} src={Search}/>
        </HeaderContainer>
        
-        <MenuContainer show={showMenu}>
+        {/* <MenuContainer show={showMenu}>
           <h1>Hello</h1>
           <button onClick={()=> setShowMenu(!showMenu)}>Close</button>
-        </MenuContainer>
+        </MenuContainer> */}
        </>
     )
 }
