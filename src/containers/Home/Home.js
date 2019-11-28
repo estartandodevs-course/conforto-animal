@@ -2,20 +2,33 @@ import React, { Component } from 'react'
 import MapContainer from '../../components/MapContainer';
 import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer} from './HomeStyle'
+<<<<<<< HEAD
 <<<<<<< develop
+=======
+>>>>>>> develop
 import Header from '../../components/Header/Header'
+<<<<<<< HEAD
+import Button from '../../components/Button/Button';
+=======
+import {firebase, LoginFacebook} from '../../firebase'
 
+<<<<<<< HEAD
+>>>>>>> develop
 =======
 import Button from '../../components/Button/Button'
+<<<<<<< HEAD
 >>>>>>> fix button components
+=======
+>>>>>>> develop
+>>>>>>> develop
 export default class Home extends Component {
 
   state={
-    splash: true
+    splash: (window.location.pathname ==="/" ? true : false)
   }
 
   componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000)
+    setTimeout(()=>{this.setState({splash: false})},2000)    
   }
   render() {
     const {splash} = this.state
@@ -24,6 +37,7 @@ export default class Home extends Component {
       :
       <HomeContainer flexDirection={'column'}>
         <Header/>
+        <Button className="btn-bottom" >Adote</Button>
         <MapContainer/>
         <Button value={"Quero Adotar"}/>
 

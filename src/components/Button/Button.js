@@ -4,10 +4,8 @@ import { ButtonContainer } from './ButtonStyle'
 const Button = (props) =>{
     
     return (
-        <ButtonContainer>
-            {props.value}
-            {props.style}
-            {props.onChange}
+        <ButtonContainer className={props.className} onClick={props.onClick}>
+            {props.children}
         </ButtonContainer>
     )
 
@@ -15,13 +13,3 @@ const Button = (props) =>{
 
 export default Button
 
-
-<<<<<<< develop
-<<<<<<< develop
-{/* <Button value={"Quero Adotar"}/> */}
-=======
-{/* <Button value={"Enviar"}/> */}
->>>>>>> up feature button component
-=======
-{/* <Button value={"Quero Adotar"}/> */}
->>>>>>> up feature button
