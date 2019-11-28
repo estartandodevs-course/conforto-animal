@@ -16,7 +16,7 @@ export default class Login extends Component {
   }
 
   componentDidMount(){     
-    console.log(this.state.user)  
+    console.log(this.state.user)
   }
 
   render() {

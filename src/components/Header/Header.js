@@ -17,7 +17,7 @@ const Header = (props) => {
         },
         {
             text: 'doe',
-            route: '/donation'
+            route: '/donate'
         },
         {
             text:'fazer login',
@@ -35,7 +35,7 @@ const Header = (props) => {
 
     return (
         <>
-       <HeaderContainer >
+       <HeaderContainer>
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
            <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
            <div className="logoHeader">
@@ -44,9 +44,8 @@ const Header = (props) => {
                 Animal
            </div>
             <img className="searchHeader" onClick={props.onClick} src={Search}/>
-       </HeaderContainer>
-       
-        <MenuContainer show={showMenu}>
+            
+        <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
 
@@ -57,11 +56,16 @@ const Header = (props) => {
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 
-                        onClick={()=>{res.text === 'sair' &&  LogOutFacebook()} }/>
+                        onClick={()=>{ 
+                            setShowMenu(!showMenu) 
+                            res.text === 'sair' &&  LogOutFacebook() 
+                        }}/>
                 </Link>
             )})}
           </ListMenu>
         </MenuContainer>
+       </HeaderContainer>
+       
        </>
     )
 }

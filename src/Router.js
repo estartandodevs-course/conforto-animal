@@ -8,10 +8,13 @@ import Home from './containers/Home/Home.js';
 import SplashScreen  from './containers/SplashScreen/Splash.js';
 import Login from './containers/Login/Login.js';
 import DonateContainer from './containers/Donate/Donate'
+import Header from './components/Header/Header'
+
 
 export default function Routers() {
   return (
     <BrowserRouter>
+      <Header/>
       <Switch>
       <Route path="/login" component={Login}/>
         <Route path="/" exact component={Home}/>

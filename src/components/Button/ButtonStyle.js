@@ -8,10 +8,6 @@ export const ButtonContainer = styled.button`
     border-radius: 10px;
     background-color: #01A58D;
     color: #fff;
-<<<<<<< develop
-    cursor: pointer;
-=======
->>>>>>> fix button
     
     &:focus{
         outline:none;
