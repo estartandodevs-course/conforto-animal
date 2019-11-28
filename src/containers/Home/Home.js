@@ -8,15 +8,19 @@ import Button from '../../components/Button/Button';
 =======
 import {firebase, LoginFacebook} from '../../firebase'
 
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+import Button from '../../components/Button/Button'
 >>>>>>> develop
 export default class Home extends Component {
 
   state={
-    splash: true
+    splash: (window.location.pathname ==="/" ? true : false)
   }
 
   componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000)
+    setTimeout(()=>{this.setState({splash: false})},2000)    
   }
   render() {
     const {splash} = this.state
@@ -27,6 +31,8 @@ export default class Home extends Component {
         <Header/>
         <Button className="btn-bottom" >Adote</Button>
         <MapContainer/>
+        <Button value={"Quero Adotar"}/>
+
       </HomeContainer>
     )
       
