@@ -45,6 +45,7 @@ export const HeaderContainer = styled.header`
 export const MenuContainer = styled.div`
    position: fixed;
    left: ${props=> props.show ? 0 : '-100vw'};
+   top: 0;
    height: 100vh;
    width: 50vw;
    z-index: 4;
@@ -60,6 +61,7 @@ export const MenuContainer = styled.div`
       top: 0;
       margin: 8px;
       font-family: 'Roboto';
+      color: black;
    }
 `
 

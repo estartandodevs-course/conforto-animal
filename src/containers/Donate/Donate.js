@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { DonateContainer, UploadImg, FormPets } from './DonateStyle';
 import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
+import Button from '../../components/Button/Button'
 import Modal from '../../components/Modal/Modal'
+
 
 export default class Donate extends Component {
 
@@ -21,9 +23,6 @@ export default class Donate extends Component {
   render() {
     return (
       <DonateContainer alignItems={'center'} flexDirection={'column'}>
-        <header style={{height: "55px"}}>
-          My Header
-        </header>
         <UploadImg onClick={()=>alert('Fazer Upload das Imagens  -_-')}>
           +
         </UploadImg>
@@ -60,7 +59,11 @@ export default class Donate extends Component {
           </div>
 
         </FormPets>
-          <button style={{height: '55px'}}>send</button>       
+        <Button 
+        onClick={()=>{ alert("ok") }} 
+        className='btn-bottom' 
+        value={'send'}
+        />    
     </DonateContainer>
     )
   }
