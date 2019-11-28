@@ -4,13 +4,8 @@ import logo from '../../assets/images/logo.png'
 import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 
-<<<<<<< HEAD
 
 const Header = (props) => {
-=======
-const Header = (props) => {
-    const [showMenu, setShowMenu] = useState(false)
->>>>>>> develop
     return (
         <>
        <HeaderContainer >
