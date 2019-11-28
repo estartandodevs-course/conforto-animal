@@ -4,9 +4,6 @@ import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer} from './HomeStyle'
 import Header from '../../components/Header/Header'
 // import Button from '../../components/Button/Button';
-import {firebase, LoginFacebook} from '../../firebase'
-
-
 import Button from '../../components/Button/Button'
 
 export default class Home extends Component {
@@ -18,6 +15,10 @@ export default class Home extends Component {
   componentDidMount(){
     setTimeout(()=>{this.setState({splash: false})},2000)    
   }
+  logout=()=>{
+    localStorage.clear();
+    window.location.href = '/login';
+  }
   render() {
     const {splash} = this.state
     return(
@@ -25,7 +26,7 @@ export default class Home extends Component {
       :
       <HomeContainer flexDirection={'column'}>
         <Header/>
-        <MapContainer/>
+        <Button onClick={this.logout}>Fazer Logout</Button>
       </HomeContainer>
     )
       

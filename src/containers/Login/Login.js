@@ -37,7 +37,7 @@ export default class Login extends Component {
             <Input type='password' 
             name='Digite sua senha'/>
         </div>
-        <Button value="Login"/>
+        <Button value="Login">Login</Button>
         <h2>ou</h2>
         <div className="iconSocial">
             <img src={facebook} onClick={()=>LoginFacebook()}/>
