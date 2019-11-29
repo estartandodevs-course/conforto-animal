@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import '../../assets/fonts/fonts.css'
+import { FlexContainer } from '../../shared/Structure'
+import '../../assets/fonts/fonts.css'
 
 export const HeaderContainer = styled.header`
    display: flex;
@@ -43,9 +45,30 @@ export const HeaderContainer = styled.header`
 export const MenuContainer = styled.div`
    position: fixed;
    left: ${props=> props.show ? 0 : '-100vw'};
+   top: 0;
    height: 100vh;
    width: 50vw;
    z-index: 4;
    background-color: #01A58D;
-   transition: .5s
+   transition: .5s;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 15px 0 0 0;
+   #close{
+      position: absolute;
+      right:0;
+      top: 0;
+      margin: 8px;
+      font-family: 'Roboto';
+      color: black;
+   }
+`
+
+export const ProfileImg = styled.img`
+   border-radius: 50%;
+`
+
+export const ListMenu = styled(FlexContainer)`
+   height: 30%;
 `

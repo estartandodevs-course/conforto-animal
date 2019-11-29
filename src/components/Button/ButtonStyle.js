@@ -8,7 +8,6 @@ export const ButtonContainer = styled.button`
     border-radius: 10px;
     background-color: #01A58D;
     color: #fff;
-    cursor: pointer;
     
     &:focus{
         outline:none;
@@ -21,6 +20,12 @@ export const ButtonContainer = styled.button`
         font-size: 18px;
         position: fixed;
         bottom: 0;
+    }
+
+    &.btn-menu{
+        border: 2px solid white;
+        border-radius: 30px;
+        margin:5px;
     }
 
 `;
