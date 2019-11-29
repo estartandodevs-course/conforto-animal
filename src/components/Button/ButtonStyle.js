@@ -22,4 +22,10 @@ export const ButtonContainer = styled.button`
         bottom: 0;
     }
 
+    &.btn-menu{
+        border: 2px solid white;
+        border-radius: 30px;
+        margin:5px;
+    }
+
 `;
