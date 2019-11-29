@@ -1,16 +1,22 @@
 import React from 'react'
-import { CardContainer, Title } from './CardStyle'
+import { CardContainer, Title, About, PetImg, Description, Topic } from './CardStyle'
+import Button from '../Button/Button'
+import paw from '../../assets/images/paw.png'
 
 const Card = (props)=>{
-
     return (
         <CardContainer >
-            <Title>
-                {props.title}
-            </Title>
-        <img>
-            {props.img}
-        </img>
+            <PetImg src={props.imgSrc}/>
+            <About >
+                <Title>
+                    {props.title}
+                </Title>
+                <Description>
+                    <Topic className="caracter"><PetImg className="icon" src={paw}/>{props.sexo}</Topic>
+                    <Topic className="caracter"><PetImg className="icon" src={paw}/>{props.age}</Topic>
+                </Description>
+                <Button value="Quero adotar"/>
+            </About>
         </CardContainer>
     )
 }

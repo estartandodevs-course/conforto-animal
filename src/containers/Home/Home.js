@@ -4,6 +4,7 @@ import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer} from './HomeStyle'
 // import Button from '../../components/Button/Button';
 import Button from '../../components/Button/Button'
+import Card from '../../components/Card/Card';
 
 export default class Home extends Component {
 
@@ -23,9 +24,14 @@ export default class Home extends Component {
     return(
       splash ? <SplashContainer/> 
       :
-      <HomeContainer flexDirection={'column'}>
+      <HomeContainer flexDirection={'column'} alignItems={'center'}>
         <MapContainer/>
-        <Button onClick={this.logout}>Fazer Logout</Button>
+        <Card 
+        imgSrc={"https://www.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"} 
+        title={"joao"}
+        sexo={"masculino"}
+        age={"2 meses"}
+        />
       </HomeContainer>
     )
       
