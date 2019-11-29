@@ -8,6 +8,7 @@ export const CardContainer = styled.div`
     background: #FFFFFF;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+    margin: 15px 0 0 0;
 `
 export const PetImg = styled.img`
     max-width:100px;
