@@ -6,9 +6,14 @@ export const CardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient( #8AC768,#70B888);
+    background-image:brown;
     border-radius:5px;
 `
 export const Title = styled.h2`
     color:white;
+
+`
+export const img = styled.img`
+    width:500px;
+    
 `

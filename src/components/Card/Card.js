@@ -8,6 +8,9 @@ const Card = (props)=>{
             <Title>
                 {props.title}
             </Title>
+        <img>
+            {props.img}
+        </img>
         </CardContainer>
     )
 }
