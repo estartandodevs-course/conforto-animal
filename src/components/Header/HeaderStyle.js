@@ -12,28 +12,24 @@ export const HeaderContainer = styled.header`
    font-family:  Waiting for the Sunrise;
    width: 100%;
    height: 55px;
-   
-   .logoHeader{
-      display: flex;
-      align-items: center;
+   .menuHeader{
+      position: absolute;
+      left: 7px;
    }
    .logoImg{
       width: 55px;
       height: 55px;
    }
-   .searchHeader{
-      cursor: pointer;
+   .chatHeader{
+      position: absolute;
+      right: 7px;
    }
+
 
    @media screen and (min-width: 768px){
       justify-content: space-around;
       font-size: 26px;
       height: 75px;
-
-      .logoHeader{
-         display: flex;
-         align-items: center;
-      }
       .logoImg{
          width: 85px;
          height: 85px;
