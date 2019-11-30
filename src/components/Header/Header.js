@@ -39,9 +39,7 @@ const Header = (props) => {
            {/* Imagem do menu para Cobrir provisoriamente o menu! */}
            <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
            <div className="logoHeader">
-               Conforto
             <img className="logoImg" src={logo}/>
-                Animal
            </div>
             <img className="searchHeader" onClick={props.onClick} src={Search}/>
             
