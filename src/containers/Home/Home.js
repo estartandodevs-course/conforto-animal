@@ -10,17 +10,12 @@ export default class Home extends Component {
     pets: [
       {
         imgSrc:"https://www.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg",
-        title:"joao",
-        sexo:"masculino",
-        age:"2 meses"
+        title:"BOB",
+        sexo:"Masculino",
+        age:"2 Meses"
       },
-      {
-        imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjRRYDaRnqNMVld63XRuAkuGouffg_yjBm5ReBhR2NXXR5aQdt",
-        title:"jaja",
-        sexo:"masculino",
-        age:"2 meses"
-      },
-    ],
+   
+    ]
   }
   
   componentDidMount(){
