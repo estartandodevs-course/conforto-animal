@@ -1,11 +1,12 @@
-import React from 'react'
-import { CardContainer, Title, About, PetImg, Description, Topic } from './CardStyle'
+    import React from 'react'
+import { CardContainer, Title, About, PetImg, Description, Topic, } from './CardStyle'
 import Button from '../Button/Button'
 import paw from '../../assets/images/paw.png'
 
 const Card = (props)=>{
     return (
         <CardContainer >
+
             <PetImg src={props.imgSrc}/>
             <About >
                 <Title>
