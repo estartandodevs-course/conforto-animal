@@ -4,16 +4,16 @@ import { FlexContainer } from '../../shared/Structure';
 
 
 export const AdoptionContainer = styled(FlexContainer)`
-  display: flex;
+    display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: #01A58D;
 `
 export const FormPet = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    max-width: 100vw;
     width: 100vw;
     height: 50vh;
     background-color: #fff;
@@ -22,7 +22,6 @@ export const FormPet = styled.form`
     }
     .label{
         display: flex;
-        justify-content: space-around;
         align-items: center;
         @media screen and (min-width: 768px){
             display: flex;
