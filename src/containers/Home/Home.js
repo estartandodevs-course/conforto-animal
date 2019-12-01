@@ -42,9 +42,10 @@ export default class Home extends Component {
       <HomeContainer flexDirection={'column'}>
         <MapContainer/>
         <HomeAside flexDirection={'column'} alignItems={'center'}>
-          {pets.map(pet=> {
+          {pets.map((pet, index)=> {
             return(
               <Card 
+              key={index}
               imgSrc={pet.imgSrc}
               title={pet.title}
               sexo={pet.sexo}

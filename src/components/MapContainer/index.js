@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Loading from '../Loading'
 import cachorro from '../../assets/images/cachorro.png'
 import {MapBox} from './MapStyle'
@@ -39,6 +39,7 @@ export class MapContainer extends Component{
         },
   ]
   }
+  
     render() {
         return (
           <MapBox>
@@ -48,8 +49,8 @@ export class MapContainer extends Component{
             style={mapStyles}
             initialCenter={{ lat: -22.9068467, lng: -43.1728965}}
             >
-              {this.state.position.map(pos=>{
-              return <Marker position={{ lat: pos.Latitude, lng: pos.Longitude}} 
+              {this.state.position.map((pos,index)=>{
+              return <Marker key={index} position={{ lat: pos.Latitude, lng: pos.Longitude}} 
                 title={'conforto animal'}
                 icon={{
                     url:cachorro,

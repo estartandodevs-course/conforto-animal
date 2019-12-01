@@ -17,27 +17,27 @@ export default class Adoption extends Component {
         
         <FormPet>
           <div className='label'>
-            <img src={paw} />
+            <img src={paw} alt="" />
             <Input name={'sexo'} type={'select'} options={['Masc', 'Fem']} />
           </div>
 
           <div className='label'>
-            <img src={paw} />
+            <img src={paw} alt="" />
             <Input name={'raça'} />
           </div>
 
           <div className='label'>
-            <img src={paw} />
+            <img src={paw} alt="" />
             <Input name={'idade'} />
           </div>
 
           <div className='label'>
-            <img src={paw} />
+            <img src={paw} alt="" />
             <Input name={'castrado'} type={'select'} options={['Sim', 'Nao']} />
           </div>
 
           <div className='label'>
-            <img src={paw} />
+            <img src={paw} alt="" />
             <Input name={'Vermifugado'} type={'select'} options={['Sim', 'Nao']} />
           </div>
 
