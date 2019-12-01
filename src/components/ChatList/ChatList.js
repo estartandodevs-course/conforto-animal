@@ -9,13 +9,12 @@ const ChatList = (props)=>{
             <PersonImg src={props.imgSrc}/>    
             <About >
                 <Title>
-                    {props.title}
+                    {props.name}
                 </Title>
                 <Description>
-                    <Topic className="caracter"><PersonImg className="icon" src={paw}/>{props.sexo}</Topic>
-                    <Topic className="caracter"><PersonImg className="icon" src={paw}/>{props.age}</Topic>
+                    <Topic className="msg"><PersonImg className="icon" src={paw}/>{props.mensagem}</Topic>
                 </Description>
-                <Button value="Quero adotar"/>
+               
             </About>
         </ChatListContainer>
     )

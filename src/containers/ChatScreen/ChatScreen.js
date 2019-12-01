@@ -10,16 +10,16 @@ export default class ChatScreen extends Component {
     chats: [
       {
         imgSrc:"https://www.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg",
-        title:"joao",
-        sexo:"masculino",
-        age:"2 meses"
+        name:"Juliana Peixoto",
+        mensagem:"masculino",
+        
       },
       {
         imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjRRYDaRnqNMVld63XRuAkuGouffg_yjBm5ReBhR2NXXR5aQdt",
-        title:"jaja",
-        sexo:"masculino",
-        age:"2 meses"
-      }
+        name:"Victor Souza",
+        mensagem:"masculino",
+        
+      },
     ]
   }
 
@@ -40,9 +40,9 @@ export default class ChatScreen extends Component {
             return(
               <ChatList 
               imgSrc={chat.imgSrc}
-              title={chat.title}
-              sexo={chat.sexo}
-              age={chat.age}
+              name={chat.name}
+              mensagem={chat.mensagem}
+              
               />
             )})
           }

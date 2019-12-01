@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+
 export const ChatListContainer = styled.div` 
     width: 90vw;
     height: 96px;
@@ -10,14 +11,14 @@ export const ChatListContainer = styled.div`
     margin: 15px 0 0 0;
 `
 export const PersonImg = styled.img`
-    max-width:100px;
-    height: 96px;
+    max-width:85px;
+    height: 80px;
     border-radius: 50%;
     &.icon{
         max-width:auto;
         height: auto;
         border-radius: 50%;
-        margin:5px;
+        margin:10px;
     }
     
 `
