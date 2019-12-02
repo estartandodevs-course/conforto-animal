@@ -37,9 +37,21 @@ export class MapContainer extends Component{
           "Latitude": -23.0018679, 
           "Longitude": -43.6359817
         },
-  ]
+    ]
   }
-  
+
+  componentDidMount = () => {
+    
+  }
+
+  onMapClicked = (props, marker) => {
+    let cover = this.state.position
+    console.log(props, marker)
+    this.setState({
+      position: [marker]
+    })
+  }
+    
     render() {
         return (
           <MapBox>
@@ -48,6 +60,8 @@ export class MapContainer extends Component{
             zoom={8}
             style={mapStyles}
             initialCenter={{ lat: -22.9068467, lng: -43.1728965}}
+            onClick={this.onMapClicked}
+
             >
               {this.state.position.map((pos,index)=>{
               return <Marker key={index} position={{ lat: pos.Latitude, lng: pos.Longitude}} 

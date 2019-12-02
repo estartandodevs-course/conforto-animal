@@ -2,7 +2,7 @@
   "name": "conforto-animal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://estartando-devs.github.io/conforto-animal/",
+  "homepage": "https://estartando-devs.github.io/conforto-animal",
   "dependencies": {
     "firebase": "^7.5.0",
     "formik": "^2.0.6",
