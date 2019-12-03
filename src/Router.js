@@ -15,7 +15,7 @@ import ErrorScreen from './containers/ErrorScreen/ErrorScreen.js';
 
 export default function Routers() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header/>
       <Switch>
         <Route path="/" exact component={Home}/>
