@@ -6,7 +6,7 @@ import Button from '../../components/Button/Button'
 import facebook from '../../assets/images/facebook.png'
 import google from '../../assets/images/google.png'
 import '../../assets/fonts/fonts.css'
-import { LoginFacebook, GetStorageUser } from '../../firebase'
+import { LoginFacebook, GetStorageUser, LoginGoogle } from '../../firebase'
 import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
@@ -41,7 +41,7 @@ export default class Login extends Component {
         <h2>ou</h2>
         <div className="iconSocial">
             <img src={facebook} onClick={()=>LoginFacebook()} alt=""/>
-            <img src={google} alt=""/>
+            <img src={google} onClick={()=>LoginGoogle()} alt=""/>
         </div>
     </LoginContainer> 
     
