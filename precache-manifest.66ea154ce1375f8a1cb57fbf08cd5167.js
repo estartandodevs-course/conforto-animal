@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de2de9280a82dafe58df0f0eb4bcba1d",
+    "revision": "1d5df4375741e98160114c0a81105f22",
     "url": "/conforto-animal/index.html"
   },
   {
-    "revision": "ebcaa17dc4494fa997b8",
+    "revision": "248ed28706b788530b29",
     "url": "/conforto-animal/static/css/main.525c587a.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/conforto-animal/static/js/2.a01b6b7c.chunk.js"
   },
   {
-    "revision": "ebcaa17dc4494fa997b8",
-    "url": "/conforto-animal/static/js/main.9dce72e0.chunk.js"
+    "revision": "248ed28706b788530b29",
+    "url": "/conforto-animal/static/js/main.8a510935.chunk.js"
   },
   {
     "revision": "1f32951fa515bfb4763e",
