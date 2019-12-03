@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/conforto-animal/static/css/main.525c587a.chunk.css",
-    "main.js": "/conforto-animal/static/js/main.5af366e7.chunk.js",
-    "main.js.map": "/conforto-animal/static/js/main.5af366e7.chunk.js.map",
+    "main.js": "/conforto-animal/static/js/main.94a3fbc5.chunk.js",
+    "main.js.map": "/conforto-animal/static/js/main.94a3fbc5.chunk.js.map",
     "runtime-main.js": "/conforto-animal/static/js/runtime-main.8d5c5aa5.js",
     "runtime-main.js.map": "/conforto-animal/static/js/runtime-main.8d5c5aa5.js.map",
     "static/js/2.a01b6b7c.chunk.js": "/conforto-animal/static/js/2.a01b6b7c.chunk.js",
     "static/js/2.a01b6b7c.chunk.js.map": "/conforto-animal/static/js/2.a01b6b7c.chunk.js.map",
     "index.html": "/conforto-animal/index.html",
-    "precache-manifest.9998a3f23f0dce3be5610614f4cf12db.js": "/conforto-animal/precache-manifest.9998a3f23f0dce3be5610614f4cf12db.js",
+    "precache-manifest.8d6c1e9caf75d0b64dc6e2ff5b71170d.js": "/conforto-animal/precache-manifest.8d6c1e9caf75d0b64dc6e2ff5b71170d.js",
     "service-worker.js": "/conforto-animal/service-worker.js",
     "static/css/main.525c587a.chunk.css.map": "/conforto-animal/static/css/main.525c587a.chunk.css.map",
     "static/media/dogConfused.gif": "/conforto-animal/static/media/dogConfused.307a4059.gif",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.8d5c5aa5.js",
     "static/js/2.a01b6b7c.chunk.js",
     "static/css/main.525c587a.chunk.css",
-    "static/js/main.5af366e7.chunk.js"
+    "static/js/main.94a3fbc5.chunk.js"
   ]
 }
