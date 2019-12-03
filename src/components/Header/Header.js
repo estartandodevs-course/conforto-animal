@@ -5,7 +5,7 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom';
-import { LogOutFacebook, GetStorageUser } from '../../firebase'
+import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 const Header = (props) => {
     const [showMenu, setShowMenu] = useState(false)
@@ -50,7 +50,7 @@ const Header = (props) => {
                         className={'btn-menu'} 
                         onClick={()=>{ 
                             setShowMenu(!showMenu) 
-                            res.text === 'sair' &&  LogOutFacebook() 
+                            res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
             )})}
