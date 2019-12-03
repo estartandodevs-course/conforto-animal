@@ -63,6 +63,8 @@ export const MenuContainer = styled.div`
 
 export const ProfileImg = styled.img`
    border-radius: 50%;
+   width: 120px;
+   height: 120px;
 `
 
 export const ListMenu = styled(FlexContainer)`
