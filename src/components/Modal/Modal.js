@@ -7,17 +7,17 @@ import cachorro from '../../assets/images/dogIMG.png'
 export default function Modal(props) {
   return (
     <ModalContainer style={{left: props.show ? 0 : "100vw"}}>
-      <img src={back} id='close' onClick={props.close}/>
+      <img src={back} id='close' alt="botão voltar" onClick={props.close}/>
       <div id="Title">
         <h1>{props.title}</h1>
       </div>
       <div className='Icones'>
         <div>
-          <img src={cachorro} />
+          <img src={cachorro} alt="cachorro" />
           <h1>Doguíneo</h1>
         </div>
         <div>
-          <img src={gato} />
+          <img src={gato} alt="gato" />
           <h1>Gatíneo</h1>
         </div>
       </div>

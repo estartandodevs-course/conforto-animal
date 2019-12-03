@@ -9,8 +9,8 @@ import { LogOutFacebook, GetStorageUser } from '../../firebase'
 
 const Header = (props) => {
     const [showMenu, setShowMenu] = useState(false)
-    const [user, setUser] = useState(GetStorageUser())
-    const [optionsMenu, setOptios] = useState([
+    const [user] = useState(GetStorageUser())
+    const [optionsMenu] = useState([
         {
             text: 'adote',
             route: '/adoption'
@@ -29,25 +29,22 @@ const Header = (props) => {
         },
     ])
 
-    const LonkTo = (route)=>{
-
-    }
 
     return (
         <>
        <HeaderContainer>
-           <img className="menuHeader" src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" src={logo}/>
-            <img className="chatHeader" onClick={props.onClick} src={Search}/>
+           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
+            <img className="logoImg" alt="" src={logo}/>
+            <img className="chatHeader" alt="" onClick={props.onClick} src={Search}/>
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
-            {optionsMenu.map(res=>{                
+            {optionsMenu.map((res, index)=>{                
                 return( 
-                <Link to={res.route}>
+                <Link to={res.route} key={index}>
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 

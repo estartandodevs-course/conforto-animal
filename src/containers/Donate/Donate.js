@@ -3,8 +3,6 @@ import { DonateContainer, UploadImg, FormPets } from './DonateStyle';
 import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
 import Button from '../../components/Button/Button'
-import Modal from '../../components/Modal/Modal'
-
 
 export default class Donate extends Component {
 
@@ -29,27 +27,27 @@ export default class Donate extends Component {
 
         <FormPets>
           <div className='label'>
-            <img src={paw}/>          
+            <img src={paw} alt=""/>          
             <Input name={'sexo'} type={'select'} options={['Masc', 'Fem']}/>
           </div>
 
           <div className='label'>
-            <img src={paw}/>
+            <img src={paw} alt=""/>
             <Input name={'raça'} />
           </div>
 
           <div className='label'>
-            <img src={paw}/>
+            <img src={paw} alt=""/>
             <Input name={'idade'}/> 
           </div>
 
           <div className='label'>
-            <img src={paw}/>
+            <img src={paw} alt=""/>
             <Input name={'castrado'} type={'select'} options={['Sim', 'Nao']}/>
           </div>
 
           <div className='label'>
-            <img src={paw}/>          
+            <img src={paw} alt=""/>          
             <Input name={'Vermifugado'} type={'select'} options={['Sim', 'Nao']}/>
           </div>
 

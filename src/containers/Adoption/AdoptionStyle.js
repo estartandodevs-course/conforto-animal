@@ -4,25 +4,21 @@ import { FlexContainer } from '../../shared/Structure';
 
 
 export const AdoptionContainer = styled(FlexContainer)`
-  display: flex;
+    display: flex;
     flex-direction: column;
-    width: 100vw;
     height: 100vh;
-    background-color: #01A58D;
 `
 export const FormPet = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 100vw;
-    height: 50vh;
+    font-family: Montserrat, sans-serif;
     background-color: #fff;
-    @media screen and (min-width: 768px){
-        width: 50vw;
-    }
+    height: 50vh;
+    margin-left: 20px;
+
     .label{
         display: flex;
-        justify-content: space-around;
         align-items: center;
         @media screen and (min-width: 768px){
             display: flex;
@@ -35,5 +31,15 @@ export const FormPet = styled.form`
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: normal;
+        h3{
+            font-size: 18px;
+            color: #333333;
+            font-style: normal;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
     }
 `

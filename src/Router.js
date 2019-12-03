@@ -15,11 +15,12 @@ import ErrorScreen from './containers/ErrorScreen/ErrorScreen.js';
 
 export default function Routers() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header/>
       <Switch>
-      <Route path="/login" component={Login}/>
         <Route path="/" exact component={Home}/>
+        <Route path="/conforto-animal" component={Home}/>
+        <Route path="/login" component={Login}/>
         <Route path="/home" component={Home}/>
         <Route path="/spl" component={SplashScreen}/>
         <Route path="/adoption" component={AdoptionContainer}/>
