@@ -6,7 +6,7 @@ import Button from '../../components/Button/Button'
 import facebook from '../../assets/images/facebook.png'
 import google from '../../assets/images/google.png'
 import '../../assets/fonts/fonts.css'
-import { LoginFacebook, GetStorageUser, LogOutFacebook } from '../../firebase'
+import { LoginFacebook, GetStorageUser } from '../../firebase'
 import { Redirect } from 'react-router-dom'
 
 export default class Login extends Component {
@@ -16,7 +16,7 @@ export default class Login extends Component {
   }
 
   componentDidMount(){     
-    console.log(this.state.user)  
+    console.log(this.state.user)
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class Login extends Component {
     alignItems={'center'}>
 
         <div>
-            <img src={logo2}/>
+            <img src={logo2} alt=""/>
         </div>
         <div className="FormContainer">
             <Input type='email' 
@@ -37,11 +37,11 @@ export default class Login extends Component {
             <Input type='password' 
             name='Digite sua senha'/>
         </div>
-        <Button value="Login"/>
+        <Button value="Login">Login</Button>
         <h2>ou</h2>
         <div className="iconSocial">
-            <img src={facebook} onClick={()=>LoginFacebook()}/>
-            <img src={google}/>
+            <img src={facebook} onClick={()=>LoginFacebook()} alt=""/>
+            <img src={google} alt=""/>
         </div>
     </LoginContainer> 
     

@@ -27,7 +27,7 @@ export const LoginContainer = styled(FlexContainer)`
     }
     button {
         font-family: 'Montserrat';
-        border:none
+        border:none;
         width:200px;
         height:40px;
         background: linear-gradient(90deg, #E2E5C5 50%, #E0A359 50%);

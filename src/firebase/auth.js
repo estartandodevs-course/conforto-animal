@@ -14,7 +14,7 @@ export const Authenticated = ()=>{firebase.auth().onAuthStateChanged((user)=> {
 export const GetStorageUser = ()=>{
     const user = {
         name : localStorage.getItem("displayName"),
-        photoURL: localStorage.getItem("photoURL"),
+        photoURL: localStorage.getItem("photoURL")+'?type=square&width=120&height=120',
         email: localStorage.getItem("email")
     }
     if(localStorage.getItem("email"))
