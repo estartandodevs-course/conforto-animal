@@ -8,8 +8,8 @@ export default function SliderComponent(props) {
       <Carousel
       width={props.width}
       slideWidth={props.slideWidth}
-      slidesToShow={props.slidesToShow}>
-        {props.children} {/* <<< images, ou textos */}
+      slidesToShow={props.ToShow}>
+        {props.children}
       </Carousel>
     );
     // library:: https://reactjsexample.com/a-pure-reactjs-carousel-component/
