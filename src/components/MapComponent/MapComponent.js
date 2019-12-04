@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import MyMarker from './MyMarker';
-
+import MapContainer from './MapContainer'
 export default class MapComponent extends Component {
   state = {
     positions:[
@@ -26,10 +26,9 @@ export default class MapComponent extends Component {
     this.setState({ positions:  _positions})
   }
   
-  
   render() {
     return (
-      <div style={{ height: '70vh', width: '100%' }}>
+      <MapContainer>
         <GoogleMapReact
           onClick={this._onclick}
           bootstrapURLKeys={{ key:"AIzaSyDWBfhtb9khVbng8lfRBWqvLANrxq1YvSs" }}
@@ -42,7 +41,7 @@ export default class MapComponent extends Component {
                 />
               })}
         </GoogleMapReact>
-      </div>
+      </MapContainer>
     );
     }
 }
