@@ -5,12 +5,12 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom';
-import { LogOutFacebook, GetStorageUser } from '../../firebase'
+import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 const Header = (props) => {
     const [showMenu, setShowMenu] = useState(false)
-    const [user, setUser] = useState(GetStorageUser())
-    const [optionsMenu, setOptios] = useState([
+    const [user] = useState(GetStorageUser())
+    const [optionsMenu] = useState([
         {
             text: 'adote',
             route: '/adoption'
@@ -29,36 +29,28 @@ const Header = (props) => {
         },
     ])
 
-    const LonkTo = (route)=>{
-
-    }
 
     return (
         <>
        <HeaderContainer>
-           {/* Imagem do menu para Cobrir provisoriamente o menu! */}
-           <img src={Menu} onClick={()=> setShowMenu(!showMenu)}/>
-           <div className="logoHeader">
-               Conforto
-            <img className="logoImg" src={logo}/>
-                Animal
-           </div>
-            <img className="searchHeader" onClick={props.onClick} src={Search}/>
+           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
+            <img className="logoImg" alt="" src={logo}/>
+            <img className="chatHeader" alt="" onClick={props.onClick} src={Search}/>
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
-            {optionsMenu.map(res=>{                
+            {optionsMenu.map((res, index)=>{                
                 return( 
-                <Link to={res.route}>
+                <Link to={res.route} key={index}>
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 
                         onClick={()=>{ 
                             setShowMenu(!showMenu) 
-                            res.text === 'sair' &&  LogOutFacebook() 
+                            res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
             )})}

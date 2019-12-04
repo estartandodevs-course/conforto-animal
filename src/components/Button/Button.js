@@ -5,7 +5,7 @@ const Button = (props) =>{
     
     return (
         <ButtonContainer className={props.className} onClick={props.onClick} value={props.value}>
-            {/* {props.children} */} {props.value}
+            {props.value}
         </ButtonContainer>
     )
 

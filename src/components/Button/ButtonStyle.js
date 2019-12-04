@@ -8,6 +8,7 @@ export const ButtonContainer = styled.button`
     border-radius: 10px;
     background-color: #01A58D;
     color: #fff;
+    /* margin-left:auto; */
     
     &:focus{
         outline:none;
