@@ -21,7 +21,6 @@ export default class Home extends Component {
         age:"2 meses"
       },
     ],
-    splash: (window.location.pathname ==="/" ? true : false)
   }
   
   componentDidMount(){
