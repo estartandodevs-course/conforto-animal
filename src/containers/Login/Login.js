@@ -27,7 +27,6 @@ export default class Login extends Component {
     <LoginContainer flexDirection={'column'}
     justifyContent={'center'}
     alignItems={'center'}>
-
         <div>
             <img src={logo2} alt=""/>
         </div>
@@ -38,12 +37,6 @@ export default class Login extends Component {
               <img src={google}/>
           </div>
           <h1>Faça login com suas redes sociais.</h1>
-        </div>
-        <Button value="Login">Login</Button>
-        <h2>ou</h2>
-        <div className="iconSocial">
-            <img src={facebook} onClick={()=>LoginFacebook()} alt=""/>
-            <img src={google} onClick={()=>LoginGoogle()} alt=""/>
         </div>
     </LoginContainer> 
     
