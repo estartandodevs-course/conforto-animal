@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import { HeaderContainer, MenuContainer, ProfileImg, ListMenu} from './HeaderStyle'
+import { HeaderContainer, MenuContainer, ProfileImg, ListMenu, Profilename} from './HeaderStyle'
 import logo from '../../assets/images/logo.png'
 import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
+import Home from '../../containers/Home/Home'
 import { Link } from 'react-router-dom';
 import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
@@ -12,15 +13,15 @@ const Header = (props) => {
     const [user] = useState(GetStorageUser())
     const [optionsMenu] = useState([
         {
-            text: 'adote',
+            text: 'Adote',
             route: '/adoption'
         },
         {
-            text: 'doe',
+            text: 'Doe',
             route: '/donate'
         },
         {
-            text:'fazer login',
+            text:'Fazer login',
             route: '/login'
         },
         {
@@ -42,12 +43,13 @@ const Header = (props) => {
         <>
        <HeaderContainer>
            <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" alt="" src={logo} />
+            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
             <img className="chatHeader" alt="" onClick={props.onClick} src={Search}/>
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
+            {user && <Profilename src={user.displayNamae}/>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
             {optionsMenu.map((res, index)=>{                
