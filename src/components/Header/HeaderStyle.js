@@ -43,7 +43,7 @@ export const MenuContainer = styled.div`
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
    height: 100vh;
-   width: 50vw;
+   width: 30vw;
    z-index: 4;
    background-color: #01A58D;
    transition: .5s;
@@ -55,7 +55,7 @@ export const MenuContainer = styled.div`
       position: absolute;
       right:0;
       top: 0;
-      margin: 8px;
+      margin: 20px;
       font-family: 'Roboto';
       color: black;
    }
@@ -69,4 +69,5 @@ export const ProfileImg = styled.img`
 
 export const ListMenu = styled(FlexContainer)`
    height: 30%;
+   margin:30px;
 `
