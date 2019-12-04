@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MapContainer from '../../components/MapContainer';
+import MapComponent from '../../components/MapComponent/MapComponent';
 import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer, HomeAside} from './HomeStyle'
 import Card from '../../components/Card/Card';
@@ -26,8 +26,9 @@ export default class Home extends Component {
 
     return(
       splash ? <SplashContainer/> 
-      :<HomeContainer flexDirection={'column'}>
-        <MapContainer/>
+      :
+      <HomeContainer flexDirection={'column'}>
+        <MapComponent />
         <HomeAside flexDirection={'column'} alignItems={'center'}>
           {pets.map((pet, index)=> {
             return(

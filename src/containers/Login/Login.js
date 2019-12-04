@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import {LoginContainer} from './LoginStyle';
 import logo2 from '../../assets/images/logo2.png'
-import Input from '../../components/Input/Input'
-import Button from '../../components/Button/Button'
 import facebook from '../../assets/images/facebook.png'
 import google from '../../assets/images/google.png'
 import '../../assets/fonts/fonts.css'
@@ -32,9 +30,9 @@ export default class Login extends Component {
         </div>
         <div className="socialContainer">
           <div className="iconSocial">
-              <img src={facebook} onClick={()=>LoginFacebook()}/>
+              <img alt="facebookIcon" src={facebook} onClick={()=>LoginFacebook()}/>
               <h2>ou</h2>
-              <img src={google}/>
+              <img alt="googleIcon" src={google} onClick={()=>LoginGoogle()}/>
           </div>
           <h1>Faça login com suas redes sociais.</h1>
         </div>
