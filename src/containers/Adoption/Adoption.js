@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { AdoptionContainer, FormPet } from './AdoptionStyle'
 import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
-// import { cover } from 'polished';
 import Button from '../../components/Button/Button';
-// import Modal from '../../components/Modal/Modal'
-
+import  Slider  from '../../components/SliderComponent/SliderComponent'
 
 export default class Adoption extends Component {
 
@@ -14,7 +12,7 @@ export default class Adoption extends Component {
     return (
 
       <AdoptionContainer>
-        
+        <Slider/>
         <FormPet>
           <div className='label'>
             <img src={paw} alt="" />
