@@ -12,7 +12,7 @@ const ChatList = (props)=>{
                     {props.name}
                 </Title>
                 <Description>
-                    <Topic className="msg"><PersonImg className="icon" src={paw}/>{props.mensagem}</Topic>
+                    <Topic className="msg"><PersonImg className="icon" />{props.mensagem}</Topic>
                 </Description>
                
             </About>

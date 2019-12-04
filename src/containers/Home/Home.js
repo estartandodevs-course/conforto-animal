@@ -40,9 +40,9 @@ export default class Home extends Component {
               <Card 
               key={index}
               imgSrc={pet.imgSrc}
-              title={pet.title}
-              sexo={pet.sexo}
-              age={pet.age}
+              name={pet.name}
+              message={pet.message}
+              
               />
             )})
           }
