@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import MapContainer from '../../components/MapContainer';
+import MapComponent from '../../components/MapComponent/MapComponent';
 import SplashContainer from '../SplashScreen/Splash'
 import {HomeContainer, HomeAside} from './HomeStyle'
-// import Button from '../../components/Button/Button';
-// import Button from '../../components/Button/Button'
 import Card from '../../components/Card/Card';
-
 export default class Home extends Component {
-
+  
   state={
     splash: (window.location.pathname ==="/" ? true : false),
     pets: [
@@ -22,29 +19,26 @@ export default class Home extends Component {
         title:"jaja",
         sexo:"masculino",
         age:"2 meses"
-      }
-    ]
+      },
+    ],
   }
-
+  
   componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000)    
-  }
-  logout=()=>{
-    localStorage.clear();
-    window.location.href = '/login';
+    setTimeout(()=>{this.setState({splash: false})},2000);
   }
   render() {
     const {splash, pets} = this.state
-    
+
     return(
       splash ? <SplashContainer/> 
       :
       <HomeContainer flexDirection={'column'}>
-        <MapContainer/>
+        <MapComponent />
         <HomeAside flexDirection={'column'} alignItems={'center'}>
-          {pets.map(pet=> {
+          {pets.map((pet, index)=> {
             return(
               <Card 
+              key={index}
               imgSrc={pet.imgSrc}
               title={pet.title}
               sexo={pet.sexo}
@@ -55,6 +49,5 @@ export default class Home extends Component {
         </HomeAside>
       </HomeContainer>
     )
-      
   }
 }

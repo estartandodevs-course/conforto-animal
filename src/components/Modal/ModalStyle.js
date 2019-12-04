@@ -23,9 +23,11 @@ export const ModalContainer = styled.div`
         left: 0;
         margin: 15px;
         color: white;
-        font-size: 34px
+        font-size: 34px;
         padding:5px;
         width:20px;
+        height:20px;
+        transform:rotate(180deg)
         border:1px solid white;
         border-radius:15px;
     }
