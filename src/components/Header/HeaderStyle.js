@@ -39,6 +39,9 @@ export const HeaderContainer = styled.header`
 `
 
 export const MenuContainer = styled.div`
+@media screen and (min-width: 768px){
+   
+   }
    position: fixed;
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
