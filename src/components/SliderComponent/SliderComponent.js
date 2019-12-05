@@ -5,9 +5,9 @@ export default function SliderComponent(props) {
 
     return (
       <Carousel
-      width="100%"
-      slideWidth="300px"
-      slidesToShow={4}>
+      width={props.width}
+      slideWidth={props.slideWidth}
+      slidesToShow={props.ToShow}>
         {props.children}
       </Carousel>
     );
