@@ -80,7 +80,7 @@ export const MenuContainer = styled.div`
 
 export const ProfileImg = styled.img`
    border-radius: 50%;
-   border: 5px solid black;
+   border: 2px solid darkgray;
    width: 150px;
    height: 150px;
    
@@ -88,10 +88,10 @@ export const ProfileImg = styled.img`
 export const ProfileName = styled.p`
    display:flex;
    justify-content:center;
-   color:black;
+   color:white;
    font-size:25px;
    font-family:Montserrat; 
-   border-bottom:5px solid black;
+   border-bottom:2px solid darkgray;
    width:100%;
  
 `
