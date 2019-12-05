@@ -4,7 +4,11 @@ import '../../assets/fonts/fonts.css'
 
 export const LoginContainer = styled(FlexContainer)`
     background-color: #01A58D;
-    min-height:88vh;
+    width: 100vw;
+    min-height:100vh;
+    z-index: 6;
+    position: fixed;
+    top: 0;
     h1{
         font-size:18px;
         font-weight:400;
