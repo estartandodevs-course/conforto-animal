@@ -1,8 +1,8 @@
 export class User{
-    constructor(name, imgSrc){
+    constructor(name="", imgSrc="", email=""){
         this.name = name
         this.imgSrc = imgSrc
-        this.genre = false
+        this.email = email
     }
 }
 
