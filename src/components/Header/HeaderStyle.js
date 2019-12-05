@@ -83,13 +83,13 @@ export const ProfileImg = styled.img`
    height: 150px;
    
 `
-export const Profilename = styled.p`
+export const ProfileName = styled.p`
    color:black;
  
 `
 export const ListMenu = styled(FlexContainer)`
    display: flex;
-   height: 30%;
+   /* height: 30%; */
 `
 
 export const MenuDesktop = styled.div`

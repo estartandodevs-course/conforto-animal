@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { HeaderContainer, MenuContainer, ProfileImg, ListMenu, MenuDesktop} from './HeaderStyle'
+import { HeaderContainer, MenuContainer, ProfileImg, ListMenu, MenuDesktop, ProfileName} from './HeaderStyle'
 import logo from '../../assets/images/logo.png'
 import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
@@ -49,7 +49,7 @@ const Header = (props) => {
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
-            {user && <Profilename src={user.displayNamae}/>}
+            {user && <ProfileName>{user.displayName}</ProfileName>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
             {optionsMenu.map((res, index)=>{                

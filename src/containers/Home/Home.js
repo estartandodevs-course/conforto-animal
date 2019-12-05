@@ -8,9 +8,9 @@ export default class Home extends Component {
   
   state={
     splash: (window.location.pathname ==="/" ? true : false),
-    dogs: [],
+    dogs: [], 
     cats: [],
-    locations: []
+    locations: [],
   }
   
   componentDidMount(){
