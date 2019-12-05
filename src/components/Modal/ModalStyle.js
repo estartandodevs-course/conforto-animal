@@ -1,65 +1,60 @@
 import styled from 'styled-components'
 
-export const ModalContainer = styled.div`
+const ModalContainer = styled.div`
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color:#01A58D;
     transition: .3s;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    font-family:'Monteserrat';
-    #Title{
-        height:100px
-    }
+    background-color:#01A58D;
+`
+
+const Title = styled.p`
+    font-family: Montserrat, sans-serif;
+    color: #FFFFFF;
+
+`
+export const ModalDonate = styled(ModalContainer)`
     #close{
         position: absolute;
         top: 0;
         left: 0;
         margin: 15px;
         color: white;
-        font-size: 34px
+        font-size: 34px;
         padding:5px;
         width:20px;
         border:1px solid white;
         border-radius:15px;
     }
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     .Icones{
         display:flex;
-        height:250px
+        width: 100%;
+        justify-content: space-around;
         div{
             display:flex;
             flex-direction:column;
-            justify-content:center;
             align-items:center;
-            margin:10px
-            width:128px;
-            height:128px;
             img{
                 border:5px solid white;
                 border-radius:15px;
-                padding:5px
-            }
-            h1{
-                font-weight: normal;
-                font-size: 18px;
+                padding:16px
             }
         }
     }
-    h2{
-        font-weight:300;
-        font-size:24px;
-        padding:10px;
-    }
-    h3{
-        font-weight:500;
-        font-size:18px;
-        font-style:italic;
-        padding:5px
-    }
+`
+export const DonateTitle = styled(Title)`
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0 0 50px 0;
+`
+export const SubTitle = styled(Title)`
+    font-size: 16px;
+    margin: 12px 0 0 0;
+    text-transform: capitalize;
 `
