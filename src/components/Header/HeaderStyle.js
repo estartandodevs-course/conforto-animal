@@ -86,6 +86,7 @@ export const MenuDesktop = styled.div`
    display: flex;
    justify-content: center;
    font-size: 16px;
+   font-style: italic;
    font-family: Montserrat;
    color: #fff;
    display: none;
@@ -99,7 +100,7 @@ export const MenuDesktop = styled.div`
    li{
       display: flex;
       justify-content: center;
-      width: 100px;
+      width: 120px;
       border-right: solid 1px #fff;
       list-style-type: none;
    }
