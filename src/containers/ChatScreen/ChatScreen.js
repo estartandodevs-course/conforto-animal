@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import MapContainer from '../../components/MapContainer';
 import {ChatContainer} from './ChatScreenStyle';
 import {HomeAside} from './chatscreenstyle2';
 import ChatList from '../../components/ChatList/ChatList';
+import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 export default class ChatScreen extends Component {
 
@@ -20,13 +20,14 @@ export default class ChatScreen extends Component {
         message:"masculino",
         
       },
-    ]
+    ],
+    user:GetStorageUser(),
   }
 
   componentDidMount(){
    //antes de montar   
   }
-  
+   //(this.state.user.photoURL) quando for usar tenta usar isso e ve se vai .... se n for me chama ( define isso em um src)
 
   render() {
     const {chats} = this.state
@@ -39,7 +40,7 @@ export default class ChatScreen extends Component {
           {chats.map(chat=> {
             return(
               <ChatList 
-              imgSrc={chat.imgSrc}
+              imgSrc={this.state.user.photoURL}
               name={chat.name}
               mensagem={chat.mensagem}
               
