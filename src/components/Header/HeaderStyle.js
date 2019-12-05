@@ -26,6 +26,8 @@ export const HeaderContainer = styled.header`
    .chatHeader{
       position: absolute;
       right: 7px;
+      display: flex;
+      align-self: center
    }
 
 
