@@ -14,13 +14,14 @@ export const ErrorContainer = styled.div`
     h1{
         font-size:25px;
     }
-    p{
+    a {
+        text-decoration: none;
+        color:white;
         border-bottom:2px solid #107768;
         cursor:pointer;
         font-size:20px;
     }
     @media screen and (max-width:825px){
-        {min-height:99vh;}
+        min-height:99vh;
     }
-}
 `
