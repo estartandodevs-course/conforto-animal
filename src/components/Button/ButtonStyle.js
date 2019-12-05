@@ -24,9 +24,20 @@ export const ButtonContainer = styled.button`
     }
 
     &.btn-menu{
-        border: 2px solid white;
-        border-radius: 30px;
-        margin:5px;
+        border:1px solid darkgray;
+        border-radius:20px;
+        outline:none;
+        margin:10px;
+        height:50px;
+        width:200px;
+        font-size:20px;
+        :hover{
+            background-color:#016E8D;
+            height:50px;
+            width:200px;
+         
+        }
+
     }
 
 `;
