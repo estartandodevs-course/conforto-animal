@@ -4,7 +4,7 @@ import { ButtonContainer } from './ButtonStyle'
 const Button = (props) =>{
     
     return (
-        <ButtonContainer>
+        <ButtonContainer className={props.className} onClick={props.onClick} value={props.value}>
             {props.value}
         </ButtonContainer>
     )
@@ -13,5 +13,3 @@ const Button = (props) =>{
 
 export default Button
 
-
-{/* <Button value={"Quero Adotar"}/> */}

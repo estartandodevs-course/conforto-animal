@@ -7,10 +7,10 @@ const Input = (props)=> {
       type={props.type}
       name={props.name}
       placeholder={props.name}
-      onChange={props.onChange}
+      onChange={props.action}
       onBlur={props.onBlur}
       value={props.value}
-      style={{border: props.error? '1px solid red' : 'none' }}
+      style={{border: props.error && '1px solid red'}}
     />
   );
 }

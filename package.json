@@ -2,13 +2,15 @@
   "name": "conforto-animal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://estartando-devs.github.io/conforto-animal/",
+  "homepage": "https://estartando-devs.github.io/conforto-animal",
   "dependencies": {
+    "firebase": "^7.5.0",
     "formik": "^2.0.6",
-    "google-maps-react": "^2.0.2",
-    "node-sass": "^4.13.0",
+    "google-map-react": "^1.1.5",
+    "nuka-carousel": "^4.5.13",
     "polished": "^3.4.2",
     "react": "^16.12.0",
+    "react-animated-slider": "^1.1.4",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
@@ -38,6 +40,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.1.1"
   }
 }
