@@ -83,8 +83,14 @@ export const ProfileImg = styled.img`
    height: 150px;
    
 `
-export const Profilename = styled.p`
+export const ProfileName = styled.p`
+   display:flex;
+   justify-content:center;
    color:black;
+   font-size:25px;
+   font-family:Montserrat; 
+   border-bottom:5px solid black;
+   width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
