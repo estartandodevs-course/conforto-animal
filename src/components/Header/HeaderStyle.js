@@ -4,7 +4,7 @@ import { FlexContainer } from '../../shared/Structure'
 import '../../assets/fonts/fonts.css'
 
 export const HeaderContainer = styled.header`
-   position: sticky;
+   
    display: flex;
    align-items: center;
    justify-content: space-around;
@@ -47,14 +47,14 @@ export const HeaderContainer = styled.header`
 
 export const MenuContainer = styled.div`
 @media screen and (min-width: 768px){
-   
+      display:none;
    }
    position: fixed;
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
    height: 100%;
    width: 100%;
-   z-index: 4;
+   z-index: 2;
    background-color: #01A58D;
    transition: .4s;
    display: flex;
@@ -69,9 +69,7 @@ export const MenuContainer = styled.div`
       margin: 20px;
       font-family: 'Roboto';  
    }
-   @media screen and (min-width: 768px){
-      display: block;
-   }
+   
 `
 
 export const ProfileImg = styled.img`
@@ -86,15 +84,14 @@ export const Profilename = styled.p`
  
 `
 export const ListMenu = styled(FlexContainer)`
-<<<<<<< HEAD
    height: 30vh;
    margin-top:115px;
-=======
-   display: flex;
+   z-index:5;
    height: 30%;
 `
 
 export const MenuDesktop = styled.div`
+@media screen and (min-width: 768px){
    display: flex;
    justify-content: center;
    font-size: 16px;
@@ -124,7 +121,7 @@ export const MenuDesktop = styled.div`
       align-items: center;
       background-color: #006455;
       height: 75px;
-      transition: 1s;
+      transition: .5s;
       cursor: pointer;
    }
    .last-border{
@@ -133,6 +130,7 @@ export const MenuDesktop = styled.div`
    @media screen and (min-width: 768px){
       display: flex;
       
+      }
    }
->>>>>>> develop
+   display:none;
 `
