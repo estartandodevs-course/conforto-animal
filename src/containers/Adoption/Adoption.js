@@ -4,11 +4,33 @@ import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
 import Button from '../../components/Button/Button';
 import  Slider  from '../../components/SliderComponent/SliderComponent'
+import Modal from '../../components/Modal/Modal'
+import {Lang} from '../../shared/pt'
 
 export default class Adoption extends Component {
 
-  render() {
+  state={
+    showModal: true,
 
+  }
+
+  toggleModal=()=>{
+    this.setState({showModal : !this.state.showModal})
+  }
+  
+  isCat = async ()=>{   
+    await this.setState({class: "cat"})
+    this.toggleModal()
+  }
+
+  isDog = async ()=>{
+    await this.setState({class: "dog"})
+    this.toggleModal()
+  }
+
+
+  render() {
+    const { showModal } = this.state
     return (
 
       <AdoptionContainer>
@@ -44,7 +66,14 @@ export default class Adoption extends Component {
             <p>Cachorrinho filhote, muito dócil, adora crianças e já come ração. Estou doando por motivo de mudança</p>
           </div>
         </FormPet>
-        <Button className="btn-bottom" value="Adotar"/>
+          <Button className="btn-bottom" value="Adotar"/>
+        <Modal 
+          show={showModal} 
+          child={'donate'} 
+          title={Lang.donateTitle} 
+          setDog={this.isDog}
+          setCat={this.isCat}
+        />
       </AdoptionContainer>
     )
   }
