@@ -25,7 +25,7 @@ const Header = (props) => {
             route: '/login'
         },
         {
-            text:'Quem somos' ,
+            text:'Quem Somos' ,
             route: '*'
         },
         {
@@ -33,18 +33,39 @@ const Header = (props) => {
             route: '*'
         },
         {
-            text:'sair',
+            text:'Sair',
             route: '/home'
         },
     ])
-
+    const [optionsHeader] = useState([
+        {
+            text:'Home',
+            route: '/home'
+        },
+        {
+            text: 'Adote',
+            route: '/adoption'
+        },
+        {
+            text: 'Doe',
+            route: '/donate'
+        },
+        {
+            text:'Quem Somos' ,
+            route: '*'
+        },
+        {
+            text:'Meu Perfil',
+            route: '*'
+        },
+    ])
 
     return (
         <>
        <HeaderContainer>
-           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
-            <img className="chatHeader" alt="" onClick={props.onClick} src={Search}/>
+            <img className="menuHeader" src={Menu} alt="Menu" onClick={()=> setShowMenu(!showMenu)}/>
+            <img className="logoImg" src={logo} alt="Logo"   onClick={()=> setShowMenu(!Home)}/>
+            <img className="chatHeader" src={Search} alt="Chat" onClick={props.onClick} />
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
@@ -68,7 +89,7 @@ const Header = (props) => {
         </MenuContainer>
         <MenuDesktop>
             <ul>
-                {optionsMenu.map((options, index) =>{
+                {optionsHeader.map((options, index) =>{
                     return <Link to={options.route} key={index}>
                         <li onClick={()=>{
                             options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
