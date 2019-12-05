@@ -68,23 +68,14 @@ const Header = (props) => {
         </MenuContainer>
         <MenuDesktop>
             <ul>
-                <Link to="/">
-                    <li>HOME</li>
-                </Link>
-                <Link to="/adoption">
-                    <li>ADOTE</li>
-                </Link>
-                <Link to="/donate">
-                    <li>DOE</li>
-                </Link>
-                <Link to="/">
-                    <li>QUEM <br></br>SOMOS</li>
-                </Link>
-                <Link to="/">
-                    <li className="last-border">MEU <br></br> PERFIL</li>
-                </Link>
-
-            </ul>
+                {optionsMenu.map((options, index) =>{
+                    return <Link to={options.route} key={index}>
+                        <li onClick={()=>{
+                            options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
+                        }}>{options.text}</li>
+                    </Link>
+                })}
+            </ul>           
         </MenuDesktop>
        </HeaderContainer>
        
