@@ -19,8 +19,8 @@ export const ButtonContainer = styled.button`
         height: 55px;
         border-radius: 0;
         font-size: 18px;
-        position: fixed;
-        bottom: 0;
+        /* position: fixed; */
+        /* bottom: 0; */
     }
 
     &.btn-menu{
@@ -33,8 +33,8 @@ export const ButtonContainer = styled.button`
         font-size:20px;
         :hover{
             background-color:#016E8D;
-            height:40px;
-            width:180px;
+            height:50px;
+            width:200px;
          
         }
 

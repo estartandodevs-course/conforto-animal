@@ -4,6 +4,8 @@ import { FlexContainer } from '../../shared/Structure'
 import '../../assets/fonts/fonts.css'
 
 export const HeaderContainer = styled.header`
+   position: sticky;
+   top:0;
    display: flex;
    align-items: center;
    justify-content: space-around;
@@ -12,6 +14,7 @@ export const HeaderContainer = styled.header`
    font-family:  Waiting for the Sunrise;
    width: 100%;
    height: 55px;
+   z-index: 5;
    .menuHeader{
       position: absolute;
       left: 7px;
@@ -27,18 +30,27 @@ export const HeaderContainer = styled.header`
 
 
    @media screen and (min-width: 768px){
-      justify-content: space-around;
+      justify-content: space-between;
       font-size: 26px;
       height: 75px;
+      .menuHeader{
+         display: none;
+      }
       .logoImg{
          width: 85px;
          height: 85px;
+      }
+      .chatHeader{
+         display: none;
       }
    }
 
 `
 
 export const MenuContainer = styled.div`
+@media screen and (min-width: 768px){
+      display:none;
+   }
    position: fixed;
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
@@ -59,6 +71,9 @@ export const MenuContainer = styled.div`
       margin: 20px;
       font-family: 'Roboto';  
    }
+   @media screen and (min-width: 768px){
+      display: block;
+   }
 `
 
 export const ProfileImg = styled.img`
@@ -75,4 +90,47 @@ export const Profilename = styled.p`
 export const ListMenu = styled(FlexContainer)`
    height: 30vh;
    margin-top:115px;
+`
+
+export const MenuDesktop = styled.div`
+   display: flex;
+   justify-content: center;
+   font-size: 16px;
+   font-style: italic;
+   font-family: Montserrat;
+   color: #fff;
+   display: none;
+   text-align: center;
+   ul{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 55px;
+   }
+   li{
+      display: flex;
+      justify-content: center;
+      width: 120px;
+      border-right: solid 1px #fff;
+      list-style-type: none;
+   }
+   a{
+      text-decoration: none;
+      color: #fff;
+   }
+   li:hover{
+      display: flex;
+      align-items: center;
+      background-color: #006455;
+      height: 75px;
+      transition: 1s;
+      cursor: pointer;
+   }
+   .last-border{
+      border-right-color: transparent;
+   }
+   @media screen and (min-width: 768px){
+      display: flex;
+      
+   }
 `
