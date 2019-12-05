@@ -58,7 +58,7 @@ export const MenuContainer = styled.div`
    top: 0;
    height: 100%;
    width: 100%;
-   z-index: 2;
+   z-index: 4;
    background-color: #01A58D;
    transition: .4s;
    display: flex;
@@ -86,18 +86,25 @@ export const ProfileImg = styled.img`
    
 `
 export const ProfileName = styled.p`
+   display:flex;
+   justify-content:center;
    color:black;
+   font-size:25px;
+   font-family:Montserrat; 
+   border-bottom:5px solid black;
+   width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
-   display: flex;
-   /* height: 30%; */
+   height: 30vh;
+   margin-top:115px;
 `
 
 export const MenuDesktop = styled.div`
    display: flex;
    justify-content: center;
    font-size: 16px;
+   font-style: italic;
    font-family: Montserrat;
    color: #fff;
    display: none;
@@ -111,7 +118,7 @@ export const MenuDesktop = styled.div`
    li{
       display: flex;
       justify-content: center;
-      width: 100px;
+      width: 120px;
       border-right: solid 1px #fff;
       list-style-type: none;
    }
