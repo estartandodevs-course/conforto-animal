@@ -1,6 +1,6 @@
 import React from 'react';
 import { ModalContainer } from './ModalStyle.js';
-import back from '../../assets/images/back.png'
+import next from '../../assets/images/next.png'
 import gato from '../../assets/images/catIMG.png'
 import cachorro from '../../assets/images/dogIMG.png'
 
