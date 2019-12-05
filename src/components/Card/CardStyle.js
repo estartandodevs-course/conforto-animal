@@ -11,14 +11,16 @@ export const CardContainer = styled.div`
     margin: 15px 0 0 0;
 `
 export const PetImg = styled.img`
-    max-width:100px;
-    height: 96px;
+    width:30%;
+    height: 100%;
     border-radius: 15px;
     &.icon{
         max-width:auto;
         height: auto;
         border-radius: 0px;
         margin:5px;
+        height:15px;
+        width:auto;
     }
     
 `
@@ -26,7 +28,7 @@ export const About = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:100%;
+    width:80%;
     height:100%;
     border-top-right-radius:15px;
     border-bottom-right-radius:15px;
@@ -34,6 +36,7 @@ export const About = styled.div`
 `
 export const Title = styled.h2`
     color:black;
+    font-family:Montserrat;
 
 `
 export const Description = styled.div`
@@ -43,4 +46,6 @@ export const Topic = styled.p`
     color: green;
     display:flex;
     align-items:center;
+    font-family:Montserrat;
+    font-size:12px;
 `

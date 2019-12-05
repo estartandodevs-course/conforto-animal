@@ -8,7 +8,7 @@ export const Authenticated = ()=>{firebase.auth().onAuthStateChanged((user)=> {
 
 export const GetStorageUser = ()=>{
     const user = {
-        name : localStorage.getItem("displayName"),
+        displayName : localStorage.getItem("displayName"),
         photoURL: localStorage.getItem("photoURL"),
         email: localStorage.getItem("email")
     }

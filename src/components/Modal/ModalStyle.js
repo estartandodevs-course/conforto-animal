@@ -9,6 +9,7 @@ const ModalContainer = styled.div`
     transition: .3s;
     display:flex;
     background-color:#01A58D;
+    z-index: 6;
 `
 
 const Title = styled.p`
@@ -26,6 +27,8 @@ export const ModalDonate = styled(ModalContainer)`
         font-size: 34px;
         padding:5px;
         width:20px;
+        height:20px;
+        transform:rotate(180deg);
         border:1px solid white;
         border-radius:15px;
     }
