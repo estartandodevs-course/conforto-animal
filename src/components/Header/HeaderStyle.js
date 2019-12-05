@@ -5,6 +5,7 @@ import '../../assets/fonts/fonts.css'
 
 export const HeaderContainer = styled.header`
    position: sticky;
+   top:0;
    display: flex;
    align-items: center;
    justify-content: space-around;
@@ -13,6 +14,7 @@ export const HeaderContainer = styled.header`
    font-family:  Waiting for the Sunrise;
    width: 100%;
    height: 55px;
+   z-index: 5;
    .menuHeader{
       position: absolute;
       left: 7px;
