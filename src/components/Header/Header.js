@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { HeaderContainer, MenuContainer, ProfileImg, ListMenu, MenuDesktop} from './HeaderStyle'
+import { HeaderContainer, MenuContainer, ProfileImg,Profilename, ListMenu, MenuDesktop} from './HeaderStyle'
 import logo from '../../assets/images/logo.png'
 import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
@@ -68,23 +68,12 @@ const Header = (props) => {
         </MenuContainer>
         <MenuDesktop>
             <ul>
-                <Link to="/">
-                    <li>HOME</li>
-                </Link>
-                <Link to="/adoption">
-                    <li>ADOTE</li>
-                </Link>
-                <Link to="/donate">
-                    <li>DOE</li>
-                </Link>
-                <Link to="/">
-                    <li>QUEM <br></br>SOMOS</li>
-                </Link>
-                <Link to="/">
-                    <li className="last-border">MEU <br></br> PERFIL</li>
-                </Link>
-
-            </ul>
+                {optionsMenu.map((options, index) =>{
+                    return <Link to={options.route} key={index}>
+                        <li>{options.text}</li>
+                    </Link>
+                })}
+            </ul>           
         </MenuDesktop>
        </HeaderContainer>
        
