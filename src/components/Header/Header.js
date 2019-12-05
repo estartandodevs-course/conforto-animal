@@ -70,7 +70,9 @@ const Header = (props) => {
             <ul>
                 {optionsMenu.map((options, index) =>{
                     return <Link to={options.route} key={index}>
-                        <li>{options.text}</li>
+                        <li onClick={()=>{
+                            options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
+                        }}>{options.text}</li>
                     </Link>
                 })}
             </ul>           
