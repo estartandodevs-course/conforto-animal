@@ -25,7 +25,7 @@ const Header = (props) => {
             route: '/login'
         },
         {
-            text:'Quem somos' ,
+            text:'Quem Somos' ,
             route: '*'
         },
         {
@@ -33,11 +33,32 @@ const Header = (props) => {
             route: '*'
         },
         {
-            text:'sair',
+            text:'Sair',
             route: '/home'
         },
     ])
-
+    const [optionsHeader] = useState([
+        {
+            text:'Home',
+            route: '/home'
+        },
+        {
+            text: 'Adote',
+            route: '/adoption'
+        },
+        {
+            text: 'Doe',
+            route: '/donate'
+        },
+        {
+            text:'Quem Somos' ,
+            route: '*'
+        },
+        {
+            text:'Meu Perfil',
+            route: '*'
+        },
+    ])
 
     return (
         <>
@@ -68,7 +89,7 @@ const Header = (props) => {
         </MenuContainer>
         <MenuDesktop>
             <ul>
-                {optionsMenu.map((options, index) =>{
+                {optionsHeader.map((options, index) =>{
                     return <Link to={options.route} key={index}>
                         <li onClick={()=>{
                             options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 

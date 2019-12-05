@@ -16,6 +16,7 @@ export const HeaderContainer = styled.header`
    height: 55px;
    z-index: 5;
    .menuHeader{
+      cursor: pointer;
       position: absolute;
       left: 7px;
    }
@@ -24,6 +25,7 @@ export const HeaderContainer = styled.header`
       height: 55px;
    }
    .chatHeader{
+      cursor: pointer;
       position: absolute;
       right: 7px;
       display: flex;
@@ -98,7 +100,9 @@ export const MenuDesktop = styled.div`
    display: flex;
    justify-content: center;
    font-size: 16px;
+   font-style: italic;
    font-family: Montserrat;
+   text-transform: uppercase;
    color: #fff;
    display: none;
    text-align: center;
@@ -112,7 +116,7 @@ export const MenuDesktop = styled.div`
       display: flex;
       justify-content: center;
       width: 100px;
-      border-right: solid 1px #fff;
+      /* border-right: solid 1px #fff; */
       list-style-type: none;
    }
    a{
@@ -126,6 +130,10 @@ export const MenuDesktop = styled.div`
       height: 75px;
       transition: 1s;
       cursor: pointer;
+   }
+   li:active{
+      background-color: #006455;
+
    }
    .last-border{
       border-right-color: transparent;
