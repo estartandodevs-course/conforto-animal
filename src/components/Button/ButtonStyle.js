@@ -19,8 +19,8 @@ export const ButtonContainer = styled.button`
         height: 55px;
         border-radius: 0;
         font-size: 18px;
-        position: fixed;
-        bottom: 0;
+        /* position: fixed; */
+        /* bottom: 0; */
     }
 
     &.btn-menu{
