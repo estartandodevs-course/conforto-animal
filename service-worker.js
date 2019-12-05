@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/conforto-animal/precache-manifest.66ea154ce1375f8a1cb57fbf08cd5167.js"
+  "/conforto-animal/precache-manifest.df03b19ac9e54202f9c9fe72edff7ff4.js"
 );
 
 self.addEventListener('message', (event) => {
