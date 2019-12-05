@@ -1,26 +1,24 @@
 import styled from 'styled-components'
 
-export const CardContainer = styled.div`
-    width: 296px;
+
+export const ChatListContainer = styled.div` 
+    width: 90vw;
     height: 96px;
     display: flex;
     align-items: center;
     background: #FFFFFF;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
     margin: 15px 0 0 0;
 `
-export const PetImg = styled.img`
-    width:30%;
-    height: 100%;
-    border-radius: 15px;
+export const PersonImg = styled.img`
+    max-width:85px;
+    height: 80px;
+    border-radius: 50%;
     &.icon{
         max-width:auto;
         height: auto;
-        border-radius: 0px;
-        margin:5px;
-        height:15px;
-        width:auto;
+        border-radius: 50%;
+        margin:10px;
     }
     
 `
@@ -28,7 +26,7 @@ export const About = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:80%;
+    width:100%;
     height:100%;
     border-top-right-radius:15px;
     border-bottom-right-radius:15px;
@@ -36,7 +34,6 @@ export const About = styled.div`
 `
 export const Title = styled.h2`
     color:black;
-    font-family:Montserrat;
 
 `
 export const Description = styled.div`
@@ -46,6 +43,4 @@ export const Topic = styled.p`
     color: green;
     display:flex;
     align-items:center;
-    font-family:Montserrat;
-    font-size:12px;
 `
