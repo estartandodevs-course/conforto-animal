@@ -16,6 +16,7 @@ export const HeaderContainer = styled.header`
    height: 55px;
    z-index: 5;
    .menuHeader{
+      cursor: pointer;
       position: absolute;
       left: 7px;
    }
@@ -24,8 +25,11 @@ export const HeaderContainer = styled.header`
       height: 55px;
    }
    .chatHeader{
+      cursor: pointer;
       position: absolute;
       right: 7px;
+      display: flex;
+      align-self: center
    }
 
 
@@ -56,7 +60,7 @@ export const MenuContainer = styled.div`
    top: 0;
    height: 100%;
    width: 100%;
-   z-index: 2;
+   z-index: 4;
    background-color: #01A58D;
    transition: .4s;
    display: flex;
@@ -78,25 +82,33 @@ export const MenuContainer = styled.div`
 
 export const ProfileImg = styled.img`
    border-radius: 50%;
-   border: 5px solid black;
+   border: 2px solid darkgray;
    width: 150px;
    height: 150px;
    
 `
 export const ProfileName = styled.p`
-   color:black;
+   display:flex;
+   justify-content:center;
+   color:white;
+   font-size:25px;
+   font-family:Montserrat; 
+   border-bottom:2px solid darkgray;
+   width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
-   display: flex;
-   /* height: 30%; */
+   height: 30vh;
+   margin-top:115px;
 `
 
 export const MenuDesktop = styled.div`
    display: flex;
    justify-content: center;
    font-size: 16px;
+   font-style: italic;
    font-family: Montserrat;
+   text-transform: uppercase;
    color: #fff;
    display: none;
    text-align: center;
@@ -110,7 +122,7 @@ export const MenuDesktop = styled.div`
       display: flex;
       justify-content: center;
       width: 100px;
-      border-right: solid 1px #fff;
+      /* border-right: solid 1px #fff; */
       list-style-type: none;
    }
    a{
@@ -124,6 +136,10 @@ export const MenuDesktop = styled.div`
       height: 75px;
       transition: 1s;
       cursor: pointer;
+   }
+   li:active{
+      background-color: #006455;
+
    }
    .last-border{
       border-right-color: transparent;
