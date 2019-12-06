@@ -6,6 +6,8 @@ import Button from '../../components/Button/Button';
 import  Slider  from '../../components/SliderComponent/SliderComponent'
 import Modal from '../../components/Modal/Modal'
 import {Lang} from '../../shared/pt'
+import  SliderComponent  from '../../components/SliderComponent/SliderComponent'
+import SliderContainer from '../../components/SliderComponent/sliderStyle.js';
 
 export default class Adoption extends Component {
 
@@ -34,7 +36,7 @@ export default class Adoption extends Component {
     return (
 
       <AdoptionContainer>
-        <Slider/>
+          <SliderComponent />
         <FormPet>
           <div className='label'>
             <img src={paw} alt="" />
@@ -69,8 +71,8 @@ export default class Adoption extends Component {
           <Button className="btn-bottom" value="Adotar"/>
         <Modal 
           show={showModal} 
-          child={'donate'} 
-          title={Lang.donateTitle} 
+          child={'adoption'}
+          title={Lang.adoptionTitle} 
           setDog={this.isDog}
           setCat={this.isCat}
         />
