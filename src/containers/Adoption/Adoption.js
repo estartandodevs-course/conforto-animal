@@ -6,27 +6,60 @@ import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal'
 import {Lang} from '../../shared/pt'
 import  SliderComponent  from '../../components/SliderComponent/SliderComponent'
-
-
+import {firebase, GetStorageUser} from '../../firebase'
 export default class Adoption extends Component {
 
   state={
     showModal: true,
+    class: "",
+    pets: "",
+    cats: false,
+    dogs: false,
+    user: GetStorageUser()
+  }
 
+  componentDidMount(){
+    this.getAll()
+    console.log(this.state);
+    
   }
 
   toggleModal=()=>{
     this.setState({showModal : !this.state.showModal})
   }
   
-  isCat = async ()=>{   
-    await this.setState({class: "cat"})
+
+  getDogs = async ()=>{
     this.toggleModal()
+
+    await firebase.database().ref('pets/dog')
+    .on('value', (snapshot)=>{
+      let res = snapshot.val()
+      let dogs = Object.keys(res).map(key => res[key])  
+      this.setState({dogs: dogs})            
+    })
+    await console.log(this.state.dogs);
+
   }
 
-  isDog = async ()=>{
-    await this.setState({class: "dog"})
+  getCats = async ()=>{
     this.toggleModal()
+    let cats = await Object.keys(this.state.pets.cats)
+    .map(key => this.state.pets.cats[key])
+    this.setState({cats: cats}) 
+    await console.log(this.state.cats);
+    
+  }
+
+  getAll = async ()=>{
+    this.toggleModal()
+    await firebase.database().ref('pets')
+    .on('value', (snapshot)=>{
+      const res = snapshot.val()
+      console.log(res);
+      
+      
+    })
   }
 
 
@@ -72,8 +105,8 @@ export default class Adoption extends Component {
           show={showModal} 
           child={'adoption'}
           title={Lang.adoptionTitle} 
-          setDog={this.isDog}
-          setCat={this.isCat}
+          setDog={this.getAll}
+          setCat={this.getCats}
         />
       </AdoptionContainer>
     )
