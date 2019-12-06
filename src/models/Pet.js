@@ -1,3 +1,4 @@
+import User from './User'
 export class Pet{
     constructor(name="", imgSrc="", sexo="", breed="", castrated="", dewormed=""){
         this.age = ''
@@ -9,7 +10,9 @@ export class Pet{
         this.name = name
         this.sexo= sexo
         this.isAdopted = false   
-        this.location = {lat: "", lng:""}     
+        this.location = {lat: "", lng:""}
+        this.key = ""
+        this.adopter = new User()
     }
 }
 
