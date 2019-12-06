@@ -69,8 +69,8 @@ export default class Adoption extends Component {
           <Button className="btn-bottom" value="Adotar"/>
         <Modal 
           show={showModal} 
-          child={'donate'} 
-          title={Lang.donateTitle} 
+          child={'adoption'}
+          title={Lang.adoptionTitle} 
           setDog={this.isDog}
           setCat={this.isCat}
         />
