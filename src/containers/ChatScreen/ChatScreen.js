@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {ChatContainer} from './ChatScreenStyle';
 import {HomeAside} from './chatscreenstyle2';
 import ChatList from '../../components/ChatList/ChatList';
-import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
+import {GetStorageUser} from '../../firebase'
 
 export default class ChatScreen extends Component {
 
