@@ -2,19 +2,18 @@ import styled from 'styled-components';
 import next from '../../assets/images/next.png';
 
 export const SliderContainer = styled.div`
-body {
-  box-sizing: border-box;
-  padding-top: 75px;
-}
-
+display:flex;
+justify-content:center;
 .slider-wrapper {
-  
+  width:75vw;
   position: relative;
-  height: 70vh;
+  height: 40vh;
   overflow: hidden;
   background-color:#EFEFEF;
 }
-
+div.slide.current.slider-content{
+    background-size:contain;
+}
 .previousButton, .nextButton {
 		position: absolute;
 		top: 50%;
