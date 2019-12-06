@@ -3,11 +3,10 @@ import { AdoptionContainer, FormPet } from './AdoptionStyle'
 import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
 import Button from '../../components/Button/Button';
-import  Slider  from '../../components/SliderComponent/SliderComponent'
 import Modal from '../../components/Modal/Modal'
 import {Lang} from '../../shared/pt'
 import  SliderComponent  from '../../components/SliderComponent/SliderComponent'
-import SliderContainer from '../../components/SliderComponent/sliderStyle.js';
+
 
 export default class Adoption extends Component {
 
@@ -68,7 +67,7 @@ export default class Adoption extends Component {
             <p>Cachorrinho filhote, muito dócil, adora crianças e já come ração. Estou doando por motivo de mudança</p>
           </div>
         </FormPet>
-          <Button className="btn-bottom" value="Adotar"/>
+        <Button className="btn-bottom" value="Adotar"/>
         <Modal 
           show={showModal} 
           child={'adoption'}

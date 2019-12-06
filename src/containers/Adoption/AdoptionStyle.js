@@ -6,18 +6,18 @@ import { FlexContainer } from '../../shared/Structure';
 export const AdoptionContainer = styled(FlexContainer)`
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 90vh;
+    background-color: #EBEBEB;
 `
 export const FormPet = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     font-family: Montserrat, sans-serif;
-    background-color: #fff;
     height: 50vh;
-    margin-left: 20px;
 
     .label{
+        margin-left: 20px;
         display: flex;
         align-items: center;
         @media screen and (min-width: 768px){
@@ -31,6 +31,7 @@ export const FormPet = styled.form`
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+        margin-left: 20px;
         font-size: 14px;
         font-style: normal;
         font-weight: normal;
