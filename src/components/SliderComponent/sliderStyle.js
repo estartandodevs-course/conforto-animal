@@ -19,10 +19,10 @@ div.slide.current.slider-content{
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: 10;
-    background: url(${next}) no-repeat center center / 12px;
-    border:2px solid #00FFDA;
-    padding:1px;
-    border-radius:17px;
+        background: url(${next}) no-repeat center center / 12px;
+        border:2px solid #00FFDA;
+        padding:1px;
+        border-radius:17px;
 		width: 32px;
 		height: 32px;
 		text-indent: -9999px;
@@ -52,7 +52,6 @@ div.slide.current.slider-content{
 
 @media (max-width: 640px) {
   .slider-wrapper, .slide {
-    height: calc(80vh - 75px);
   }    
 }
 
