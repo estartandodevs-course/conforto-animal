@@ -18,11 +18,26 @@ export const HeaderContainer = styled.header`
    .menuHeader{
       cursor: pointer;
       position: absolute;
+      font-size: 27px;
       left: 7px;
+      &:focus{
+         outline: none;
+      }
    }
    .logoImg{
-      width: 55px;
-      height: 55px;
+      width: 60px;
+      height: 60px;
+   }
+   .textLogo{
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+   }
+   .textConforto{
+      display: none;
+   }
+   .textAnimal{
+      display: none;
    }
    .chatHeader{
       cursor: pointer;
@@ -43,6 +58,17 @@ export const HeaderContainer = styled.header`
       .logoImg{
          width: 85px;
          height: 85px;
+      }
+      .textConforto{
+         display: flex;
+         position: absolute;
+         bottom: 25px;
+         left: 72px;
+      }
+      .textAnimal{
+         display: flex;
+         position: absolute;
+         left: 60px;
       }
       .chatHeader{
          display: none;
