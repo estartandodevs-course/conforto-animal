@@ -12,7 +12,7 @@ import DonateContainer from './containers/Donate/Donate'
 import Header from './components/Header/Header'
 import ErrorScreen from './containers/ErrorScreen/ErrorScreen.js';
 import ChatScreen from './containers/ChatScreen/ChatScreen.js';
-
+import ProfileScreen from './containers/Profile/Profile'
 
 export default function Routers() {
   return (
@@ -27,6 +27,7 @@ export default function Routers() {
         <Route path="/adoption" component={AdoptionContainer}/>
         <Route path="/donate" component={DonateContainer}/>
         <Route path="/chat" component={ChatScreen}/>
+        <Route path="/profile" component={ProfileScreen}/>
         <Route path="*" component={ErrorScreen}/>
 
         
