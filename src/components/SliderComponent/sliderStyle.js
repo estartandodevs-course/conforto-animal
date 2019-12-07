@@ -5,9 +5,9 @@ export const SliderContainer = styled.div`
 display:flex;
 justify-content:center;
 .slider-wrapper {
-  width:75vw;
+  width: 100vw;
   position: relative;
-  height: 40vh;
+  height: 36vh;
   overflow: hidden;
   background-color:#EFEFEF;
 }
@@ -18,7 +18,7 @@ div.slide.current.slider-content{
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		z-index: 10;
+		z-index: 3;
         background: url(${next}) no-repeat center center / 12px;
         border:2px solid #00FFDA;
         padding:1px;
@@ -50,9 +50,11 @@ div.slide.current.slider-content{
   }    
 }
 
-@media (max-width: 640px) {
-  .slider-wrapper, .slide {
-  }    
+@media (min-width: 768px) {
+  .slider-wrapper {
+    height: 50vh;
+    width: 58vw;
+  }   
 }
 
 @media (max-height: 600px) {
