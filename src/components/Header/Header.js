@@ -63,9 +63,9 @@ const Header = (props) => {
     return (
         <>
        <HeaderContainer>
-            <img className="menuHeader" src={Menu} alt="Menu" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" src={logo} alt="Logo"   onClick={()=> setShowMenu(!Home)}/>
-            <img className="chatHeader" src={Search} alt="Chat" onClick={props.onClick} />
+           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
+            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
+            <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>

@@ -28,6 +28,8 @@ export const HeaderContainer = styled.header`
       cursor: pointer;
       position: absolute;
       right: 7px;
+      display: flex;
+      align-self: center
    }
 
 
@@ -58,7 +60,7 @@ export const MenuContainer = styled.div`
    top: 0;
    height: 100%;
    width: 100%;
-   z-index: 2;
+   z-index: 4;
    background-color: #01A58D;
    transition: .4s;
    display: flex;
@@ -80,18 +82,24 @@ export const MenuContainer = styled.div`
 
 export const ProfileImg = styled.img`
    border-radius: 50%;
-   border: 5px solid black;
+   border: 2px solid darkgray;
    width: 150px;
    height: 150px;
    
 `
 export const ProfileName = styled.p`
-   color:black;
+   display:flex;
+   justify-content:center;
+   color:white;
+   font-size:25px;
+   font-family:Montserrat; 
+   border-bottom:2px solid darkgray;
+   width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
-   display: flex;
-   /* height: 30%; */
+   height: 30vh;
+   margin-top:115px;
 `
 
 export const MenuDesktop = styled.div`

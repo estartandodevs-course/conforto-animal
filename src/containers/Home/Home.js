@@ -36,10 +36,13 @@ export default class Home extends Component {
     .on('value', (snapshot)=>{
       let res = snapshot.val()
       let cats = Object.keys(res).map(key => res[key])
-      this.setState({cats: cats})            
+      this.setState({cats: cats})
+      console.log(cats)
     })
   }
-
+  teste =()=>{
+    console.log(this.getCats)
+  }
   render() {
     const {splash, dogs, cats} = this.state
 
@@ -56,7 +59,8 @@ export default class Home extends Component {
               imgSrc={pet.imgSrc}
               title={pet.name}
               sexo={pet.sexo}
-              age={pet.age}
+                action={this.teste}
+                age={pet.age}
               />
             )})
           }
@@ -69,6 +73,8 @@ export default class Home extends Component {
                 title={pet.name}
                 sexo={pet.sexo}
                 age={pet.age}
+                action={this.teste}
+
                 />
               )})
           }

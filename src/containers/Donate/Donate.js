@@ -12,9 +12,11 @@ export default class Donate extends Component {
   
   state={
     showModal: true,
-    images: [],
+    image: [],
     pet: new Pet(),
-    class: ""
+    class: "",
+    url: "",
+    progress: 0
   }
   
   componentDidMount(){
@@ -55,10 +57,37 @@ export default class Donate extends Component {
     this.setState({pet: pet})
   }
 
-  onSubmit = async (event)=>{
-    console.log(this.state.pet);
-    await this.insertPet()       
-    this.setState({pet: new Pet()})
+  handleUpload = e => {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+      const uploadTask = firebase.storage().ref(`images/${image.name}`).put(image);
+      uploadTask.on(
+        "state_changed",
+        snapshot => {
+          // progress function ...
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          this.setState({ progress });
+        },
+        error => {
+          // Error function ...
+          console.log(error);
+        },
+        () => {
+          // complete function ...
+          firebase.storage()
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            const pet = Object.assign({}, this.state.pet)
+            pet.imgSrc = url
+            this.setState({pet: pet})
+          });
+        }
+      );
+    }
   }
 
   insertPet(){
@@ -66,13 +95,18 @@ export default class Donate extends Component {
     this.state.pet.name !=="" && firebase.database().ref('pets').child(this.state.class).push(send)
   }
 
+  onSubmit = async (event)=>{   
+    await this.insertPet()       
+    this.setState({pet: new Pet()})
+  }
+
   render() {
-    const {pet, showModal} = this.state
+    const {pet, showModal, url, progress} = this.state
     return (
       <DonateContainer alignItems={'center'} flexDirection={'column'}>
         <FormPets >
         <UploadImg >
-          <label htmlFor="avatar" >+</label>
+          {progress < 100 ? <label htmlFor="avatar" >+</label>: <p>ok</p>}
           <input 
             type="file"
             id="avatar"
@@ -80,8 +114,8 @@ export default class Donate extends Component {
             multiple
             style={{display: 'none'}}
             name={'imgSrc'} 
-            value={pet.imgSrc} 
-            onChange={this.onChange}
+            value={url} 
+            onChange={this.handleUpload}
           />
         </UploadImg>
 
