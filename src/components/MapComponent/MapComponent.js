@@ -20,27 +20,38 @@ export default class MapComponent extends Component {
       let res = snapshot.val() 
       let dogs = Object.keys(res).map(key => res[key]) 
       let coords = dogs.map(res => res.location) 
-      let positions = this.state.positions 
-      coords.map(res => positions.push(res)) 
+      let positions = this.state.positions
+      coords.map(position => {
+        positions.push({
+        ...position,
+        type: "dog"
+      })
+    })
+
       this.setState({
-        positions: positions,
-        isDog: true,
-      }) 
-      console.log(this.state.isDog)
+        positions: positions
+      })
+      console.log(res)
     })
   }
+
   getCatsCoords = async () => {
     await firebase.database().ref('pets/cat').on('value', (snapshot) => {
-      let res = snapshot.val() 
-      let cats = Object.keys(res).map(key => res[key]) 
-      let coords = cats.map(res => res.location) 
-      let positions = this.state.positions 
-      coords.map(res => positions.push(res)) 
+      let res = snapshot.val()
+      let cats = Object.keys(res).map(key => res[key])
+      let coords = cats.map(res => res.location)
+      let positions = this.state.positions
+      coords.map(position => {
+        positions.push({
+        ...position,
+        type: "cat"
+      })
+    })
+
       this.setState({
-        positions: positions,
-        isDog: false,
-      }) 
-      console.log(this.state.isDog)
+        positions: positions
+      })
+      console.log(res)
     })
   }
   static defaultProps = {
@@ -57,7 +68,6 @@ export default class MapComponent extends Component {
       positions: _positions
     })
   }
-  
   render() {
     return (
       <MapContainer>
@@ -68,7 +78,8 @@ export default class MapComponent extends Component {
           defaultZoom={this.props.zoom}
         >
           {this.state.positions.map((pos,index)=>{
-            return this.state.isDog === true 
+            console.log(pos)
+            return pos.type === "dog" 
               ? 
               <MyMarker animal={cachorro} key={index} lat={pos.lat} lng={pos.lng} title={'cachorro'} />
               : 

@@ -4,7 +4,7 @@ import { ButtonContainer } from './ButtonStyle'
 const Button = (props) =>{
     
     return (
-        <ButtonContainer className={props.className} onClick={props.onClick} value={props.value}>
+        <ButtonContainer className={props.className} onClick={props.action} value={props.value}>
             {props.value}
         </ButtonContainer>
     )

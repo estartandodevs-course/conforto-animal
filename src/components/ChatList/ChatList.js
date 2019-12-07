@@ -1,7 +1,5 @@
 import React from 'react'
 import { ChatListContainer, Title, About, PersonImg, Description, Topic } from './ChatListStyle'
-import Button from '../Button/Button'
-import paw from '../../assets/images/paw.png'
 
 const ChatList = (props)=>{
     return (

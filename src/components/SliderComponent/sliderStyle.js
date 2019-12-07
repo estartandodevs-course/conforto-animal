@@ -5,9 +5,9 @@ export const SliderContainer = styled.div`
 display:flex;
 justify-content:center;
 .slider-wrapper {
-  width:100vw;
+  width: 100vw;
   position: relative;
-  height: 35vh;
+  height: 36vh;
   overflow: hidden;
   background-color:#EFEFEF;
 }
@@ -52,12 +52,9 @@ div.slide.current.slider-content{
 
 @media (min-width: 768px) {
   .slider-wrapper {
-    width:100vw;
-    position: relative;
-    height: 45vh;
-    overflow: hidden;
-    background-color:#EFEFEF;
-  }    
+    height: 50vh;
+    width: 58vw;
+  }   
 }
 
 @media (max-height: 600px) {
