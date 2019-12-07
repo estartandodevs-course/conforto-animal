@@ -29,6 +29,7 @@ export const HeaderContainer = styled.header`
       height: 60px;
    }
    .textLogo{
+      display: none;
       font-style: normal;
       font-weight: 300;
       font-size: 20px;
@@ -58,6 +59,9 @@ export const HeaderContainer = styled.header`
       .logoImg{
          width: 85px;
          height: 85px;
+      }
+      .textLogo{
+         display: flex;
       }
       .textConforto{
          display: flex;
