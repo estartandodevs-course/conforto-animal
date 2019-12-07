@@ -63,8 +63,12 @@ const Header = (props) => {
     return (
         <>
        <HeaderContainer>
-           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
+            <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
             <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
+               <div className="textLogo">
+                    <p className="textConforto">Conforto</p>
+                    <p className="textAnimal">Animal</p>
+               </div>
             <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
         <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
