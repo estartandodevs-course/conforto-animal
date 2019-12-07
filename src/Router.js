@@ -11,6 +11,7 @@ import AdoptionContainer from './containers/Adoption/Adoption'
 import DonateContainer from './containers/Donate/Donate'
 import Header from './components/Header/Header'
 import ErrorScreen from './containers/ErrorScreen/ErrorScreen.js';
+import ChatScreen from './containers/ChatScreen/ChatScreen.js';
 
 
 export default function Routers() {
@@ -25,7 +26,10 @@ export default function Routers() {
         <Route path="/spl" component={SplashScreen}/>
         <Route path="/adoption" component={AdoptionContainer}/>
         <Route path="/donate" component={DonateContainer}/>
+        <Route path="/chat" component={ChatScreen}/>
         <Route path="*" component={ErrorScreen}/>
+
+        
       </Switch>
     </BrowserRouter>
   )
