@@ -1,35 +1,85 @@
 import React, { Component } from 'react'
-import MapContainer from '../../components/MapContainer';
+import MapComponent from '../../components/MapComponent/MapComponent';
 import SplashContainer from '../SplashScreen/Splash'
-import {HomeContainer} from './HomeStyle'
-import Header from '../../components/Header/Header'
-// import Button from '../../components/Button/Button';
-import Button from '../../components/Button/Button'
-
+import {HomeContainer, HomeAside} from './HomeStyle'
+import Card from '../../components/Card/Card';
+import {firebase} from '../../firebase'
 export default class Home extends Component {
-
+  
   state={
-    splash: (window.location.pathname ==="/" ? true : false)
+    splash: (window.location.pathname ==="/" ? true : false),
+    dogs: [], 
+    cats: [],
+    locations: [],
+  }
+  
+  componentDidMount(){
+    setTimeout(()=>{this.setState({splash: false})},2000);    
   }
 
-  componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000)    
+  componentWillMount(){
+    this.getDogs()
+    this.getCats()
   }
-  logout=()=>{
-    localStorage.clear();
-    window.location.href = '/login';
+
+  getDogs = async ()=>{
+    await firebase.database().ref('pets/dog')
+    .on('value', (snapshot)=>{
+      let res = snapshot.val()
+      let dogs = Object.keys(res).map(key => res[key])  
+      this.setState({dogs: dogs})            
+    })
+  }
+
+  getCats = async ()=>{
+    await firebase.database().ref('pets/cat')
+    .on('value', (snapshot)=>{
+      let res = snapshot.val()
+      let cats = Object.keys(res).map(key => res[key])
+      this.setState({cats: cats})
+      console.log(cats)
+    })
+  }
+  teste =()=>{
+    console.log(this.getCats)
   }
   render() {
-    const {splash} = this.state
+    const {splash, dogs, cats} = this.state
+
     return(
       splash ? <SplashContainer/> 
       :
       <HomeContainer flexDirection={'column'}>
-        <Header/>
-        <MapContainer/>
-        <Button onClick={this.logout} value="Fazer Logout"/>
+        <MapComponent />
+        <HomeAside flexDirection={'column'} alignItems={'center'}>
+          {dogs.map((pet, index)=> {
+            return(
+              <Card 
+              key={index}
+              imgSrc={pet.imgSrc}
+              title={pet.name}
+              sexo={pet.sexo}
+                action={this.teste}
+                age={pet.age}
+              />
+            )})
+          }
+          {
+            cats.map((pet, index)=> {
+              return(
+                <Card 
+                key={index}
+                imgSrc={pet.imgSrc}
+                title={pet.name}
+                sexo={pet.sexo}
+                age={pet.age}
+                action={this.teste}
+
+                />
+              )})
+          }
+        </HomeAside>
       </HomeContainer>
     )
-      
   }
 }

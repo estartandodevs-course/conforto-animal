@@ -1,19 +1,51 @@
 import styled from 'styled-components'
-import{ darken, lighten } from 'polished'
 
 export const CardContainer = styled.div`
-    width: 250px;
-    height: 300px;
+    width: 296px;
+    height: 96px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: red;
-    h1{
-        color: ${lighten(0.25, 'black')};
+    background: #FFFFFF;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin: 15px 0 0 0;
+`
+export const PetImg = styled.img`
+    width:30%;
+    height: 100%;
+    border-radius: 15px;
+    &.icon{
+        max-width:auto;
+        height: auto;
+        border-radius: 0px;
+        margin:5px;
+        height:15px;
+        width:auto;
     }
-    img{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-    }
+    
+`
+export const About = styled.div`
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:80%;
+    height:100%;
+    border-top-right-radius:15px;
+    border-bottom-right-radius:15px;
+    
+`
+export const Title = styled.h2`
+    color:black;
+    font-family:Montserrat;
+
+`
+export const Description = styled.div`
+    display:flex;
+`
+export const Topic = styled.p`   
+    color: green;
+    display:flex;
+    align-items:center;
+    font-family:Montserrat;
+    font-size:12px;
 `
