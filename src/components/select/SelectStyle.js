@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { lighten } from "polished";
 
-export const InputContainer = styled.input`
-  width: ${props => (props.type !== "textarea" ? "149px" : "286px")};
-  height: ${props => (props.type !== "textarea" ? "19px" : "68px")};
+const SelectContainer = styled.select`
+  width: "286px";
+  height: "19px";
   padding: 5px;
   border: 1px solid #c4c4c4;
   border-radius: 7px;
@@ -12,3 +12,5 @@ export const InputContainer = styled.input`
     outline: none;
   }
 `;
+
+export default SelectContainer;

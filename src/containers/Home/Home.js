@@ -31,13 +31,13 @@ export default class Home extends Component {
     })
   }
 
-  getCats = async ()=>{
+  getCats = async () => {
     await firebase.database().ref('pets/cat')
     .on('value', (snapshot)=>{
       let res = snapshot.val()
       let cats = Object.keys(res).map(key => res[key])
       this.setState({cats: cats})
-      console.log(cats)
+      console.log("CATS :: ", cats)
     })
   }
   teste =()=>{

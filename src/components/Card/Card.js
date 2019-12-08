@@ -4,7 +4,6 @@ import Button from '../Button/Button'
 import paw from '../../assets/images/paw.png'
 
 const Card = (props)=>{
-console.log(props.action)
     return (
         <CardContainer >
 

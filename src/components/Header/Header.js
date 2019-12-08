@@ -56,7 +56,7 @@ const Header = (props) => {
         },
         {
             text:'Meu Perfil',
-            route: '*'
+            route: '/profile'
         },
     ])
 
