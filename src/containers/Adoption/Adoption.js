@@ -19,9 +19,7 @@ export default class Adoption extends Component {
   }
 
   componentDidMount(){
-    this.getAll()
-    console.log(this.state);
-    
+    this.getAll()    
   }
 
   toggleModal=()=>{
@@ -36,7 +34,7 @@ export default class Adoption extends Component {
     .on('value', (snapshot)=>{
       let res = snapshot.val()
       let dogs = Object.keys(res).map(key => res[key])  
-      this.setState({dogs: dogs})            
+      this.setState({dogs: dogs})        
     })
     await console.log(this.state.dogs);
 
