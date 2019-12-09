@@ -14,7 +14,8 @@ export default class Home extends Component {
   }
   
   componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000);    
+    setTimeout(()=>{this.setState({splash: false})},2000);
+    console.log(this.props)   
   }
 
   componentWillMount(){
@@ -26,7 +27,8 @@ export default class Home extends Component {
     await firebase.database().ref('pets/dog')
     .on('value', (snapshot)=>{
       let res = snapshot.val()
-      let dogs = Object.keys(res).map(key => res[key])  
+      // console.log(res);
+      let dogs = Object.keys(res).map(key => ({key,...res[key]}))  
       this.setState({dogs: dogs})            
     })
   }
@@ -35,13 +37,15 @@ export default class Home extends Component {
     await firebase.database().ref('pets/cat')
     .on('value', (snapshot)=>{
       let res = snapshot.val()
-      let cats = Object.keys(res).map(key => res[key])
+      let cats = Object.keys(res).map(key => ({key,...res[key]}))
+      console.log(cats);
+      
       this.setState({cats: cats})
-      console.log(cats)
     })
   }
-  teste =()=>{
-    console.log(this.getCats)
+
+  teste =(pet)=>{
+    console.log(pet)
   }
   render() {
     const {splash, dogs, cats} = this.state
@@ -59,7 +63,7 @@ export default class Home extends Component {
               imgSrc={pet.imgSrc}
               title={pet.name}
               sexo={pet.sexo}
-                action={this.teste}
+                action={()=> this.props.history.push(`/adoption/${pet.key}`)}
                 age={pet.age}
               />
             )})
