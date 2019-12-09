@@ -8,7 +8,7 @@ import { firebase } from "../../firebase";
 import Modal from "../../components/Modal/Modal";
 import { Lang } from "../../shared/pt";
 import Select from "../../components/select/Select";
-
+import { PetService } from "../../services/pets";
 export default class Donate extends Component {
   state = {
     showModal: true,
@@ -18,6 +18,8 @@ export default class Donate extends Component {
     url: "",
     progress: 0
   };
+
+  petService = new PetService();
 
   componentDidMount() {
     this.getLocation();
@@ -94,19 +96,11 @@ export default class Donate extends Component {
     }
   };
 
-  insertPet() {
-    const send = this.state.pet;
-    return firebase
-      .database()
-      .ref("pets")
-      .child(this.state.class)
-      .push(send);
-    // console.log("REF PETS :: ", refPet, send);
-    // refPet.set(send);
-  }
-
   onSubmit = async event => {
-    const response = await this.insertPet();
+    const response = await this.petService.insertPet(
+      this.state.pet,
+      this.state.class
+    );
     console.log("REF PETS :: ", response);
     this.setState({ pet: new Pet() });
   };
