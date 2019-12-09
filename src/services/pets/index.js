@@ -31,4 +31,12 @@ export class PetService {
         this.Cats.next(cats);
       });
   };
+
+  insertPet(pet, classPet) {
+    return firebase
+      .database()
+      .ref("pets")
+      .child(classPet || "dog")
+      .push(pet);
+  }
 }
