@@ -19,33 +19,32 @@ export default class Adoption extends Component {
   }
 
   componentDidMount(){
-    this.getAll()    
+    const { key } = this.props.match.params
+    console.log("KEY :: ", key)
+
+    this.getAll()
+    // console.log(this.state);
+    
   }
 
   toggleModal=()=>{
     this.setState({showModal : !this.state.showModal})
   }
-  
+ 
 
   getDogs = async ()=>{
-    this.toggleModal()
-
-    await firebase.database().ref('pets/dog')
-    .on('value', (snapshot)=>{
-      let res = snapshot.val()
-      let dogs = Object.keys(res).map(key => res[key])  
-      this.setState({dogs: dogs})        
-    })
-    await console.log(this.state.dogs);
+    let dogs = await Object.keys(this.state.pets.dog)
+    .map(key => this.state.pets.dog[key])
+    this.setState({dogs: dogs}) 
+    // console.log(this.state.dogs);
 
   }
 
   getCats = async ()=>{
-    this.toggleModal()
-    let cats = await Object.keys(this.state.pets.cats)
-    .map(key => this.state.pets.cats[key])
+    let cats = await Object.keys(this.state.pets.cat)
+    .map(key => this.state.pets.cat[key])
     this.setState({cats: cats}) 
-    await console.log(this.state.cats);
+    // console.log(this.state.cats);
     
   }
 
@@ -54,10 +53,11 @@ export default class Adoption extends Component {
     await firebase.database().ref('pets')
     .on('value', (snapshot)=>{
       const res = snapshot.val()
-      console.log(res);
-      
-      
+      this.setState({pets: res})
+      this.getDogs()
+      this.getCats()
     })
+
   }
 
 
@@ -68,6 +68,10 @@ export default class Adoption extends Component {
       <AdoptionContainer>
           <SliderComponent />
         <FormPet>
+          <div className='label'>
+            <img src={paw} alt="" />
+          </div>
+
           <div className='label'>
             <img src={paw} alt="" />
             <Input name={'sexo'} type={'select'} options={['Masc', 'Fem']} />

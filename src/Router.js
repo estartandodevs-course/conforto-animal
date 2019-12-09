@@ -25,7 +25,8 @@ export default function Routers() {
         <Route path="/login" component={Login}/>
         <Route path="/home" component={Home}/>
         <Route path="/spl" component={SplashScreen}/>
-        <Route path="/adoption" component={AdoptionContainer}/>
+        <Route path="/adoption" exact component={AdoptionContainer}/>
+        <Route path="/adoption/:key" component={AdoptionContainer}/>
         <Route path="/donate" component={DonateContainer}/>
         <Route path="/chat" component={ChatScreen}/>
         <Route path="/profile" component={ProfileScreen}/>
