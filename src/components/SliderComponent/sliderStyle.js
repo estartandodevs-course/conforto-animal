@@ -6,10 +6,11 @@ display:flex;
 justify-content:center;
 .slider-wrapper {
   width: 100vw;
+  height: 35vh;
+  
   position: relative;
-  height: 36vh;
   overflow: hidden;
-  background-color:#EFEFEF;
+  background-color:#EBEBEB;
 }
 div.slide.current.slider-content{
     background-size:contain;
@@ -33,15 +34,9 @@ div.slide.current.slider-content{
   -webkit-transform: rotate(180deg) translateY(calc(50% + 0px));
           transform: rotate(180deg) translateY(calc(50% + 0px));
 }
-.previousButton:hover {
-  left: -5px;
-}
+
 .nextButton {
   right: 0;
-}
-
-.nextButton:hover {
-  right: -10px;
 }
 
 @media (max-height: 500px) {
@@ -49,11 +44,10 @@ div.slide.current.slider-content{
     height: calc(100vh - 75px);
   }    
 }
-
 @media (min-width: 768px) {
   .slider-wrapper {
-    height: 50vh;
-    width: 58vw;
+    height: 30vh;
+    width: 50vw;
   }   
 }
 
