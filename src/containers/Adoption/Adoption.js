@@ -15,28 +15,27 @@ export default class Adoption extends Component {
     pets: "",
     cats: false,
     dogs: false,
-    user: GetStorageUser()
+    user: GetStorageUser(),
   }
 
-  componentDidMount(){
+  async componentDidMount(){
     const { key } = this.props.match.params
-    console.log("KEY :: ", key)
+    await this.setState({key: key})
+    console.log("KEY :: ", this.state.key)
 
     this.getAll()
-    // console.log(this.state);
-    
   }
-
+  
   toggleModal=()=>{
     this.setState({showModal : !this.state.showModal})
   }
  
-
+  
   getDogs = async ()=>{
     let dogs = await Object.keys(this.state.pets.dog)
     .map(key => this.state.pets.dog[key])
     this.setState({dogs: dogs}) 
-    // console.log(this.state.dogs);
+    console.log(this.state.dogs);
 
   }
 
@@ -59,49 +58,54 @@ export default class Adoption extends Component {
     })
 
   }
-
-
+  
+  
   render() {
-    const { showModal } = this.state
+    const { showModal, key } = this.state
     return (
 
       <AdoptionContainer>
           <SliderComponent />
         <FormPet>
+          {/* <div className='label'>
+            <img src={paw} alt="" />
+          </div> */}
+
           <div className='label'>
             <img src={paw} alt="" />
+            {/* <Input name={'sexo'} type={'select'} options={['Masc', 'Fem']} /> */}
+            macho
           </div>
 
           <div className='label'>
             <img src={paw} alt="" />
-            <Input name={'sexo'} type={'select'} options={['Masc', 'Fem']} />
+            {/* <Input name={'raça'} /> */}
+            vira-lata
           </div>
 
           <div className='label'>
             <img src={paw} alt="" />
-            <Input name={'raça'} />
+            18 anos
+            {/* <Input name={'idade'} /> */}
           </div>
 
           <div className='label'>
             <img src={paw} alt="" />
-            <Input name={'idade'} />
+            sim
+            {/* <Input name={'castrado'} type={'select'} options={['Sim', 'Nao']} /> */}
           </div>
 
           <div className='label'>
             <img src={paw} alt="" />
-            <Input name={'castrado'} type={'select'} options={['Sim', 'Nao']} />
+            não
+            {/* <Input name={'Vermifugado'} type={'select'} options={['Sim', 'Nao']} /> */}
           </div>
 
-          <div className='label'>
-            <img src={paw} alt="" />
-            <Input name={'Vermifugado'} type={'select'} options={['Sim', 'Nao']} />
-          </div>
-
+        </FormPet>
           <div className='description' name={'descricao'} type={'text'}>
             <h3>Descrição</h3>
             <p>Cachorrinho filhote, muito dócil, adora crianças e já come ração. Estou doando por motivo de mudança</p>
           </div>
-        </FormPet>
         <Button className="btn-bottom" value="Adotar"/>
         <Modal 
           show={showModal} 
