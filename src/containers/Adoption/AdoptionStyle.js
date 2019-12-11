@@ -54,28 +54,45 @@ export const AdoptionContainer = styled(FlexContainer)`
 export const FormPet = styled.form`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: #333333;
+    font-size: 25px;
     justify-content: space-around;
     font-family: Montserrat, sans-serif;
-    height: 50vh;
-
-    .label{
-        margin-left: 20px;
+    height: 37vh;
+    .id-pets{
         display: flex;
-        align-items: center;
-    }
-    
-    @media screen and (min-width: 768px) {
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-        display: flex;
-        width: 50vw;
-        height: 13vw;
-        max-width: 420px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        justify-content: flex-start;
+        color: #000;
+        font-size: 14px;
         .label{
-            margin: 30px;
+            margin: 0 0 7px 20px;
+            display: flex;
+            align-items: center;
+            img{
+                padding-right: 7px;
+            }
         }
-       
+
+    }
+    @media screen and (min-width: 768px) {
+        height: 30vh;
+        .id-pets{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 15vh;
+            .label{
+                margin: 10px 90px;
+                img{
+                    padding-right: 7px;
+                }
+            }
+        }
+
     }
 `
