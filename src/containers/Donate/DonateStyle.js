@@ -12,6 +12,7 @@ export const DonateContainer = styled(FlexContainer)`
         align-items: center;
         img{
             margin: 0 11px 0 29px;
+            height: 20px;
         }
     }
     .description{

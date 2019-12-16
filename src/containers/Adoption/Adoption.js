@@ -1,29 +1,27 @@
 import React, { Component } from 'react'
 import { AdoptionContainer, FormPet } from './AdoptionStyle'
-//import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
 import Button from '../../components/Button/Button';
-import Modal from '../../components/Modal/Modal'
-import { Lang } from '../../shared/pt'
+// import Modal from '../../components/Modal/Modal'
+// import { Lang } from '../../shared/pt'
 import SliderComponent from '../../components/SliderComponent/SliderComponent'
-import { firebase, GetStorageUser } from '../../firebase'
+import { GetStorageUser } from '../../firebase'
 export default class Adoption extends Component {
 
   state = {
     showModal: true,
     class: "",
-    pets: "",
+    pet: "",
     cats: false,
     dogs: false,
     user: GetStorageUser(),
   }
 
   async componentDidMount() {
-    const { key } = this.props.match.params
-    await this.setState({ key: key })
-    console.log("KEY :: ", this.state.key)
-
-    this.getAll()
+    let pet = this.props.history.location.state;
+    pet.listImgSrc = [pet.imgSrc, pet.imgSrc];
+    console.log("pets -> ", pet)
+    await this.setState({ pet })
   }
 
   toggleModal = () => {
@@ -31,89 +29,87 @@ export default class Adoption extends Component {
   }
 
 
-  getDogs = async () => {
-    let dogs = await Object.keys(this.state.pets.dog)
-      .map(key => this.state.pets.dog[key])
-    this.setState({ dogs: dogs })
-    console.log(this.state.dogs);
+  // getDogs = async () => {
+  //   let dogs = await Object.keys(this.state.pets.dog)
+  //     .map(key => this.state.pets.dog[key])
+  //   this.setState({ dogs: dogs })
+  //   console.log(this.state.dogs);
 
-  }
+  // }
 
-  getCats = async () => {
-    let cats = await Object.keys(this.state.pets.cat)
-      .map(key => this.state.pets.cat[key])
-    this.setState({ cats: cats })
-    // console.log(this.state.cats);
+  // getCats = async () => {
+  //   let cats = await Object.keys(this.state.pets.cat)
+  //     .map(key => this.state.pets.cat[key])
+  //   this.setState({ cats: cats })
+  //   // console.log(this.state.cats);
 
-  }
+  // }
 
-  getAll = async () => {
-    this.toggleModal()
-    await firebase.database().ref('pets')
-      .on('value', (snapshot) => {
-        const res = snapshot.val()
-        this.setState({ pets: res })
-        this.getDogs()
-        this.getCats()
-      })
+  // getAll = async () => {
+  //   this.toggleModal()
+  //   await firebase.database().ref('pets')
+  //     .on('value', (snapshot) => {
+  //       const res = snapshot.val()
+  //       this.setState({ pets: res })
+  //       this.getDogs()
+  //       this.getCats()
+  //     })
 
-  }
+  // }
 
 
   render() {
-    const { showModal } = this.state
+    const { showModal, pet } = this.state
+    console.log(pet)
     return (
 
       <AdoptionContainer>
-        <SliderComponent />
+        <SliderComponent list={pet.listImgSrc} />
         <FormPet>
-          helbran
-        <div className="id-pets">
+            <h4>{pet.name}</h4>
+          <div className="id-pets">
             <div className="form">
               <div className='label'>
                 <img src={paw} alt="" />
-                  Macho
+                {pet.sexo}
               </div>
 
               <div className='label'>
                 <img src={paw} alt="" />
-                  Vira-lata
+                {pet.breed}
               </div>
             </div>
-          
 
-           <div className='label'>
-            <img src={paw} alt="" />
-            18 anos
-           </div>
-
-          <div className="form">
             <div className='label'>
               <img src={paw} alt="" />
-              Sim
+              {pet.age}
             </div>
 
-            <div className='label'>
-              <img src={paw} alt="" />
-              Não
+            <div className="form" >
+              <div className='label'>
+                <img src={paw} alt="" />
+                {pet.castrated}
+              </div>
+              <div className='label'>
+                <img src={paw} alt="" />
+                {pet.dewormed}
+              </div>
             </div>
           </div>
-        </div>
 
-
+          <div className='description' name={'descricao'} type={'text'}>
+            <h3>Descrição</h3>
+            <p>{pet.description}</p>
+          </div>
+          <Button className="btn-bottom" value="Adotar" />
         </FormPet>
-      <div className='description' name={'descricao'} type={'text'}>
-        <h3>Descrição</h3>
-        <p>Cachorrinho filhote, muito dócil, adora crianças e já come ração. Estou doando por motivo de mudança</p>
-      </div>
-      <Button className="btn-bottom" value="Adotar" />
-      <Modal
+        {/* <Modal
         show={showModal}
         child={'adoption'}
         title={Lang.adoptionTitle}
         setDog={this.getAll}
         setCat={this.getCats}
-      />
+      /> */}
       </AdoptionContainer >
     )
   }
