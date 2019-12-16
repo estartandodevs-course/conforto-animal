@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import MyMarker from "./MyMarker";
 import MapContainer from "./MapContainer";
-import { firebase } from "../../firebase";
 import cachorro from "../../assets/images/cachorro.png";
 import gato from "../../assets/images/gato.png";
 export default class MapComponent extends Component {
@@ -17,7 +16,7 @@ export default class MapComponent extends Component {
     let coords = dogs.map(res => res.location);
     let positions = this.state.positions;
     coords.map(position => {
-      positions.push({
+      return positions.push({
         ...position,
         type: "dog"
       });
@@ -33,7 +32,7 @@ export default class MapComponent extends Component {
     let coords = cats.map(res => res.location);
     let positions = this.state.positions;
     coords.map(position => {
-      positions.push({
+      return positions.push({
         ...position,
         type: "cat"
       });

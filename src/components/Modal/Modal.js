@@ -57,6 +57,7 @@ const Modal = (props)=> {
             </div>
           </ModalAdoption> 
         )
+        default://
     }
   }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AdoptionContainer, FormPet } from './AdoptionStyle'
-import Input from '../../components/Input/Input';
+//import Input from '../../components/Input/Input';
 import paw from '../../assets/images/paw.png'
 import Button from '../../components/Button/Button';
 import Modal from '../../components/Modal/Modal'
@@ -61,7 +61,7 @@ export default class Adoption extends Component {
 
 
   render() {
-    const { showModal, key } = this.state
+    const { showModal } = this.state
     return (
 
       <AdoptionContainer>
