@@ -26,7 +26,7 @@ const Header = (props) => {
         },
         {
             text:'Meu Perfil',
-            route: '/perfil'
+            route: '/profile'
         },
         {
             text:'Quem Somos' ,
