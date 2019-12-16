@@ -60,6 +60,7 @@ const Header = (props) => {
         },
         {
             text:'Meu Perfil',
+            route: '/perfil'
             route: '/profile'
         },
     ])
