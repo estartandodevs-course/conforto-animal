@@ -22,8 +22,9 @@ export default class Home extends Component {
     this.petService.Cats.subscribe(cats => this.setState({ cats }));
   }
 
-  teste = () => {
-    console.log(this.getCats);
+  navigate = (pet) => {
+    this.props.history.push('/adoption', pet);
+    console.log(pet)
   };
 
   render() {
@@ -45,7 +46,7 @@ export default class Home extends Component {
                 imgSrc={pet.imgSrc}
                 title={pet.name}
                 sexo={pet.sexo}
-                action={this.teste}
+                action={() => this.navigate(pet)}
                 age={pet.age}
               />
             );
@@ -58,7 +59,7 @@ export default class Home extends Component {
                 title={pet.name}
                 sexo={pet.sexo}
                 age={pet.age}
-                action={this.teste}
+                action={() => this.navigate(pet)}
               />
             );
           })}
