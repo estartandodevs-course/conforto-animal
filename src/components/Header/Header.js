@@ -26,7 +26,7 @@ const Header = (props) => {
         },
         {
             text:'Quem Somos' ,
-            route: '*'
+            route: '/weWhoAre'
         },
         {
             text:'Minhas Doaçoes',
@@ -52,7 +52,7 @@ const Header = (props) => {
         },
         {
             text:'Quem Somos' ,
-            route: '*'
+            route: '/weWhoAre'
         },
         {
             text:'Meu Perfil',
