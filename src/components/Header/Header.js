@@ -13,6 +13,10 @@ const Header = (props) => {
     const [user] = useState(GetStorageUser())
     const [optionsMenu] = useState([
         {
+            text:'Home',
+            route: '/home'
+        },
+        {
             text: 'Adote',
             route: '/adoption'
         },
@@ -21,8 +25,8 @@ const Header = (props) => {
             route: '/donate'
         },
         {
-            text:'Fazer login',
-            route: '/login'
+            text:'Meu Perfil',
+            route: '/perfil'
         },
         {
             text:'Quem Somos' ,
@@ -43,8 +47,8 @@ const Header = (props) => {
             route: '/home'
         },
         {
-            text: 'Adote',
-            route: '/adoption'
+            text: 'Conversas',
+            route: '/chat'
         },
         {
             text: 'Doe',
