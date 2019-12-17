@@ -9,6 +9,8 @@ import Modal from "../../components/Modal/Modal";
 import { Lang } from "../../shared/pt";
 import Select from "../../components/select/Select";
 import { PetService } from "../../services/pets";
+import Steps from "../../components/Steps/Steps";
+
 export default class Donate extends Component {
   state = {
     showModal: true,
@@ -227,6 +229,8 @@ export default class Donate extends Component {
           setDog={this.isDog}
           setCat={this.isCat}
         />
+        
+        <Steps/>
       </DonateContainer>
     );
   }
