@@ -10,6 +10,7 @@ import { Lang } from "../../shared/pt";
 import Select from "../../components/select/Select";
 import { PetService } from "../../services/pets";
 import Steps from "../../components/Steps/Steps";
+import {useMedia} from '../../hooks/useMedia'
 
 const Donate=()=> {
 
@@ -20,6 +21,7 @@ const Donate=()=> {
   const [url, setUrl]=useState("");
   const [progress, setProgress]=useState(0);
 
+  const { isSmall, isMedium, isLarge } = useMedia()
   const petService = new PetService();
 
   useEffect(() => {
@@ -106,7 +108,7 @@ const Donate=()=> {
      setPet(new Pet());
   };
 
-  return (
+   return isSmall ? (
     <DonateContainer alignItems={"center"} flexDirection={"column"}>
       <FormPets>
         <UploadImg>
@@ -218,7 +220,6 @@ const Donate=()=> {
           value={"send"}
         />
       </FormPets>
-
       <Modal
         show={showModal}
         child={"donate"}
@@ -229,6 +230,6 @@ const Donate=()=> {
 
       <Steps/>
     </DonateContainer>
-    );
+    ) : (<h1>HELLO</h1>)
 }
 export default Donate
