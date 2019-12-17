@@ -51,3 +51,21 @@ export const FormPets = styled.div`
         width: 50vw;
     }
 `
+export const ChoosePet = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction:column;
+    width:200px;
+    heigth:200px;
+    h1{
+        background:#01A58D;
+        width:200px;
+        heigth:54px;
+        color:white;
+        font-size:24px;
+        margin:5px 0px;
+        text-align:center;
+        border-radius:10px;
+    }
+`

@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import Stepper from 'react-js-stepper'
+import Button from '../Button/Button';
 
 
-const Steps =()=>{
+const Steps =(props)=>{
   const steps = [{title:''}, {title: ''}, {title:''}]
 
   const [activeStep, setactiveStep]=useState(1)
@@ -30,18 +31,23 @@ const Steps =()=>{
               showNumber={true} 
           />
 
-          <div style={{marginTop: '40px'}}>
-          {activeStep === 1 ? <div style={{backgroundColor:'red',width:'200px',
-          height:"100px"}}>Hello</div> : 
-            activeStep === 2 ? <div>GoodBye</div> :
-            <div>Welcome!!</div>
-          }
+          <div style={props.style}>
+            {activeStep === 1 ? 
+              <div style={props.styleStep1}>{props.Steps1}</div> : activeStep === 2 ? 
+              <div style={props.styleStep2}>{props.Steps2}</div> : 
+              <div style={props.styleStep3}>{props.Steps3}</div>}
           </div>
 
           <div style={{marginTop: '20px'}}>
-              <input type="button" value={activeStep === steps.length ? 'terminou k7' : 'proximo'} 
-                      onClick={activeStep === steps.length ? null : handleOnClickNext}/>
-              {activeStep ===1 ? '' : <input type="button" value="Back" onClick={handleOnClickBack} /> }
+              {//activeStep === 1 ? '' :
+              <Button
+              value={activeStep === steps.length ? 'Submit' : 'proximo'}
+              action={activeStep === steps.length ? null : handleOnClickNext}
+              />}
+
+              {activeStep ===1 ? '' : 
+              <Button value="Back" action={handleOnClickBack} /> }
+              {Button.value === 'Submit' && Button.action === props.onSubmit}
           </div>
       </>
   )

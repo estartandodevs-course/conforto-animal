@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { DonateContainer, UploadImg, FormPets } from "./DonateStyle";
+import { DonateContainer, UploadImg, FormPets, ChoosePet } from "./DonateStyle";
 import Input from "../../components/Input/Input";
 import paw from "../../assets/images/paw.png";
 import Button from "../../components/Button/Button";
@@ -26,7 +26,7 @@ const Donate=()=> {
 
   useEffect(() => {
     getLocation();
-  });
+  },[]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -227,9 +227,15 @@ const Donate=()=> {
         setDog={isDog}
         setCat={isCat}
       />
-
-      <Steps/>
     </DonateContainer>
-    ) : (<h1>HELLO</h1>)
+    ) : (<Steps
+          onSubmit={onsubmit}
+          Steps1={<ChoosePet>
+            <h1 onClick={isCat}>Gato</h1>
+            <h1 onClick={isDog}>Cachorro</h1>
+            </ChoosePet>}
+          Steps2={"teste2"} 
+          Steps3={"teste3"} 
+          />)
 }
 export default Donate
