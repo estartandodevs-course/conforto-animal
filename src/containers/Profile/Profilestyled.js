@@ -61,7 +61,7 @@ export const ProfileComponent = styled.div`
       border-bottom: 1px solid #01A58D;
 }
 `
-export const buttonProfile = styled.button`
+export const ButtonProfile = styled.button`
 @media screen and (min-width: 768px){
    width: 439px;
    height: 54.43px;

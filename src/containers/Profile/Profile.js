@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import  Login from '../Login/Login'
 import Input from '../../components/Input/Input'
 import {ButtonContainer} from '../../components/Button/ButtonStyle'
-import { GetStorageUser } from '../../firebase'
-import { ProfileName0, ProfileContainer, ProfileMain, ProfilePhoto, ProfileComponent, buttonProfile } from '../../containers/Profile/Profilestyled'
+import { GetStorageUser, LogOutFacebook, LogOutGoogle} from '../../firebase'
+import { Link } from 'react-router-dom';
+import { ProfileName0, ProfileContainer, ProfileMain, ProfilePhoto, ProfileComponent, ButtonProfile  } from '../../containers/Profile/Profilestyled'
 import {ProfileImg}  from '../../components/Header/HeaderStyle'
 // import firebase from './firebase.js'
 
 const ProfileScreen = () => {
+    const [showMenu, setShowMenu] = useState(false)
     const [user] = useState(GetStorageUser())
 
     return (
@@ -35,11 +37,13 @@ const ProfileScreen = () => {
                 <ProfileComponent>
                     <ProfileName0>Email:</ProfileName0>
                     <div className='label'>
-                        <Input name={'Email'} type={'Email'} />
+                    {user && <ProfileName0>{user.email}</ProfileName0>}
                     </div>
                 </ProfileComponent>
-
-                      
+        
+                <ButtonProfile 
+                        onClick={()=>{setShowMenu(!showMenu) === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
+                        }}/>
             </ProfileMain>
 
         </ProfileContainer>
@@ -59,7 +63,6 @@ function Botao () {
     
         )
 }
-//export default ProfileScreen
+export default ProfileScreen
         //para a tela voltar a funcionar tem que chamar essa funçao acima
-
-export default Botao
+Botao()
