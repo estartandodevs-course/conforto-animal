@@ -31,7 +31,7 @@ export default class MapComponent extends Component {
       this.setState({
         positions: positions
       })
-      console.log(res)
+      //console.log(res)
     })
   }
 
@@ -51,7 +51,7 @@ export default class MapComponent extends Component {
       this.setState({
         positions: positions
       })
-      console.log(res)
+      //console.log(res)
     })
   }
   static defaultProps = {
@@ -78,7 +78,7 @@ export default class MapComponent extends Component {
           defaultZoom={this.props.zoom}
         >
           {this.state.positions.map((pos,index)=>{
-            console.log(pos)
+            //console.log(pos)
             return pos.type === "dog" 
               ? 
               <MyMarker animal={cachorro} key={index} lat={pos.lat} lng={pos.lng} title={'cachorro'} />
