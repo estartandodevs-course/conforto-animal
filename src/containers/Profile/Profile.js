@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import  Login from '../Login/Login'
 import Input from '../../components/Input/Input'
 import {ButtonContainer} from '../../components/Button/ButtonStyle'
 import { GetStorageUser, LogOutFacebook, LogOutGoogle} from '../../firebase'
@@ -7,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { ProfileName0, ProfileContainer, ProfileMain, ProfilePhoto, ProfileComponent, ButtonProfile  } from '../../containers/Profile/Profilestyled'
 import {ProfileImg}  from '../../components/Header/HeaderStyle'
 // import firebase from './firebase.js'
-
+import Button from '../../components/Button/Button';
 const ProfileScreen = () => {
     const [showMenu, setShowMenu] = useState(false)
     const [user] = useState(GetStorageUser())
@@ -41,9 +40,10 @@ const ProfileScreen = () => {
                     </div>
                 </ProfileComponent>
         
-                <ButtonProfile 
-                        onClick={()=>{setShowMenu(!showMenu) === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
-                        }}/>
+                <Link to='/login'><Button
+                    value="Sair"
+                    action={()=>{LogOutFacebook() && LogOutGoogle()}
+                    }/></Link>
             </ProfileMain>
 
         </ProfileContainer>
