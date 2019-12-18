@@ -151,8 +151,7 @@ export const MenuDesktop = styled.div`
    li{
       display: flex;
       justify-content: center;
-      width: 100px;
-      /* border-right: solid 1px #fff; */
+      width: 110px;
       list-style-type: none;
    }
    a{

@@ -101,12 +101,12 @@ export default class Adoption extends Component {
             <h3>Descrição</h3>
             <p>{pet.description}</p>
           </div>
-          <Button className="btn-bottom" value="Adotar" />
+          <Button className="btn-bottom" value="Adotar" action={() => this.props.history.push("/chat")} />
         </FormPet>
         {/* <Modal
         show={showModal}
         child={'adoption'}
-        title={Lang.adoptionTitle}
+        title={Lang.adoptionTitle}ss
         setDog={this.getAll}
         setCat={this.getCats}
       /> */}
