@@ -228,14 +228,120 @@ const Donate=()=> {
         setCat={isCat}
       />
     </DonateContainer>
-    ) : (<Steps
+    ) : (<FormPets><Steps
           onSubmit={onsubmit}
           Steps1={<ChoosePet>
             <h1 onClick={isCat}>Gato</h1>
             <h1 onClick={isDog}>Cachorro</h1>
             </ChoosePet>}
-          Steps2={"teste2"} 
-          Steps3={"teste3"} 
-          />)
+          Steps2={<div><div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"name"}
+            placeholder="Nome"
+            value={pet.name}
+            action={onChange}
+            type={"text"}
+          />
+        </div>
+
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"sexo"}
+            placeholder="Sexo"
+            value={pet.sexo}
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Feminino", value: "feminino" },
+              { name: "Masculino", value: "masculino" }
+            ]}
+          />
+        </div>
+
+        <div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"breed"}
+            placeholder="Raça"
+            value={pet.breed}
+            action={onChange}
+            type={"text"}
+          />
+        </div>
+
+        <div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"age"}
+            placeholder="Idade"
+            value={pet.age}
+            action={onChange}
+            type={"number"}
+          />
+        </div>
+
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"castrated"}
+            value={pet.castrated}
+            placeholder="Castrado"
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Sim", value: "Sim" },
+              { name: "Não", value: "Não" }
+            ]}
+          />
+        </div>
+
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"dewormed"}
+            placeholder="Vermifugado"
+            value={pet.dewormed}
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Sim", value: "Sim" },
+              { name: "Não", value: "Não" }
+            ]}
+          />
+        </div>
+
+        <div className="description">
+          <p>{Lang.description}</p>
+          <Input
+            placeholder="Descrição"
+            name={"description"}
+            value={pet.description}
+            action={onChange}
+            type={"textarea"}
+          ></Input>
+        </div></div>} 
+          Steps3={<div>
+            <UploadImg>
+          {progress < 100 ? <label htmlFor="avatar">+</label> : <p>ok</p>}
+          <input
+            type="file"
+            id="avatar"
+            accept="image/png, image/jpeg"
+            multiple
+            style={{ display: "none" }}
+            name={"imgSrc"}
+            value={url}
+            onChange={handleUpload}
+          />
+        </UploadImg>
+        <Button
+          action={onSubmit}
+          className="btn-bottom"
+          value={"send"}
+        />
+          </div>}/>
+          </FormPets>)
 }
 export default Donate
