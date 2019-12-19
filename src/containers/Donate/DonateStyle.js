@@ -72,8 +72,7 @@ export const ChoosePet = styled.div`
     justify-content:center;
     align-items:flex-start;
     flex-direction:column;
-    width:40vw;
-    heigth:200px;
+    width:20vw;
     Button{
         margin-top:5px;
     }
