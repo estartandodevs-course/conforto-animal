@@ -32,7 +32,7 @@ export default function Routers() {
         <Route path="/weWhoAre" component={whoWeAre}/>
         <Route path="/chat" component={ChatScreen}/>
         <Route path="/profile" component={ProfileScreen}/>
-        <Route pash="/chat_/1" component={ChatOpen}/>
+        {/* <Route pash="/chat_/1" component={ChatOpen}/> */}
         <Route path="*" component={ErrorScreen}/>
         
 
