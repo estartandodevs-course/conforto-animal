@@ -7,7 +7,6 @@ import { Lang } from '../../shared/pt'
 import { GetStorageUser } from '../../firebase'
 import { PetService } from "../../services/pets";
 import Card from "../../components/Card/Card";
-
 export default class Adoption extends Component {
 
   state = {
@@ -33,13 +32,11 @@ export default class Adoption extends Component {
 
   getDogs = async () => {
     await this.petService.Dogs.subscribe(dogs => this.setState({ dogs }));
-    await console.log(this.state.dogs); 
     await this.toggleModal()   
   }
 
   getCats = async () => {
     await this.petService.Cats.subscribe(cats => this.setState({ cats }));
-    await console.log(this.state.cats);
     await this.toggleModal()   
   }
 
@@ -49,7 +46,7 @@ export default class Adoption extends Component {
       <AdoptionContainer 
         flexDirection={pet? 'column' : 'row'} 
         justifyContent={!pet && 'space-around'}
-        wrap={!pet && 'true'}
+        wrap={!pet && 'wrap'}
         >
         { pet && <><ImgPet src={pet.imgSrc}/>
           <NameStyle>{pet.name}</NameStyle>
