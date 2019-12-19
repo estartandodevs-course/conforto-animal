@@ -121,15 +121,15 @@ export const ProfileName = styled.p`
    display:flex;
    justify-content:center;
    color:white;
-   font-size:25px;
+   font-size:20px;
    font-family:Montserrat; 
    border-bottom:2px solid darkgray;
    width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
-   height: 30vh;
-   margin-top:115px;
+   /* height: 30vh; */
+   /* margin-top:115px; */
 `
 
 export const MenuDesktop = styled.div`

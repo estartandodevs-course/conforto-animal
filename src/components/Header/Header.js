@@ -5,39 +5,13 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
 import Home from '../../containers/Home/Home'
-import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 const Header = (props) => {
     const [showMenu, setShowMenu] = useState(false)
     const [user] = useState(GetStorageUser())
     const [optionsMenu] = useState([
-        {
-            text: 'Adote',
-            route: '/adoption'
-        },
-        {
-            text: 'Doe',
-            route: '/donate'
-        },
-        {
-            text:'Fazer login',
-            route: '/login'
-        },
-        {
-            text:'Quem Somos' ,
-            route: '*'
-        },
-        {
-            text:'Minhas Doaçoes',
-            route: '*'
-        },
-        {
-            text:'Sair',
-            route: '/home'
-        },
-    ])
-    const [optionsHeader] = useState([
         {
             text:'Home',
             route: '/home'
@@ -51,12 +25,44 @@ const Header = (props) => {
             route: '/donate'
         },
         {
-            text:'Quem Somos' ,
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : '/login'
+        },
+        {
+            text: user ? 'Conversas' : 'Quem Somos' ,
+            route: user ? '/chat' : '/weWhoAre'
+        },
+        {
+            text:'Minhas Doaçoes',
             route: '*'
         },
         {
-            text:'Meu Perfil',
-            route: '/profile'
+            text:user ? 'sair' : '',
+            route: '/home'
+        },
+
+        
+    ])
+    const [optionsHeader] = useState([
+        {
+            text:'Home',
+            route: '/home'
+        },
+        {
+            text: 'Doe',
+            route: '/donate'
+        },
+        {
+            text: user ? 'Conversas' : 'Quem Somos' ,
+            route: user ? '/chat' : '/weWhoAre'
+        },
+        {
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : '/login'
+        },
+        {
+            text:user ? 'sair' : '',
+            route: '/home'
         },
     ])
 
@@ -71,20 +77,20 @@ const Header = (props) => {
                </div>
             <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
-        <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
+        <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
-            {user && <ProfileImg src={user.photoURL}/>}
+             <ProfileImg src={user ? user.photoURL : logo}/>
             {user && <ProfileName>{user.displayName}</ProfileName>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
             {optionsMenu.map((res, index)=>{                
                 return( 
-                <Link to={res.route} key={index}>
+                 res.text !== '' && <Link to={res.route} key={index}>
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 
-                        onClick={()=>{ 
-                            setShowMenu(!showMenu) 
+                        action={()=>{ 
+                            setShowMenu(!showMenu)  
                             res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
@@ -94,7 +100,7 @@ const Header = (props) => {
         <MenuDesktop>
             <ul>
                 {optionsHeader.map((options, index) =>{
-                    return <Link to={options.route} key={index}>
+                    return options.text !== '' && <Link to={options.route} key={index}>
                         <li onClick={()=>{
                             options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}>{options.text}</li>
