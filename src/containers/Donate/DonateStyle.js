@@ -37,7 +37,7 @@ export const UploadImg = styled.section`
     align-items: center;
     font-size: 50px;
     @media screen and (min-width: 768px){
-        /* width: 50%; */
+        height:40vh;
     }
 `
 export const FormPets = styled.div`
@@ -48,7 +48,23 @@ export const FormPets = styled.div`
     height: 100%;
     background-color: #fff;
     @media screen and (min-width: 768px){
-        width: 50vw;
+        justify-content:flex-start;
+        align-items:center;
+        background-color:#EBEBEB;
+        min-height:100vh;
+    }
+    .steps-content{
+        margin-top:10px; 
+        display:flex;
+        justify-content:center;
+        align-items:flex-start;
+        .btn-steps{
+            height:80vh;
+            width:20vw;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
     }
 `
 export const ChoosePet = styled.div`
@@ -56,16 +72,23 @@ export const ChoosePet = styled.div`
     justify-content:center;
     align-items:flex-start;
     flex-direction:column;
-    width:200px;
+    width:40vw;
     heigth:200px;
-    h1{
-        background:#01A58D;
-        width:200px;
-        heigth:54px;
-        color:white;
-        font-size:24px;
-        margin:5px 0px;
-        text-align:center;
-        border-radius:10px;
+    Button{
+        margin-top:5px;
+    }
+`
+export const FormDesk = styled.div`
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-direction:column;
+    .label{
+        img{
+            width:24px;
+        }
+        Input{
+            width:262px;
+        }
     }
 `
