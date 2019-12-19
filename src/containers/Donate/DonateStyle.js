@@ -84,10 +84,18 @@ export const FormDesk = styled.div`
     align-items:flex-start;
     flex-direction:column;
     .label{
+        display:flex;
+        justify-content:center;
+        align-items:center;
         img{
-            width:24px;
+            padding:2px;
+            width:26px;
+        }
+        select{
+            margin-bottom:8px;
         }
         Input{
+            margin-bottom:8px;
             width:262px;
         }
     }
