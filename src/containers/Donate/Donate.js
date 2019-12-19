@@ -263,6 +263,7 @@ const Donate=()=> {
                 </ChoosePet>}
               Steps2={
                 <FormDesk>
+                  <h1 style={{textIndent: '82px', fontWeight:500}}>Quase lá</h1>
                   <div className="label">
                     <img src={paw} alt="" />
                     <Input
@@ -348,6 +349,7 @@ const Donate=()=> {
                 </FormDesk>} 
               Steps3={
                 <div style={{width:'50vw'}}>
+                  <h1 style={{textAlign:'right', fontWeight:500}}>Só mais um pouquinho...</h1>
               <UploadImg>
                 {progress < 100 ? <label htmlFor="avatar">+</label> : <p>ok</p>}
                 <input
@@ -361,11 +363,6 @@ const Donate=()=> {
                   onChange={handleUpload}
                 />
               </UploadImg>
-              <Button
-                action={onSubmit}
-                className="btn-bottom"
-                value={"send"}
-              />
             </div>}
             />
           </div>
@@ -373,7 +370,7 @@ const Donate=()=> {
             <div className='btn-steps'>
               <Button
                 value={activeStep === steps.length ? "Finalizar" : 'Próximo'}
-                action={activeStep === steps.length ? null : handleOnClickNext}
+                action={activeStep === steps.length ? onSubmit : handleOnClickNext}
               />
             </div>
           }

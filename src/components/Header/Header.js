@@ -60,8 +60,8 @@ const Header = (props) => {
             route: '/weWhoAre'
         },
         {
-            text: user ? 'Meu Perfil' : 'Fazer Login',
-            route: user ? '/profile' : 'login'
+            text:'Meu Perfil',
+            route: '/profile'
         },
     ])
 
