@@ -7,7 +7,7 @@ export const AdoptionContainer = styled(FlexContainer)`
     font-family: Montserrat, sans-serif;
     align-items: center;
     height: calc(100vh - 55px);
-    flex-wrap: ${props=> props.wrap || ''};
+    flex-wrap: ${props=> props.wrap || 'no-wrap'};
     @media screen and (min-width: 768px){
         height: calc(100vh - 75px);
         .btn-bottom{
