@@ -72,11 +72,11 @@ export default class Adoption extends Component {
               <div className="form" >
                 <div className='label'>
                   <img src={paw} alt="" />
-                  {pet.castrated == 'sim' && 'castrado' }
+                  {pet.castrated === 'sim' && 'castrado' }
                 </div>
                 <div className='label'>
                   <img src={paw} alt="" />
-                  {pet.dewormed == 'sim' && 'vermifugado'}
+                  {pet.dewormed === 'sim' && 'vermifugado'}
                 </div>
               </div>
             </div>
