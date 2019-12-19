@@ -25,8 +25,8 @@ const Header = (props) => {
             route: '/donate'
         },
         {
-            text:'Meu Perfil',
-            route: '/profile'
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : 'login'
         },
         {
             text:'Quem Somos' ,
@@ -37,9 +37,10 @@ const Header = (props) => {
             route: '*'
         },
         {
-            text:'Sair',
+            text:'sair',
             route: '/home'
         },
+        
     ])
     const [optionsHeader] = useState([
         {
@@ -59,9 +60,8 @@ const Header = (props) => {
             route: '/weWhoAre'
         },
         {
-            text:'Meu Perfil',
-            route: '/perfil'
-            route: '/profile'
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : 'login'
         },
     ])
 
@@ -76,7 +76,7 @@ const Header = (props) => {
                </div>
             <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
-        <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
+        <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
             {user && <ProfileImg src={user.photoURL}/>}
             {user && <ProfileName>{user.displayName}</ProfileName>}
@@ -88,8 +88,8 @@ const Header = (props) => {
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 
-                        onClick={()=>{ 
-                            setShowMenu(!showMenu) 
+                        action={()=>{ 
+                            setShowMenu(!showMenu)  
                             res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
