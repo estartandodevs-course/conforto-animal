@@ -2,7 +2,6 @@
   "name": "conforto-animal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
   "dependencies": {
     "firebase": "^7.5.0",
     "formik": "^2.0.6",

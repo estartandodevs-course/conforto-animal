@@ -48,7 +48,7 @@ export default class Adoption extends Component {
     await this.petService.updatePet(_pet)
   }
 
-  GivUpAdoption = async (pet) =>{
+  GiveUpAdoption = async (pet) =>{
     pet.isAdopted = false
     pet.adopter = new User()
     const _pet = pet 
@@ -100,7 +100,7 @@ export default class Adoption extends Component {
               <h3>Descrição</h3>
               <p>{pet.description}</p>
             </div>
-            <Button className="btn-bottom" value="Adotar" action={()=> this.AdoptNow(pet, user)}/>
+            <Button className="btn-bottom" value={(user.email=== pet.adopter.email) ? "Desistir": "Adotar"} action={()=> (user.email === pet.adopter.email) ? this.GiveUpAdoption(pet) : this.AdoptNow(pet, user)}/>
           </DescPet> 
         </>
         }   
@@ -126,7 +126,7 @@ export default class Adoption extends Component {
                   ) : 
                   "Quero adotar"
                 }
-              />
+                />
             )})
           )
         }

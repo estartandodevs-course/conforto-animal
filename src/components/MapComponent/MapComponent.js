@@ -48,7 +48,7 @@ export default class MapComponent extends Component {
       lat: -22.9993,
       lng: -43.6399
     },
-    zoom: 8
+    zoom: 11
   };
 
   _onclick = ({ lat, lng }) => {
