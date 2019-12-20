@@ -7,6 +7,7 @@ import { Lang } from '../../shared/pt'
 import { GetStorageUser } from '../../firebase'
 import { PetService } from "../../services/pets";
 import Card from "../../components/Card/Card";
+import User from '../../models/User'
 export default class Adoption extends Component {
 
   state = {
@@ -44,6 +45,13 @@ export default class Adoption extends Component {
     pet.isAdopted = true
     pet.adopter = user
     const _pet = pet
+    await this.petService.updatePet(_pet)
+  }
+
+  GivUpAdoption = async (pet) =>{
+    pet.isAdopted = false
+    pet.adopter = new User()
+    const _pet = pet 
     await this.petService.updatePet(_pet)
   }
 
