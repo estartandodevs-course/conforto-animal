@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import  Login from '../Login/Login'
+//import  Login from '../Login/Login'
 import Input from '../../components/Input/Input'
 import {ButtonContainer} from '../../components/Button/ButtonStyle'
 import { GetStorageUser, LogOutFacebook, LogOutGoogle} from '../../firebase'
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { ProfileName0, ProfileContainer, ProfileMain, ProfilePhoto, ProfileComponent, ButtonProfile  } from '../../containers/Profile/Profilestyled'
 import {ProfileImg}  from '../../components/Header/HeaderStyle'
 // import firebase from './firebase.js'

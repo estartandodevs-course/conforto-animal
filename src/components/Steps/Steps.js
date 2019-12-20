@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import Stepper from 'react-js-stepper'
 import './style.scss'
 

@@ -15,14 +15,14 @@ import {useMedia} from '../../hooks/useMedia'
 const Donate=()=> {
   const steps = [{title:''}, {title: ''}, {title:''}]
   const [showModal, setShowModal]=useState(true);
-  const [image, setImage]=useState([]);
+  //const [image, setImage]=useState([]);
   const [pet, setPet]=useState(new Pet());
   const [Class, setClass]=useState("");
-  const [url, setUrl]=useState("");
+  const [url]=useState("");
   const [progress, setProgress]=useState(0);
   const [activeStep, setactiveStep]=useState(1)
 
-  const { isSmall, isMedium, isLarge } = useMedia()
+  const {isSmall} = useMedia()
   const petService = new PetService();
 
   useEffect(() => {
