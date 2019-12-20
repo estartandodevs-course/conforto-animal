@@ -33,14 +33,14 @@ export const About = styled.div`
     border-bottom-right-radius:15px;    
 `
 export const Title = styled.h2`
-    color:black;
+    color:#333;
     font-family:Montserrat;
 `
 export const Description = styled.div`
     display:flex;
 `
 export const Topic = styled.p`   
-    color: green;
+    color: #000;
     display:flex;
     align-items:center;
     font-family:Montserrat;
