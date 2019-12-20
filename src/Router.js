@@ -12,7 +12,7 @@ import DonateContainer from './containers/Donate/Donate'
 import Header from './components/Header/Header'
 import ErrorScreen from './containers/ErrorScreen/ErrorScreen.js';
 import ChatScreen from './containers/ChatScreen/ChatScreen.js';
-import ChatOpen from './containers/ChatOpen/ChatOpen.js';
+//import ChatOpen from './containers/ChatOpen/ChatOpen.js';
 import ProfileScreen from './containers/Profile/Profile'
 import whoWeAre from './containers/whoWeAre/whoWeAre.js';
 

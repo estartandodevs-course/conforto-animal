@@ -9,7 +9,7 @@ export default function MyMarker(props) {
 
     return (
         <div>
-          <img style={greatPlaceStyle} src={props.animal} />
+          <img alt="Marcador" style={greatPlaceStyle} src={props.animal} />
         </div>
       );
 }
