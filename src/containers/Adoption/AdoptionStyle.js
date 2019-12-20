@@ -99,6 +99,7 @@ export const DescPet = styled.div`
             text-align: center;
             justify-content: center;
             align-items: center;
+            margin: 10px 0;
             width: 520px;
             height: 140px;
             font-size: 18px;
