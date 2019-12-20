@@ -11,7 +11,7 @@ export const CardContainer = styled.div`
     margin: 15px 0 0 0;
 `
 export const PetImg = styled.img`
-    width:30%;
+    width:36%;
     height: 100%;
     border-radius: 15px;
     &.icon{
