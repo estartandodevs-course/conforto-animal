@@ -40,13 +40,20 @@ export default class Adoption extends Component {
     await this.toggleModal()   
   }
 
+  AdoptNow = async (pet, user)=>{
+    pet.isAdopted = true
+    pet.adopter = user
+    const _pet = pet
+    await this.petService.updatePet(_pet)
+  }
+
   render() {
-    const { showModal, pet, dogs, cats } = this.state
+    const { showModal, pet, dogs, cats, user } = this.state
     return (
       <AdoptionContainer 
         flexDirection={pet? 'column' : 'row'} 
         justifyContent={!pet && 'space-around'}
-        wrap={!pet && 'wrap'}
+        handleWrap={!pet && 'wrap'}
         >
         { pet && <><ImgPet src={pet.imgSrc}/>
           <NameStyle>{pet.name}</NameStyle>
@@ -85,7 +92,7 @@ export default class Adoption extends Component {
               <h3>Descrição</h3>
               <p>{pet.description}</p>
             </div>
-            <Button className="btn-bottom" value="Adotar" />
+            <Button className="btn-bottom" value="Adotar" action={()=> this.AdoptNow(pet, user)}/>
           </DescPet> 
         </>
         }   
@@ -99,6 +106,18 @@ export default class Adoption extends Component {
                 sexo={pet.sexo}
                 action={() => this.setState({pet: pet})}
                 age={pet.age}
+                disabled={user ? (
+                  (pet.adopter.email !== user.email  && pet.isAdopted) || 
+                  (pet.adopter.email === user.email && false)
+                  ) : 
+                  pet.isAdopted
+                }
+                value= {user ? (
+                  ((pet.adopter.email === user.email) && "Desistir") || 
+                  "Quero adotar"
+                  ) : 
+                  "Quero adotar"
+                }
               />
             )})
           )
@@ -113,6 +132,18 @@ export default class Adoption extends Component {
                 sexo={pet.sexo}
                 action={() => this.setState({pet: pet})}
                 age={pet.age}
+                disabled={user ? (
+                  (pet.adopter.email !== user.email  && pet.isAdopted) || 
+                  (pet.adopter.email === user.email && false)
+                  ) : 
+                  pet.isAdopted
+                }
+                value= {user ? (
+                  ((pet.adopter.email === user.email) && "Desistir") || 
+                  "Quero adotar"
+                  ) : 
+                  "Quero adotar"
+                }
               />
             )})
           )

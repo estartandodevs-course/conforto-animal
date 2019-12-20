@@ -21,8 +21,7 @@ export const PetImg = styled.img`
         margin:5px;
         height:15px;
         width:auto;
-    }
-    
+    }    
 `
 export const About = styled.div`
     display:flex;
@@ -31,13 +30,11 @@ export const About = styled.div`
     width:80%;
     height:100%;
     border-top-right-radius:15px;
-    border-bottom-right-radius:15px;
-    
+    border-bottom-right-radius:15px;    
 `
 export const Title = styled.h2`
     color:black;
     font-family:Montserrat;
-
 `
 export const Description = styled.div`
     display:flex;
