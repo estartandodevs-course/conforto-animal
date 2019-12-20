@@ -6,7 +6,7 @@ export const ButtonContainer = styled.button`
     font-family: Montserrat, sans-serif;
     border: none;
     border-radius: 10px;
-    background-color: #01A58D;
+    background-color:${props => props.disabled ? '#cecece' :  '#01A58D'};
     color: #fff;
     cursor: pointer;
     

@@ -16,7 +16,7 @@ export class PetService {
       .ref("pets/dog")
       .on("value", snapshot => {
         let res = snapshot.val();
-        let dogs = Object.keys(res).map(key => res[key]);
+        let dogs = Object.keys(res).map(key => res[key] = {...res[key], key, classPet: 'dog'});
         this.Dogs.next(dogs);
       });
   };
@@ -27,7 +27,7 @@ export class PetService {
       .ref("pets/cat")
       .on("value", snapshot => {
         let res = snapshot.val();
-        let cats = Object.keys(res).map(key => res[key]);
+        let cats = Object.keys(res).map(key => res[key] = {...res[key], key, classPet: 'cat'});
         this.Cats.next(cats);
       });
   };
@@ -38,5 +38,9 @@ export class PetService {
       .ref("pets")
       .child(classPet || "dog")
       .push(pet);
+  }
+
+  updatePet(pet){
+    firebase.database().ref(`pets/${pet.classPet}`).child(pet.key).set(pet)    
   }
 }
