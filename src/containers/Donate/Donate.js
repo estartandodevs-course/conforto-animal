@@ -27,7 +27,7 @@ const Donate=()=> {
 
   useEffect(() => {
     getLocation();
-  },[]);
+  });
 
   const toggleModal = () => {
     setShowModal(!showModal);

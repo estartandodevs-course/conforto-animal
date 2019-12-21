@@ -22,10 +22,12 @@ export default class MapComponent extends Component {
       });
     });
 
-    this.setState({
-      positions: positions
-    });
-  };
+      this.setState({
+        positions: positions
+      })
+      //console.log(res)
+    
+  }
 
   getCatsCoords = async _cats => {
     let cats = Object.keys(_cats).map(key => _cats[key]);
@@ -38,11 +40,12 @@ export default class MapComponent extends Component {
       });
     });
 
-    this.setState({
-      positions: positions
-    });
-  };
-
+      this.setState({
+        positions: positions
+      })
+      //console.log(res)
+    
+  }
   static defaultProps = {
     center: {
       lat: -22.9993,
@@ -69,25 +72,14 @@ export default class MapComponent extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          {dogs.map((pos, index) => (
-            <MyMarker
-              animal={cachorro}
-              key={index}
-              lat={pos.lat}
-              lng={pos.lng}
-              title={"cachorro"}
-            />
-          ))}
-
-          {cats.map((pos, index) => (
-            <MyMarker
-              animal={gato}
-              key={index}
-              lat={pos.lat}
-              lng={pos.lng}
-              title={"gato"}
-            />
-          ))}
+          {this.state.positions.map((pos,index)=>{
+            //console.log(pos)
+            return pos.type === "dog" 
+              ? 
+              <MyMarker animal={cachorro} key={index} lat={pos.lat} lng={pos.lng} title={'cachorro'} />
+              : 
+              <MyMarker animal={gato} key={index} lat={pos.lat} lng={pos.lng} title={'gato'} />
+              })}
         </GoogleMapReact>
       </MapContainer>
     );

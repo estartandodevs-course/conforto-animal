@@ -5,7 +5,7 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
 import Home from '../../containers/Home/Home'
- import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 const Header = (props) => {
@@ -90,8 +90,8 @@ const Header = (props) => {
                         value={res.text} 
                         className={'btn-menu'} 
                         action={()=>{ 
-                            setShowMenu(!showMenu)  
-                            res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
+                            setShowMenu(!showMenu) 
+                            res.text === 'Sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
             )})}
