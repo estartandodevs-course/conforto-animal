@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {ChatContainer} from './ChatScreenStyle';
 import {HomeAside} from './chatscreenstyle2';
 import ChatList from '../../components/ChatList/ChatList';
-import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
+import {GetStorageUser} from '../../firebase'
 
 export default class ChatScreen extends Component {
 
@@ -11,18 +11,26 @@ export default class ChatScreen extends Component {
       {
         imgSrc:"https://www.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg",
         name:"Juliana Peixoto",
-        message:"masculino",
+        message:"Me interessei pela sua doguinea!",
         
       },
       {
         imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjRRYDaRnqNMVld63XRuAkuGouffg_yjBm5ReBhR2NXXR5aQdt",
         name:"Victor Souza",
-        message:"masculino",
+        message:"É um Poodle castrado.",
+        
+      },
+      {
+        imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRjRRYDaRnqNMVld63XRuAkuGouffg_yjBm5ReBhR2NXXR5aQdt",
+        name:"Luan Ferreira",
+        message:"Ok. Amanhã nós encontramos...",
         
       },
     ],
     user:GetStorageUser(),
   }
+
+  
 
   componentDidMount(){
    //antes de montar   
@@ -42,7 +50,7 @@ export default class ChatScreen extends Component {
               <ChatList 
               imgSrc={this.state.user.photoURL}
               name={chat.name}
-              mensagem={chat.mensagem}
+              mensagem={chat.message}  
               
               />
             )})

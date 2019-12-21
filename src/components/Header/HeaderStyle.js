@@ -18,11 +18,27 @@ export const HeaderContainer = styled.header`
    .menuHeader{
       cursor: pointer;
       position: absolute;
+      font-size: 27px;
       left: 7px;
+      &:focus{
+         outline: none;
+      }
    }
    .logoImg{
-      width: 55px;
-      height: 55px;
+      width: 60px;
+      height: 60px;
+   }
+   .textLogo{
+      display: none;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 20px;
+   }
+   .textConforto{
+      display: none;
+   }
+   .textAnimal{
+      display: none;
    }
    .chatHeader{
       cursor: pointer;
@@ -44,6 +60,20 @@ export const HeaderContainer = styled.header`
          width: 85px;
          height: 85px;
       }
+      .textLogo{
+         display: flex;
+      }
+      .textConforto{
+         display: flex;
+         position: absolute;
+         bottom: 25px;
+         left: 72px;
+      }
+      .textAnimal{
+         display: flex;
+         position: absolute;
+         left: 60px;
+      }
       .chatHeader{
          display: none;
       }
@@ -55,10 +85,10 @@ export const MenuContainer = styled.div`
 @media screen and (min-width: 768px){
       display:none;
    }
-   position: fixed;
+   position: fixed ;
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
-   height: 100%;
+   height: 100vh;
    width: 100%;
    z-index: 4;
    background-color: #01A58D;
@@ -66,6 +96,7 @@ export const MenuContainer = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   /* justify-content: space-around; */
    padding: 15px 0 0 0;
    #close{
       position: absolute;
@@ -91,15 +122,15 @@ export const ProfileName = styled.p`
    display:flex;
    justify-content:center;
    color:white;
-   font-size:25px;
+   font-size:20px;
    font-family:Montserrat; 
    border-bottom:2px solid darkgray;
    width:100%;
  
 `
 export const ListMenu = styled(FlexContainer)`
-   height: 30vh;
-   margin-top:115px;
+   /* height: 30vh; */
+   /* margin-top:115px; */
 `
 
 export const MenuDesktop = styled.div`

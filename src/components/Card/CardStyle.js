@@ -9,9 +9,12 @@ export const CardContainer = styled.div`
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin: 15px 0 0 0;
+    @media screen and (min-width: 768px){
+        margin: 15px
+    }
 `
 export const PetImg = styled.img`
-    width:30%;
+    width:36%;
     height: 100%;
     border-radius: 15px;
     &.icon{
@@ -21,8 +24,7 @@ export const PetImg = styled.img`
         margin:5px;
         height:15px;
         width:auto;
-    }
-    
+    }    
 `
 export const About = styled.div`
     display:flex;
@@ -31,19 +33,17 @@ export const About = styled.div`
     width:80%;
     height:100%;
     border-top-right-radius:15px;
-    border-bottom-right-radius:15px;
-    
+    border-bottom-right-radius:15px;    
 `
 export const Title = styled.h2`
-    color:black;
+    color:#333;
     font-family:Montserrat;
-
 `
 export const Description = styled.div`
     display:flex;
 `
 export const Topic = styled.p`   
-    color: green;
+    color: #000;
     display:flex;
     align-items:center;
     font-family:Montserrat;
