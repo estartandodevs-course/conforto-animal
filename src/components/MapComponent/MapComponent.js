@@ -26,7 +26,7 @@ export default class MapComponent extends Component {
         positions: positions
       })
       //console.log(res)
-    })
+    
   }
 
   getCatsCoords = async _cats => {
@@ -44,7 +44,7 @@ export default class MapComponent extends Component {
         positions: positions
       })
       //console.log(res)
-    })
+    
   }
   static defaultProps = {
     center: {
