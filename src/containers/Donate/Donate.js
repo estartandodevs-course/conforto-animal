@@ -1,66 +1,92 @@
-import React, { Component } from 'react'
-import { DonateContainer, UploadImg, FormPets } from './DonateStyle';
-import Input from '../../components/Input/Input';
-import paw from '../../assets/images/paw.png'
-import Button from '../../components/Button/Button'
-import Pet from '../../models/Pet'
-import {firebase } from '../../firebase'
-import Modal from '../../components/Modal/Modal'
-import {Lang} from '../../shared/pt'
+import React, { useState, useEffect } from "react";
+import { DonateContainer, UploadImg, FormPets, ChoosePet, FormDesk } from "./DonateStyle";
+import Input from "../../components/Input/Input";
+import paw from "../../assets/images/paw.png";
+import Button from "../../components/Button/Button";
+import Pet from "../../models/Pet";
+import { firebase } from "../../firebase";
+import Modal from "../../components/Modal/Modal";
+import { Lang } from "../../shared/pt";
+import Select from "../../components/select/Select";
+import { PetService } from "../../services/pets";
+import Steps from "../../components/Steps/Steps";
+import {useMedia} from '../../hooks/useMedia'
+import Loading from '../../components/Loading'
+import Icon from '@material-ui/core/Icon';
 
-export default class Donate extends Component {
-  
-  state={
-    showModal: true,
-    image: [],
-    pet: new Pet(),
-    class: "",
-    url: "",
-    progress: 0
-  }
-  
-  componentDidMount(){
-    this.getLocation()      
+const Donate=()=> {
+  const steps = [{title:''}, {title: ''}, {title:''}]
+  const [showModal, setShowModal]=useState(true);
+  //const [image, setImage]=useState([]);
+  const [pet, setPet]=useState(new Pet());
+  const [Class, setClass]=useState("");
+  const [url]=useState("");
+  const [progress, setProgress]=useState(0);
+  const [activeStep, setactiveStep]=useState(1)
+  const [inUpload, setInUpload] = useState(false)
+
+  const {isSmall} = useMedia()
+  const petService = new PetService();
+
+  useEffect(() => {
+    getLocation();
+  });
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  const isCat = async () => {
+    await setClass("cat" );
+    toggleModal();
+  };
+
+  const isDog = async () => {
+    await setClass("dog");
+    toggleModal();
+  };
+
+  const handleOnClickStepper = (step) => {
+    setactiveStep(step)
   }
 
-  toggleModal=()=>{
-    this.setState({showModal : !this.state.showModal})
-  }
-  
-  isCat = async ()=>{   
-    await this.setState({class: "cat"})
-    this.toggleModal()
+  const handleOnClickNext = () => {
+      let nextStep = activeStep + 1;
+     setactiveStep(nextStep)
   }
 
-  isDog = async ()=>{
-    await this.setState({class: "dog"})
-    this.toggleModal()
+  const handleOnClickBack = () => {
+      let prevStep = activeStep - 1;
+      setactiveStep(prevStep)
   }
 
-  getLocation = ()=>{
+  const getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position=>{
-        const pet = Object.assign({},this.state.pet)
-        pet.location.lat = position.coords.latitude
-        pet.location.lng = position.coords.longitude
-        this.setState({pet:pet})
-      })
-    } else { 
-      console.log("Geolocation is not supported by this browser.")
+      navigator.geolocation.getCurrentPosition(position => {
+        const pet_ = Object.assign({}, pet);
+        pet_.location.lat = position.coords.latitude;
+        pet_.location.lng = position.coords.longitude;
+        setPet(pet_);
+      });
+    } else {
+      console.log("Geolocation is not supported by this browser.");
     }
-  }  
+  };
 
-  onChange = (event)=>{
-    const pet = Object.assign({}, this.state.pet)
-    const input = event.target.name
-    pet[input] = event.target.value
-    this.setState({pet: pet})
-  }
+  const onChange = event => {
+    const pet_ = Object.assign({}, pet);
+    const input = event.target.name;
+    pet_[input] = event.target.value;
+    setPet(pet_);
+  };
 
-  handleUpload = e => {
+  const handleUpload = e => {
     if (e.target.files[0]) {
       const image = e.target.files[0];
-      const uploadTask = firebase.storage().ref(`images/${image.name}`).put(image);
+      const uploadTask = firebase
+        .storage()
+        .ref(`images/${image.name}`)
+        .put(image);
       uploadTask.on(
         "state_changed",
         snapshot => {
@@ -68,7 +94,7 @@ export default class Donate extends Component {
           const progress = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
-          this.setState({ progress });
+          setProgress(progress);          
         },
         error => {
           // Error function ...
@@ -76,99 +102,289 @@ export default class Donate extends Component {
         },
         () => {
           // complete function ...
-          firebase.storage()
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then(url => {
-            const pet = Object.assign({}, this.state.pet)
-            pet.imgSrc = url
-            this.setState({pet: pet})
-          });
+          firebase
+            .storage()
+            .ref("images")
+            .child(image.name)
+            .getDownloadURL()
+            .then(url => {
+              const pet_ = Object.assign({}, pet);
+              pet_.imgSrc = url;
+              setPet( pet_ );
+            });
         }
       );
     }
-  }
+  };
 
-  insertPet(){
-    const send = this.state.pet
-    this.state.pet.name !=="" && firebase.database().ref('pets').child(this.state.class).push(send)
-  }
+  const onSubmit = async event => {
+    const response = await petService.insertPet(
+      pet,
+      Class
+    );
+    console.log("REF PETS :: ", response);
+     setPet(new Pet());
+  };
 
-  onSubmit = async (event)=>{   
-    await this.insertPet()       
-    this.setState({pet: new Pet()})
-  }
-
-  render() {
-    const {pet, showModal, url, progress} = this.state
-    return (
-      <DonateContainer alignItems={'center'} flexDirection={'column'}>
-        <FormPets >
-        <UploadImg >
-          {progress < 100 ? <label htmlFor="avatar" >+</label>: <p>ok</p>}
-          <input 
+   return isSmall ? (
+    <DonateContainer alignItems={"center"} flexDirection={"column"}>
+      <FormPets>
+        <UploadImg>
+          <label htmlFor="avatar" onClick={()=>setInUpload(true)}>{
+            ((progress < 100) && inUpload) ? 
+            <Loading/> :
+            (( progress === 0 && '+') || (progress === 100 && 
+            <Icon style={{color: '#01A58D', fontSize: '58px'}} className={`fas fa-check-double`}/>))}
+          </label>
+          <input
             type="file"
             id="avatar"
             accept="image/png, image/jpeg"
             multiple
-            style={{display: 'none'}}
-            name={'imgSrc'} 
-            value={url} 
-            onChange={this.handleUpload}
+            style={{ display: "none" }}
+            name={"imgSrc"}
+            value={url}
+            onChange={handleUpload}
           />
         </UploadImg>
 
-        <div className='label'>
-          <img src={paw} alt=""/>          
-          <Input name={'name'} value={pet.name} action={this.onChange} type={'text'} />
+        <div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"name"}
+            placeholder="Nome"
+            value={pet.name}
+            action={onChange}
+            type={"text"}
+          />
         </div>
 
-        <div className='label'>
-          <img src={paw} alt=""/>          
-          <Input name={'sexo'} value={pet.sexo} action={this.onChange} type={'select'} options={['Masc', 'Fem']}/>
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"sexo"}
+            placeholder="Sexo"
+            value={pet.sexo}
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Feminino", value: "feminino" },
+              { name: "Masculino", value: "masculino" }
+            ]}
+          />
         </div>
 
-        <div className='label'>
-          <img src={paw} alt=""/>
-          <Input name={'breed'} value={pet.breed} action={this.onChange} type={'text'}/>
+        <div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"breed"}
+            placeholder="Raça"
+            value={pet.breed}
+            action={onChange}
+            type={"text"}
+          />
         </div>
 
-        <div className='label'>
-          <img src={paw} alt=""/>
-          <Input name={'age'} value={pet.age} action={this.onChange} type={'text'}/> 
+        <div className="label">
+          <img src={paw} alt="" />
+          <Input
+            name={"age"}
+            placeholder="Idade"
+            value={pet.age}
+            action={onChange}
+            type={"number"}
+          />
         </div>
 
-        <div className='label'>
-          <img src={paw} alt=""/>
-          <Input name={'castrated'} value={pet.castrated} action={this.onChange} type={'select'} options={['Sim', 'Nao']}/>
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"castrated"}
+            value={pet.castrated}
+            placeholder="Castrado"
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Sim", value: "Sim" },
+              { name: "Não", value: "Não" }
+            ]}
+          />
         </div>
 
-        <div className='label'>
-          <img src={paw} alt=""/>          
-          <Input name={'dewormed'} value={pet.dewormed} action={this.onChange} type={'select'} options={['Sim', 'Nao']}/>
+        <div className="label">
+          <img src={paw} alt="" />
+          <Select
+            name={"dewormed"}
+            placeholder="Vermifugado"
+            value={pet.dewormed}
+            action={onChange}
+            type={"select"}
+            options={[
+              { name: "Sim", value: "Sim" },
+              { name: "Não", value: "Não" }
+            ]}
+          />
         </div>
 
-        <div className='description'>
-          <p>{Lang.description}</p>         
-          <Input name={'description'} value={pet.description} action={this.onChange} type={'textarea'}></Input>
+        <div className="description">
+          <p>{Lang.description}</p>
+          <Input
+            placeholder="Descrição"
+            name={"description"}
+            value={pet.description}
+            action={onChange}
+            type={"textarea"}
+          ></Input>
         </div>
 
-        <Button 
-        onClick={()=>this.onSubmit()} 
-        className='btn-bottom' 
-        value={'send'}
+        <Button
+          action={onSubmit}
+          className="btn-bottom"
+          value={"send"}
         />
       </FormPets>
-
-      <Modal 
-        show={showModal} 
-        child={'donate'} 
-        title={Lang.donateTitle} 
-        setDog={this.isDog}
-        setCat={this.isCat}
+      <Modal
+        show={showModal}
+        child={"donate"}
+        title={Lang.donateTitle}
+        setDog={isDog}
+        setCat={isCat}
       />
     </DonateContainer>
-    )
-  }
+    ) : (
+    <FormPets>
+      <div className='steps-content'>
+              
+        {activeStep ===1 ? '' : 
+        <div className='btn-steps'>
+          <Button value="Anterior" action={handleOnClickBack} />
+          </div>}
+          <div>
+            <h1 style={{textAlign:'center', fontWeight:500}}>Etapas de doação</h1>
+            <Steps
+              steps={steps}
+              onSelect={handleOnClickStepper}
+              activeStep={activeStep}
+              Steps1={<ChoosePet>
+                <Button value="gato" action={isCat && handleOnClickNext}/>
+                <Button value="cachorro" action={isDog && handleOnClickNext }/>
+                </ChoosePet>}
+              Steps2={
+                <FormDesk>
+                  <h1 style={{textIndent: '82px', fontWeight:500}}>Quase lá</h1>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Input
+                      name={"name"}
+                      placeholder="Nome"
+                      value={pet.name}
+                      action={onChange}
+                      type={"text"}
+                    />
+                  </div>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Select
+                      name={"sexo"}
+                      placeholder="Sexo"
+                      value={pet.sexo}
+                      action={onChange}
+                      type={"select"}
+                      options={[
+                        { name: "Feminino", value: "feminino" },
+                        { name: "Masculino", value: "masculino" }
+                      ]}
+                    />
+                  </div>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Input
+                      name={"breed"}
+                      placeholder="Raça"
+                      value={pet.breed}
+                      action={onChange}
+                      type={"text"}
+                    />
+                  </div>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Input
+                      name={"age"}
+                      placeholder="Idade"
+                      value={pet.age}
+                      action={onChange}
+                      type={"number"}
+                    />
+                  </div>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Select
+                      name={"castrated"}
+                      value={pet.castrated}
+                      placeholder="Castrado"
+                      action={onChange}
+                      type={"select"}
+                      options={[
+                        { name: "Sim", value: "Sim" },
+                        { name: "Não", value: "Não" }
+                      ]}
+                    />
+                  </div>
+                  <div className="label">
+                    <img src={paw} alt="" />
+                    <Select
+                      name={"dewormed"}
+                      placeholder="Vermifugado"
+                      value={pet.dewormed}
+                      action={onChange}
+                      type={"select"}
+                      options={[
+                        { name: "Sim", value: "Sim" },
+                        { name: "Não", value: "Não" }
+                      ]}
+                    />
+                  </div>
+                  <div className="description">
+                    <p>{Lang.description}</p>
+                    <Input
+                      placeholder="Descrição"
+                      name={"description"}
+                      value={pet.description}
+                      action={onChange}
+                      type={"textarea"}
+                    ></Input>
+                  </div>
+                </FormDesk>} 
+              Steps3={
+                <div style={{width:'50vw'}}>
+                  <h1 style={{textAlign:'right', fontWeight:500}}>Só mais um pouquinho...</h1>
+              <UploadImg>
+                {progress < 100 ? <label htmlFor="avatar">+</label> : <p>ok</p>}
+                <input
+                  type="file"
+                  id="avatar"
+                  accept="image/png, image/jpeg"
+                  multiple
+                  style={{ display: "none" }}
+                  name={"imgSrc"}
+                  value={url}
+                  onChange={handleUpload}
+                />
+              </UploadImg>
+            </div>}
+            />
+          </div>
+          {activeStep === 1 ? '' :
+            <div className='btn-steps'>
+              <Button
+                value={activeStep === steps.length ? "Finalizar" : 'Próximo'}
+                action={activeStep === steps.length ? onSubmit : handleOnClickNext}
+              />
+            </div>
+          }
+      </div>
+    </FormPets>
+  )
+  
 }
+export default Donate

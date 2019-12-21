@@ -1,85 +1,95 @@
-import React, { Component } from 'react'
-import MapComponent from '../../components/MapComponent/MapComponent';
-import SplashContainer from '../SplashScreen/Splash'
-import {HomeContainer, HomeAside} from './HomeStyle'
-import Card from '../../components/Card/Card';
-import {firebase} from '../../firebase'
+import React, { Component } from "react";
+import MapComponent from "../../components/MapComponent/MapComponent";
+import SplashContainer from "../SplashScreen/Splash";
+import { HomeContainer, HomeAside } from "./HomeStyle";
+import Card from "../../components/Card/Card";
+import { PetService } from "../../services/pets";
+import { GetStorageUser } from '../../firebase'
 export default class Home extends Component {
-  
-  state={
-    splash: (window.location.pathname ==="/" ? true : false),
-    dogs: [], 
+  state = {
+    splash: window.location.pathname === "/" ? true : false,
+    dogs: [],
     cats: [],
     locations: [],
-  }
-  
-  componentDidMount(){
-    setTimeout(()=>{this.setState({splash: false})},2000);    
+    user: GetStorageUser()
+  };
+
+  petService = new PetService();
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ splash: false });
+    }, 2000);
+    this.petService.Dogs.subscribe(dogs => this.setState({ dogs }));
+    this.petService.Cats.subscribe(cats => this.setState({ cats }));
   }
 
-  componentWillMount(){
-    this.getDogs()
-    this.getCats()
-  }
+  navigate = (pet) => {
+    this.props.history.push('/adoption', pet)
+  };
 
-  getDogs = async ()=>{
-    await firebase.database().ref('pets/dog')
-    .on('value', (snapshot)=>{
-      let res = snapshot.val()
-      let dogs = Object.keys(res).map(key => res[key])  
-      this.setState({dogs: dogs})            
-    })
-  }
-
-  getCats = async ()=>{
-    await firebase.database().ref('pets/cat')
-    .on('value', (snapshot)=>{
-      let res = snapshot.val()
-      let cats = Object.keys(res).map(key => res[key])
-      this.setState({cats: cats})
-      console.log(cats)
-    })
-  }
-  teste =()=>{
-    console.log(this.getCats)
-  }
   render() {
-    const {splash, dogs, cats} = this.state
+    const { splash, dogs, cats, user } = this.state;
 
-    return(
-      splash ? <SplashContainer/> 
-      :
-      <HomeContainer flexDirection={'column'}>
-        <MapComponent />
-        <HomeAside flexDirection={'column'} alignItems={'center'}>
-          {dogs.map((pet, index)=> {
-            return(
-              <Card 
-              key={index}
-              imgSrc={pet.imgSrc}
-              title={pet.name}
-              sexo={pet.sexo}
-                action={this.teste}
+    return splash ? (
+      <SplashContainer />
+    ) : (
+      <HomeContainer flexDirection={"column"}>
+        <MapComponent
+          cats={cats.map(item => ({ ...item.location }))}
+          dogs={dogs.map(item => ({ ...item.location }))}
+        />
+        <HomeAside flexDirection={"column"} alignItems={"center"}>
+          {dogs.map((pet, index) => {
+            return (
+              <Card
+                key={index}
+                imgSrc={pet.imgSrc}
+                title={pet.name}
+                sexo={pet.sexo}
+                action={() => this.navigate(pet)}
                 age={pet.age}
+                disabled={user ? (
+                  (pet.adopter.email !== user.email  && pet.isAdopted) || 
+                  (pet.adopter.email === user.email && false)
+                  ) : 
+                  pet.isAdopted
+                }
+                value= {user ? (
+                  ((pet.adopter.email === user.email) && "Desistir") || 
+                  "Quero adotar"
+                  ) : 
+                  "Quero adotar"
+                }
               />
-            )})
-          }
-          {
-            cats.map((pet, index)=> {
-              return(
-                <Card 
+            );
+          })}
+          {cats.map((pet, index) => {
+            return (
+              <Card
                 key={index}
                 imgSrc={pet.imgSrc}
                 title={pet.name}
                 sexo={pet.sexo}
                 age={pet.age}
-                action={this.teste}
-
-                />
-              )})
-          }
+                action={() => this.navigate(pet)}
+                disabled={user ? (
+                  (pet.adopter.email !== user.email  && pet.isAdopted) || 
+                  (pet.adopter.email === user.email && false)
+                  ) : 
+                  pet.isAdopted
+                }
+                value= {user ? (
+                  ((pet.adopter.email === user.email) && "Desistir") || 
+                  "Quero adotar"
+                  ) : 
+                  "Quero adotar"
+                }
+              />
+            );
+          })}
         </HomeAside>
       </HomeContainer>
-    )
+    );
   }
 }
