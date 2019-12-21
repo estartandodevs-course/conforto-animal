@@ -55,12 +55,16 @@ export default class Adoption extends Component {
     await this.petService.updatePet(_pet)
   }
 
+  navigate = () => {
+    this.props.history.push('/login')
+  }
+
   render() {
     const { showModal, pet, dogs, cats, user } = this.state
     return (
       <AdoptionContainer 
         flexDirection={pet? 'column' : 'row'} 
-        justifyContent={!pet && 'space-around'}
+        justifyContent={!pet ? 'space-around' : 'space-between'}
         handleWrap={!pet && 'wrap'}
         >
         { pet && <><ImgPet src={pet.imgSrc}/>
@@ -100,7 +104,21 @@ export default class Adoption extends Component {
               <h3>Descrição</h3>
               <p>{pet.description}</p>
             </div>
-            <Button className="btn-bottom" value={(user.email=== pet.adopter.email) ? "Desistir": "Adotar"} action={()=> (user.email === pet.adopter.email) ? this.GiveUpAdoption(pet) : this.AdoptNow(pet, user)}/>
+            <Button 
+              className="btn-bottom" 
+              value= {user ? (
+                ((pet.adopter.email === user.email) && "Desistir") || 
+                "Adotar"
+                ) : 
+                "Adotar"
+              } 
+              action={()=> {
+                user ? ((user.email !== pet.adopter.email) ? 
+                this.AdoptNow(pet, user) : 
+                this.GivUpAdoption(pet)) : this.navigate();
+                
+              }}
+            />
           </DescPet> 
         </>
         }   

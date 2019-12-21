@@ -6,15 +6,16 @@ export const AdoptionContainer = styled(FlexContainer)`
     background-color: #EBEBEB;
     font-family: Montserrat, sans-serif;
     align-items: center;
-    height: calc(100vh - 55px);
+    min-height: calc(100vh - 55px);
     flex-wrap: ${props=> props.handleWrap || 'no-wrap'};
     @media screen and (min-width: 768px){
-        height: calc(100vh - 75px);
+        min-height: calc(100vh - 75px);
         .btn-bottom{
             width: 520px;
             font-size: 20px;
             height: 30px;
             border-radius: 10px;
+            margin: 15px;
         }
     }
 `

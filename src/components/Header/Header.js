@@ -70,7 +70,7 @@ const Header = (props) => {
         <>
        <HeaderContainer>
             <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
+            <Link to='/' ><img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/></Link>
                <div className="textLogo">
                     <p className="textConforto">Conforto</p>
                     <p className="textAnimal">Animal</p>
