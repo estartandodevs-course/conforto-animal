@@ -2,43 +2,50 @@ import styled from 'styled-components'
 import '../../assets/fonts/fonts.css';
 import { FlexContainer } from '../../shared/Structure';
 
-
 export const AdoptionContainer = styled(FlexContainer)`
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
     background-color: #EBEBEB;
     font-family: Montserrat, sans-serif;
-    @media screen and  (min-width: 768px) {
-        justify-content: center;
-        align-items: center;
+    align-items: center;
+    min-height: calc(100vh - 55px);
+    flex-wrap: ${props=> props.handleWrap || 'no-wrap'};
+    @media screen and (min-width: 768px){
+        min-height: calc(100vh - 75px);
         .btn-bottom{
             width: 520px;
             font-size: 20px;
             height: 30px;
             border-radius: 10px;
+            margin: 15px;
         }
     }
 `
-export const FormPet = styled.form`
+export const ImgPet = styled.img`
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 5px;
+    @media screen and (min-width: 768px){
+        width: 200px;
+        height: 200px; 
+    }
+`
+export const NameStyle = styled.p`
+    margin: 10px 0 10px 20px;
+    color: #333333;
+    font-family: Montserrat, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: normal;
+`
+export const DescPet = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: #EBEBEB;
-    justify-content: space-around;
+    justify-content: space-around;  
+    width: 100%; 
     height: 100%;
-    width: 100%;
-    h4{
-        margin: 10px 0 10px 20px;
-        color: #333333;
-        font-family: Montserrat, sans-serif;
-        font-size: 24px;
-        font-style: normal;
-        font-weight: normal;
-    }
     .id-pets{
         display: flex;
         flex-direction: column;
-        width: 100%;
         justify-content: flex-start;
         color: #000;
         font-size: 14px;
@@ -71,11 +78,9 @@ export const FormPet = styled.form`
     }
     @media screen and (min-width: 768px) {
         align-items: center;
-        height: 60%;
-        width: 100%;
         margin: 0;
         h4{ 
-            margin: 0%;
+            margin: 0   ;
         }
         .id-pets{
             display: flex;
@@ -83,7 +88,6 @@ export const FormPet = styled.form`
             align-items: center;
             justify-content: center;
             font-size: 16px;
-            width: 100vw;
             .label{
                 margin: 10px 80px;
                 img{
@@ -96,9 +100,9 @@ export const FormPet = styled.form`
             text-align: center;
             justify-content: center;
             align-items: center;
+            margin: 10px 0;
             width: 520px;
             height: 140px;
-            margin: 0;
             font-size: 18px;
             border-radius: 10px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);

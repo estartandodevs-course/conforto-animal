@@ -7,6 +7,7 @@ const Button = props => {
       className={props.className}
       onClick={props.action}
       value={props.value}
+      disabled = {props.disabled}
     >
       {props.value}
     </ButtonContainer>

@@ -2,14 +2,13 @@ import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import MyMarker from "./MyMarker";
 import MapContainer from "./MapContainer";
-import cachorro from "../../assets/images/cachorro.png";
-import gato from "../../assets/images/gato.png";
+import cachorro from "../../assets/images/cachorro.svg";
+import gato from "../../assets/images/gato.svg";
 export default class MapComponent extends Component {
   state = {
     positions: [],
     isDog: false
   };
-  componentWillMount() {}
 
   getDogsCoords = async _dogs => {
     let dogs = Object.keys(_dogs).map(key => _dogs[key]);

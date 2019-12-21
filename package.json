@@ -2,8 +2,8 @@
   "name": "conforto-animal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "",
   "dependencies": {
+    "@material-ui/core": "^4.8.0",
     "firebase": "^7.5.0",
     "formik": "^2.0.6",
     "google-map-react": "^1.1.5",
@@ -13,6 +13,7 @@
     "react-animated-slider": "^2.0.0",
     "react-awesome-slider": "^2.2.1",
     "react-dom": "^16.12.0",
+    "react-js-stepper": "^1.2.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "rxjs": "^6.5.3",

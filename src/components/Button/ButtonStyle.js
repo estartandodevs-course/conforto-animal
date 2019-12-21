@@ -6,7 +6,7 @@ export const ButtonContainer = styled.button`
     font-family: Montserrat, sans-serif;
     border: none;
     border-radius: 10px;
-    background-color: #01A58D;
+    background-color:${props => props.disabled ? '#cecece' :  '#01A58D'};
     color: #fff;
     cursor: pointer;
     
@@ -26,9 +26,9 @@ export const ButtonContainer = styled.button`
         border-radius:20px;
         outline:none;
         margin:10px;
-        height:50px;
+        height:40px;
         width:200px;
-        font-size:20px;
+        font-size:18px;
         :hover{
             background-color:#016E8D;
             height:50px;

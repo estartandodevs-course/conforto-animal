@@ -4,9 +4,9 @@ import Button from '../Button/Button'
 import paw from '../../assets/images/paw.png'
 
 const Card = (props)=>{
+//console.log(props.action)
     return (
-        <CardContainer >
-
+        <CardContainer>
             <PetImg src={props.imgSrc}/>
             <About >
                 <Title>
@@ -16,7 +16,7 @@ const Card = (props)=>{
                     <Topic className="caracter"><PetImg className="icon" src={paw}/>{props.sexo}</Topic>
                     <Topic className="caracter"><PetImg className="icon" src={paw}/>{props.age}</Topic>
                 </Description>
-                <Button value="Quero adotar" action={props.action}/>
+                <Button value={props.value} action={props.action} disabled={props.disabled} />
             </About>
         </CardContainer>
     )
