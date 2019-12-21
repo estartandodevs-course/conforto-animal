@@ -21,10 +21,10 @@ export default class Adoption extends Component {
 
   petService = new PetService();
 
-  async componentDidMount() {
+  componentDidMount() {
     let pet = this.props.history.location.state
-    console.log("pets -> ", pet)
-    await this.setState({ pet })
+    // console.log("pets -> ", pet)
+    this.setState({ pet })
   }
 
   toggleModal = () => {
@@ -46,6 +46,7 @@ export default class Adoption extends Component {
     pet.adopter = user
     const _pet = pet
     await this.petService.updatePet(_pet)
+    this.navigate('home')
   }
 
   GiveUpAdoption = async (pet) =>{
@@ -53,10 +54,11 @@ export default class Adoption extends Component {
     pet.adopter = new User()
     const _pet = pet 
     await this.petService.updatePet(_pet)
+    this.navigate('home')
   }
 
-  navigate = () => {
-    this.props.history.push('/login')
+  navigate = (route) => {
+    this.props.history.push(`/${route}`)
   }
 
   render() {
@@ -112,11 +114,12 @@ export default class Adoption extends Component {
                 ) : 
                 "Adotar"
               } 
+              
               action={()=> {
-                user ? ((user.email !== pet.adopter.email) ? 
-                this.AdoptNow(pet, user) : 
-                this.GivUpAdoption(pet)) : this.navigate();
-                
+                user ? ((user.email === pet.adopter.email) ?  
+                this.GiveUpAdoption(pet): 
+                this.AdoptNow(pet, user)) :
+                this.navigate('login')
               }}
             />
           </DescPet> 

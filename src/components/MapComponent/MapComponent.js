@@ -9,7 +9,6 @@ export default class MapComponent extends Component {
     positions: [],
     isDog: false
   };
-  componentWillMount() {}
 
   getDogsCoords = async _dogs => {
     let dogs = Object.keys(_dogs).map(key => _dogs[key]);

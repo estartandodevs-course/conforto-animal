@@ -30,7 +30,7 @@ const Header = (props) => {
         },
         {
             text: user ? 'Conversas' : 'Quem Somos' ,
-            route: user ? '/chat' : '/weWhoAre'
+            route: user ? '/' : '/weWhoAre'
         },
         {
             text:'Minhas Doaçoes',
@@ -54,7 +54,7 @@ const Header = (props) => {
         },
         {
             text: user ? 'Conversas' : 'Quem Somos' ,
-            route: user ? '/chat' : '/weWhoAre'
+            route: user ? '/' : '/weWhoAre'
         },
         {
             text: user ? 'Meu Perfil' : 'Fazer Login',
@@ -75,7 +75,7 @@ const Header = (props) => {
                     <p className="textConforto">Conforto</p>
                     <p className="textAnimal">Animal</p>
                </div>
-            <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
+            <Link to='/' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
         <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
@@ -91,7 +91,7 @@ const Header = (props) => {
                         className={'btn-menu'} 
                         action={()=>{ 
                             setShowMenu(!showMenu) 
-                            res.text === 'Sair' &&  (LogOutFacebook() && LogOutGoogle()) 
+                            res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
             )})}
