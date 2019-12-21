@@ -25,8 +25,7 @@ export default class Home extends Component {
   }
 
   navigate = (pet) => {
-    this.props.history.push('/adoption', pet);
-    console.log(pet)
+    this.props.history.push('/adoption', pet)
   };
 
   render() {

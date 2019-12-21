@@ -9,7 +9,6 @@ export default class MapComponent extends Component {
     positions: [],
     isDog: false
   };
-  componentWillMount() {}
 
   getDogsCoords = async _dogs => {
     let dogs = Object.keys(_dogs).map(key => _dogs[key]);
@@ -48,7 +47,7 @@ export default class MapComponent extends Component {
       lat: -22.9993,
       lng: -43.6399
     },
-    zoom: 11
+    zoom: 8
   };
 
   _onclick = ({ lat, lng }) => {

@@ -85,10 +85,10 @@ export const MenuContainer = styled.div`
 @media screen and (min-width: 768px){
       display:none;
    }
-   position: fixed;
+   position: fixed ;
    left: ${props=> props.show ? 0 : '-100vw'};
    top: 0;
-   height: 100%;
+   height: 100vh;
    width: 100%;
    z-index: 4;
    background-color: #01A58D;
@@ -96,6 +96,7 @@ export const MenuContainer = styled.div`
    display: flex;
    flex-direction: column;
    align-items: center;
+   /* justify-content: space-around; */
    padding: 15px 0 0 0;
    #close{
       position: absolute;

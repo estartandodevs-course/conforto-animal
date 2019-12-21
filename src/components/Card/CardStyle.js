@@ -9,6 +9,9 @@ export const CardContainer = styled.div`
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin: 15px 0 0 0;
+    @media screen and (min-width: 768px){
+        margin: 15px
+    }
 `
 export const PetImg = styled.img`
     width:36%;

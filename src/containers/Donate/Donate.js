@@ -11,6 +11,8 @@ import Select from "../../components/select/Select";
 import { PetService } from "../../services/pets";
 import Steps from "../../components/Steps/Steps";
 import {useMedia} from '../../hooks/useMedia'
+import Loading from '../../components/Loading'
+import Icon from '@material-ui/core/Icon';
 
 const Donate=()=> {
   const steps = [{title:''}, {title: ''}, {title:''}]
@@ -21,13 +23,14 @@ const Donate=()=> {
   const [url]=useState("");
   const [progress, setProgress]=useState(0);
   const [activeStep, setactiveStep]=useState(1)
+  const [inUpload, setInUpload] = useState(false)
 
   const {isSmall} = useMedia()
   const petService = new PetService();
 
   useEffect(() => {
     getLocation();
-  },[]);
+  });
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -91,7 +94,7 @@ const Donate=()=> {
           const progress = Math.round(
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           );
-          setProgress(progress);
+          setProgress(progress);          
         },
         error => {
           // Error function ...
@@ -127,7 +130,12 @@ const Donate=()=> {
     <DonateContainer alignItems={"center"} flexDirection={"column"}>
       <FormPets>
         <UploadImg>
-          {progress < 100 ? <label htmlFor="avatar">+</label> : <p>ok</p>}
+          <label htmlFor="avatar" onClick={()=>setInUpload(true)}>{
+            ((progress < 100) && inUpload) ? 
+            <Loading/> :
+            (( progress === 0 && '+') || (progress === 100 && 
+            <Icon style={{color: '#01A58D', fontSize: '58px'}} className={`fas fa-check-double`}/>))}
+          </label>
           <input
             type="file"
             id="avatar"

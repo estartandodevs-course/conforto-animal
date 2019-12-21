@@ -5,7 +5,7 @@ import Search from '../../assets/images/search.png'
 import Menu from '../../assets/images/menu 1.png'
 import Button from '../Button/Button'
 import Home from '../../containers/Home/Home'
- import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { LogOutFacebook, GetStorageUser, LogOutGoogle } from '../../firebase'
 
 const Header = (props) => {
@@ -30,7 +30,7 @@ const Header = (props) => {
         },
         {
             text: user ? 'Conversas' : 'Quem Somos' ,
-            route: user ? '/chat' : '/weWhoAre'
+            route: user ? '/' : '/weWhoAre'
         },
         {
             text:'Minhas Doaçoes',
@@ -54,7 +54,7 @@ const Header = (props) => {
         },
         {
             text: user ? 'Conversas' : 'Quem Somos' ,
-            route: user ? '/chat' : '/weWhoAre'
+            route: user ? '/' : '/weWhoAre'
         },
         {
             text: user ? 'Meu Perfil' : 'Fazer Login',
@@ -70,12 +70,12 @@ const Header = (props) => {
         <>
        <HeaderContainer>
             <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
+            <Link to='/' ><img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/></Link>
                <div className="textLogo">
                     <p className="textConforto">Conforto</p>
                     <p className="textAnimal">Animal</p>
                </div>
-            <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
+            <Link to='/' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
         <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
@@ -90,7 +90,7 @@ const Header = (props) => {
                         value={res.text} 
                         className={'btn-menu'} 
                         action={()=>{ 
-                            setShowMenu(!showMenu)  
+                            setShowMenu(!showMenu) 
                             res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
                 </Link>
