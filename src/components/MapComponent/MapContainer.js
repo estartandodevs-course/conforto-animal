@@ -5,7 +5,7 @@ position: sticky;
 top: 55px;
 width:100%;
 height:50vh;
-@media screen and (min-width:728px){
+@media screen and (min-width:768px){
     width:60%;
     min-height:90vh;
 }

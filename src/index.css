@@ -2,3 +2,16 @@
     margin: 0;
     padding: 0
 }
+::-webkit-scrollbar {
+    width: 12px;
+    background: #ebebeb;
+}
+::-webkit-scrollbar-track {
+    border: 3px solid #c7c6c6;
+    border-radius: 10px;
+    background: #ebebeb;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 28px;
+    background: rgb(0, 93, 79);
+}
