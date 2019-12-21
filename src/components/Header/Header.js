@@ -13,32 +13,6 @@ const Header = (props) => {
     const [user] = useState(GetStorageUser())
     const [optionsMenu] = useState([
         {
-            text: 'Adote',
-            route: '/adoption'
-        },
-        {
-            text: 'Doe',
-            route: '/donate'
-        },
-        {
-            text:'Fazer login',
-            route: '/login'
-        },
-        {
-            text:'Quem Somos' ,
-            route: '*'
-        },
-        {
-            text:'Minhas Doaçoes',
-            route: '*'
-        },
-        {
-            text:'Sair',
-            route: '/home'
-        },
-    ])
-    const [optionsHeader] = useState([
-        {
             text:'Home',
             route: '/home'
         },
@@ -51,35 +25,71 @@ const Header = (props) => {
             route: '/donate'
         },
         {
-            text:'Quem Somos' ,
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : '/login'
+        },
+        {
+            text: user ? 'Conversas' : 'Quem Somos' ,
+            route: user ? '/' : '/weWhoAre'
+        },
+        {
+            text:'Minhas Doaçoes',
             route: '*'
         },
         {
-            text:'Meu Perfil',
-            route: '*'
+            text:user ? 'sair' : '',
+            route: '/home'
+        },
+
+        
+    ])
+    const [optionsHeader] = useState([
+        {
+            text:'Home',
+            route: '/home'
+        },
+        {
+            text: 'Doe',
+            route: '/donate'
+        },
+        {
+            text: user ? 'Conversas' : 'Quem Somos' ,
+            route: user ? '/' : '/weWhoAre'
+        },
+        {
+            text: user ? 'Meu Perfil' : 'Fazer Login',
+            route: user ? '/profile' : '/login'
+        },
+        {
+            text:user ? 'sair' : '',
+            route: '/home'
         },
     ])
 
     return (
         <>
        <HeaderContainer>
-           <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
-            <img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/>
-            <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
+            <img className="menuHeader" src={Menu} alt="" onClick={()=> setShowMenu(!showMenu)}/>
+            <Link to='/' ><img className="logoImg" alt="" src={logo}  onClick={()=> setShowMenu(!Home)}/></Link>
+               <div className="textLogo">
+                    <p className="textConforto">Conforto</p>
+                    <p className="textAnimal">Animal</p>
+               </div>
+            <Link to='/' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
-        <MenuContainer show={showMenu} onClick={()=>setShowMenu(!showMenu)}>
+        <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>
-            {user && <ProfileImg src={user.photoURL}/>}
+             <ProfileImg src={user ? user.photoURL : logo}/>
             {user && <ProfileName>{user.displayName}</ProfileName>}
 
           <ListMenu flexDirection= {'column'} justifyContent={'space-around'}>
             {optionsMenu.map((res, index)=>{                
                 return( 
-                <Link to={res.route} key={index}>
+                 res.text !== '' && <Link to={res.route} key={index}>
                     <Button 
                         value={res.text} 
                         className={'btn-menu'} 
-                        onClick={()=>{ 
+                        action={()=>{ 
                             setShowMenu(!showMenu) 
                             res.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}/>
@@ -90,7 +100,7 @@ const Header = (props) => {
         <MenuDesktop>
             <ul>
                 {optionsHeader.map((options, index) =>{
-                    return <Link to={options.route} key={index}>
+                    return options.text !== '' && <Link to={options.route} key={index}>
                         <li onClick={()=>{
                             options.text === 'sair' &&  (LogOutFacebook() && LogOutGoogle()) 
                         }}>{options.text}</li>
