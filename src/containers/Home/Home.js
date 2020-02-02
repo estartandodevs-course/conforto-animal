@@ -40,7 +40,7 @@ export default class Home extends Component {
           dogs={dogs.map(item => ({ ...item.location }))}
         />
         <HomeAside flexDirection={"column"} alignItems={"center"}>
-          {dogs.map((pet, index) => {
+          { dogs && dogs.map((pet, index) => {
             return (
               <Card
                 key={index}
@@ -64,7 +64,7 @@ export default class Home extends Component {
               />
             );
           })}
-          {cats.map((pet, index) => {
+          { cats && cats.map((pet, index) => {
             return (
               <Card
                 key={index}

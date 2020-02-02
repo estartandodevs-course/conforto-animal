@@ -75,7 +75,7 @@ const Header = (props) => {
                     <p className="textConforto">Conforto</p>
                     <p className="textAnimal">Animal</p>
                </div>
-            <Link to='/' className='chatHeader'><img alt="Chat" src={Search}/></Link>
+            <Link to='/chat' className='chatHeader'><img alt="Chat" src={Search}/></Link>
             
         <MenuContainer show={showMenu}>
             <p id="close" onClick={()=> setShowMenu(!showMenu)}>X</p>

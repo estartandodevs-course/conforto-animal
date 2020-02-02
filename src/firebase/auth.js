@@ -10,7 +10,8 @@ export const GetStorageUser = ()=>{
     const user = {
         displayName : localStorage.getItem("displayName"),
         photoURL: localStorage.getItem("photoURL"),
-        email: localStorage.getItem("email")
+        email: localStorage.getItem("email"),
+        key: localStorage.getItem("userKey")
     }
     if(localStorage.getItem("email"))
     return user 
@@ -22,9 +23,12 @@ export const LoginFacebook = ()=>{
       .auth()
       .signInWithPopup(provider)
       .then((result) =>{
-        localStorage.setItem("displayName", result.user.displayName)
-        localStorage.setItem("photoURL", result.user.photoURL +'?type=square&width=120&height=120')
-        localStorage.setItem("email", result.user.email)
+        const { displayName, photoURL, email } = result.user
+        const { uid } = result.user
+        localStorage.setItem("displayName", displayName)
+        localStorage.setItem("photoURL", photoURL +'?type=square&width=120&height=120')
+        localStorage.setItem("email", email)
+        localStorage.setItem("userKey", uid)
         document.location.reload(true);       
         return true
       })
@@ -46,6 +50,7 @@ export const LogOutFacebook =()=>{
         localStorage.removeItem("displayName")
         localStorage.removeItem("photoURL")
         localStorage.removeItem("email")
+        localStorage.removeItem("userKey")
         document.location.reload(true);       
     }).catch(function(error) {
         console.log(error)
@@ -58,10 +63,12 @@ export const LoginGoogle = ()=>{
       .auth()
       .signInWithPopup(provider)
       .then((result) =>{
-          console.log(result);          
-        localStorage.setItem("displayName", result.user.displayName)
-        localStorage.setItem("photoURL", result.user.photoURL)
-        localStorage.setItem("email", result.user.email)
+        const { displayName, photoURL, email } = result.user
+        const { uid } = result.user
+        localStorage.setItem("displayName", displayName)
+        localStorage.setItem("photoURL", photoURL)
+        localStorage.setItem("email", email)
+        localStorage.setItem("userKey", uid)
         document.location.reload(true);       
         return true
       })
@@ -83,6 +90,7 @@ export const LogOutGoogle =()=>{
         localStorage.removeItem("displayName")
         localStorage.removeItem("photoURL")
         localStorage.removeItem("email")
+        localStorage.removeItem("userKey")
         document.location.reload(true);       
     }).catch(function(error) {
         console.log(error)

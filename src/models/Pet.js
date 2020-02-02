@@ -13,6 +13,7 @@ export class Pet{
         this.location = {lat: "", lng:""}
         this.key = ""
         this.adopter = new User()
+        this.donor= new User()
     }
 }
 

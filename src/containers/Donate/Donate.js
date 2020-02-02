@@ -4,7 +4,7 @@ import Input from "../../components/Input/Input";
 import paw from "../../assets/images/paw.png";
 import Button from "../../components/Button/Button";
 import Pet from "../../models/Pet";
-import { firebase } from "../../firebase";
+import { firebase, GetStorageUser } from "../../firebase";
 import Modal from "../../components/Modal/Modal";
 import { Lang } from "../../shared/pt";
 import Select from "../../components/select/Select";
@@ -24,13 +24,13 @@ const Donate=()=> {
   const [progress, setProgress]=useState(0);
   const [activeStep, setactiveStep]=useState(1)
   const [inUpload, setInUpload] = useState(false)
-
+  const user = GetStorageUser()
   const {isSmall} = useMedia()
   const petService = new PetService();
 
   useEffect(() => {
-    getLocation();
-  });
+    getLocation();    
+  },[]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -60,7 +60,7 @@ const Donate=()=> {
       setactiveStep(prevStep)
   }
 
-  const getLocation = () => {
+  const getLocation = async () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         const pet_ = Object.assign({}, pet);
@@ -77,6 +77,7 @@ const Donate=()=> {
     const pet_ = Object.assign({}, pet);
     const input = event.target.name;
     pet_[input] = event.target.value;
+    pet_.donor = user
     setPet(pet_);
   };
 

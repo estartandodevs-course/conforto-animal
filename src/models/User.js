@@ -3,6 +3,7 @@ export class User{
         this.name = name
         this.imgSrc = imgSrc
         this.email = email
+        this.key = ""
     }
 }
 
